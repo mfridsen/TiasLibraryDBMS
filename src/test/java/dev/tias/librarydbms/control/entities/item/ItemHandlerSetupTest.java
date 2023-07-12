@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.control.entities.item;
 
 import dev.tias.librarydbms.control.BaseHandlerTest;
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import org.junit.jupiter.api.*;
 

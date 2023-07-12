@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.control.entities.author;
 
 import dev.tias.librarydbms.control.BaseHandlerTest;
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.AuthorHandler;
 import dev.tias.librarydbms.model.entities.Author;
 import dev.tias.librarydbms.model.exceptions.ConstructionException;

@@ -1,5 +1,6 @@
-package dev.tias.librarydbms.control.db;
+package dev.tias.librarydbms.service.db;
 
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

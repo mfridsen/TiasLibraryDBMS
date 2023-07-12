@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.model.db.QueryResult;
+import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.User;
 import dev.tias.librarydbms.model.exceptions.InvalidEmailException;
 import dev.tias.librarydbms.model.exceptions.*;

@@ -1,6 +1,6 @@
 package dev.tias.librarydbms;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;

@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.control;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
-import dev.tias.librarydbms.model.db.DatabaseConnection;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseConnection;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 

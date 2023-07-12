@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.control.entities.user;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.model.db.DatabaseConnection;
-import dev.tias.librarydbms.model.db.QueryResult;
+import dev.tias.librarydbms.service.db.DatabaseConnection;
+import dev.tias.librarydbms.service.db.QueryResult;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

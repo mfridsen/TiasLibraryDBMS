@@ -1,5 +1,6 @@
-package dev.tias.librarydbms.model.db;
+package dev.tias.librarydbms.service.db;
 
+import dev.tias.librarydbms.service.db.DatabaseConnection;
 import org.junit.jupiter.api.*;
 
 import java.sql.Connection;

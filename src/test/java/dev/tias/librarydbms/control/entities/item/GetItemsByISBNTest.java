@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control.entities.item;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.model.db.DatabaseConnection;
+import dev.tias.librarydbms.service.db.DatabaseConnection;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
 import org.junit.jupiter.api.*;

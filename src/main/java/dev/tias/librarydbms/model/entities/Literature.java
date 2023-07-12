@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.model.exceptions.ConstructionException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
 

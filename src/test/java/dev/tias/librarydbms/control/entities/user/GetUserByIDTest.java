@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.control.entities.user;
 
-import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
 import dev.tias.librarydbms.model.exceptions.ConstructionException;

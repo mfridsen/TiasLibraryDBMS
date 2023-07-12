@@ -2,6 +2,7 @@ package dev.tias.librarydbms;
 
 import dev.tias.librarydbms.control.ControlTestSuite;
 import dev.tias.librarydbms.model.ModelTestSuite;
+import dev.tias.librarydbms.service.ServiceTestSuite;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
@@ -21,9 +22,8 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @SelectClasses({
-        //Model tests
         ModelTestSuite.class,
-        //Control tests
+        ServiceTestSuite.class,
         ControlTestSuite.class,
         //View tests excluded cause I have no idea how to test GUIs yet lol
         //ViewTestSuite.class

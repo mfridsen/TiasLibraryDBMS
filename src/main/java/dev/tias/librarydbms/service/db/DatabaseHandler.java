@@ -1,11 +1,8 @@
-package dev.tias.librarydbms.control.db;
+package dev.tias.librarydbms.service.db;
 
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.model.db.DatabaseConnection;
-import dev.tias.librarydbms.model.db.QueryResult;
-import dev.tias.librarydbms.model.db.SQLFormatter;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
