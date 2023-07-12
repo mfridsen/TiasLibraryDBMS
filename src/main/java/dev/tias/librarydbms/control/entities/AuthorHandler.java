@@ -1,11 +1,10 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.db.QueryResult;
 import dev.tias.librarydbms.model.entities.Author;
 import dev.tias.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

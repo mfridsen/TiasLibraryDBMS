@@ -1,10 +1,10 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.rental.BaseRentalHandlerTest;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.control.entities.ItemHandlerUtils;
 import dev.tias.librarydbms.control.entities.UserHandler;
+import dev.tias.librarydbms.control.entities.rental.BaseRentalHandlerTest;
 
 
 /**

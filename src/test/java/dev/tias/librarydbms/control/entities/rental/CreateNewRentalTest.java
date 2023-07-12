@@ -7,7 +7,6 @@ import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.entities.User;
 import dev.tias.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;

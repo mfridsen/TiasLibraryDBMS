@@ -2,7 +2,6 @@ package dev.tias.librarydbms.model.entities.rental;
 
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
 import dev.tias.librarydbms.model.exceptions.rental.InvalidReceiptException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;

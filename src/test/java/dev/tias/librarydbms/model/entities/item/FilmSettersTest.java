@@ -3,7 +3,6 @@ package dev.tias.librarydbms.model.entities.item;
 import dev.tias.librarydbms.model.entities.Film;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.item.InvalidBarcodeException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidItemTypeException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;

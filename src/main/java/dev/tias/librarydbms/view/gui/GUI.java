@@ -2,8 +2,8 @@ package dev.tias.librarydbms.view.gui;
 
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.model.entities.Entity;
-import dev.tias.librarydbms.view.optionpanes.LogoutOptionPane;
 import dev.tias.librarydbms.view.HomeScreenGUI;
+import dev.tias.librarydbms.view.optionpanes.LogoutOptionPane;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

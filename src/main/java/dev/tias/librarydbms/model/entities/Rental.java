@@ -4,7 +4,6 @@ import dev.tias.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
 import dev.tias.librarydbms.model.exceptions.rental.InvalidReceiptException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

@@ -6,7 +6,6 @@ import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidPasswordException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidRentalStatusChangeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 
 /**
  * @author Mattias Fridsén

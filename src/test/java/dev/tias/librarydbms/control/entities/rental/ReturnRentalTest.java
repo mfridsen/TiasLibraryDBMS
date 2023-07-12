@@ -1,7 +1,5 @@
 package dev.tias.librarydbms.control.entities.rental;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import dev.tias.librarydbms.control.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.control.entities.RentalHandler;
@@ -10,13 +8,14 @@ import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.entities.User;
 import dev.tias.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
 import dev.tias.librarydbms.model.exceptions.rental.RentalReturnException;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Mattias Fridsén

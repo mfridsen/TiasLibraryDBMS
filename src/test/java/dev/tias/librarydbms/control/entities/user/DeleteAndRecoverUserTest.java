@@ -3,7 +3,6 @@ package dev.tias.librarydbms.control.entities.user;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
 import dev.tias.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;
 import org.junit.jupiter.api.*;

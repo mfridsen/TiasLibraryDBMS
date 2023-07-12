@@ -9,10 +9,10 @@ import dev.tias.librarydbms.model.exceptions.EntityNotFoundException;
 import dev.tias.librarydbms.model.exceptions.InvalidIDException;
 import dev.tias.librarydbms.model.exceptions.InvalidTypeException;
 import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
-import dev.tias.librarydbms.view.entities.rental.RentalGUI;
-import dev.tias.librarydbms.view.optionpanes.LoginOptionPane;
 import dev.tias.librarydbms.view.buttons.EntityButtonEditor;
+import dev.tias.librarydbms.view.entities.rental.RentalGUI;
 import dev.tias.librarydbms.view.gui.GUI;
+import dev.tias.librarydbms.view.optionpanes.LoginOptionPane;
 
 import javax.swing.*;
 
