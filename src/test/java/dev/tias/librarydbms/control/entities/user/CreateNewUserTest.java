@@ -2,10 +2,10 @@ package dev.tias.librarydbms.control.entities.user;
 
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.CreationException;
-import dev.tias.librarydbms.model.exceptions.InvalidEmailException;
-import dev.tias.librarydbms.model.exceptions.InvalidNameException;
-import dev.tias.librarydbms.model.exceptions.InvalidTypeException;
+import dev.tias.librarydbms.service.exceptions.custom.CreationException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidEmailException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidPasswordException;
 import org.junit.jupiter.api.*;
 

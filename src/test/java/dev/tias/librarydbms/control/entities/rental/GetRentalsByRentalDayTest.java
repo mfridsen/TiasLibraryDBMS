@@ -2,7 +2,7 @@ package dev.tias.librarydbms.control.entities.rental;
 
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.model.entities.Rental;
-import dev.tias.librarydbms.model.exceptions.InvalidDateException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

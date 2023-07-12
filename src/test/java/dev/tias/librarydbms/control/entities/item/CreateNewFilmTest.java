@@ -3,9 +3,9 @@ package dev.tias.librarydbms.control.entities.item;
 import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.model.entities.Film;
-import dev.tias.librarydbms.model.exceptions.ConstructionException;
-import dev.tias.librarydbms.model.exceptions.EntityNotFoundException;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
+import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidBarcodeException;
 import org.junit.jupiter.api.*;
 

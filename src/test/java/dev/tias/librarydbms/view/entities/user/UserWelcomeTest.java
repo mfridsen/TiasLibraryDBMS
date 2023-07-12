@@ -2,7 +2,7 @@ package dev.tias.librarydbms.view.entities.user;
 
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 
 /**
  * @author Jesper Truedsson

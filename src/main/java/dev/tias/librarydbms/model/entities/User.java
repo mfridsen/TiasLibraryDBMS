@@ -1,11 +1,11 @@
 package dev.tias.librarydbms.model.entities;
 
 import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidPasswordException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidRentalStatusChangeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 
 /**
  * @author Mattias Fridsén

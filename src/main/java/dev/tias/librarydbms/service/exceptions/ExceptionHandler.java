@@ -1,4 +1,4 @@
-package dev.tias.librarydbms.control.exceptions;
+package dev.tias.librarydbms.service.exceptions;
 
 import org.junit.Assert;
 
@@ -86,6 +86,8 @@ public class ExceptionHandler
         Assert.fail(message + "failed due to: " + cause.getClass().getName()
                 + ". Message: " + e.getMessage());
     }
+
+    //TODO-prio handle test exception
 }
 
 //TODO-future  consider expanding the log messages to include more context-specific information. For instance,

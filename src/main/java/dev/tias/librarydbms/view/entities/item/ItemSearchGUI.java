@@ -1,11 +1,11 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.Item;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.InvalidNameException;
-import dev.tias.librarydbms.model.exceptions.RetrievalException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
+import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
 import dev.tias.librarydbms.view.gui.GUI;

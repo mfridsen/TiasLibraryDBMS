@@ -3,7 +3,7 @@ package dev.tias.librarydbms.control.entities.classification;
 import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.entities.ClassificationHandler;
 import dev.tias.librarydbms.model.entities.Classification;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

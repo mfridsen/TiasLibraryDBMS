@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.model.entities.author;
 
 import dev.tias.librarydbms.model.entities.Author;
-import dev.tias.librarydbms.model.exceptions.ConstructionException;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.InvalidNameException;
+import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

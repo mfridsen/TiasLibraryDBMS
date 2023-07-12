@@ -1,13 +1,13 @@
 package dev.tias.librarydbms.control.entities;
 
 import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.*;
-import dev.tias.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.item.InvalidBarcodeException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

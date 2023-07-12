@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
 import dev.tias.librarydbms.model.exceptions.rental.InvalidReceiptException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

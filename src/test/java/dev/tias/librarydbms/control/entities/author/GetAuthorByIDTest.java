@@ -4,9 +4,9 @@ import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.AuthorHandler;
 import dev.tias.librarydbms.model.entities.Author;
-import dev.tias.librarydbms.model.exceptions.ConstructionException;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.InvalidNameException;
+import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

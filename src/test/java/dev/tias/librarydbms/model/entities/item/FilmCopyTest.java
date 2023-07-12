@@ -2,7 +2,7 @@ package dev.tias.librarydbms.model.entities.item;
 
 import dev.tias.librarydbms.model.entities.Film;
 import dev.tias.librarydbms.model.entities.Item;
-import dev.tias.librarydbms.model.exceptions.ConstructionException;
+import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

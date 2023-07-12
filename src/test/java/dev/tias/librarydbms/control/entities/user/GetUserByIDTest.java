@@ -3,9 +3,9 @@ package dev.tias.librarydbms.control.entities.user;
 import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.ConstructionException;
-import dev.tias.librarydbms.model.exceptions.CreationException;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
+import dev.tias.librarydbms.service.exceptions.custom.CreationException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

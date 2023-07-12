@@ -5,7 +5,7 @@ import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.service.db.DatabaseConnection;
 import dev.tias.librarydbms.model.entities.Classification;
 import dev.tias.librarydbms.model.entities.Item;
-import dev.tias.librarydbms.model.exceptions.InvalidNameException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import org.junit.jupiter.api.*;
 
 import java.sql.Connection;

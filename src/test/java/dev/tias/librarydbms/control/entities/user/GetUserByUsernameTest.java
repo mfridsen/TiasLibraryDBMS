@@ -2,8 +2,8 @@ package dev.tias.librarydbms.control.entities.user;
 
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.CreationException;
-import dev.tias.librarydbms.model.exceptions.InvalidNameException;
+import dev.tias.librarydbms.service.exceptions.custom.CreationException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

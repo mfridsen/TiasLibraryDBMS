@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.model.entities;
 
 import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.model.exceptions.ConstructionException;
-import dev.tias.librarydbms.model.exceptions.InvalidDateException;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidBarcodeException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidItemTypeException;
 import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;

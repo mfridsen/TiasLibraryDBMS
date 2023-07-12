@@ -1,13 +1,13 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.Film;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Literature;
 import dev.tias.librarydbms.model.entities.Rental;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.RetrievalException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
 import dev.tias.librarydbms.view.buttons.ButtonRenderer;
 import dev.tias.librarydbms.view.gui.GUI;
 

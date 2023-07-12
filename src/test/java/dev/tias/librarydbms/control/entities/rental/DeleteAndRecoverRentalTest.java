@@ -2,8 +2,8 @@ package dev.tias.librarydbms.control.entities.rental;
 
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.model.entities.Rental;
-import dev.tias.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

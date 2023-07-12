@@ -2,10 +2,10 @@ package dev.tias.librarydbms.control.entities.user;
 
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.*;
 import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidPasswordException;
 import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

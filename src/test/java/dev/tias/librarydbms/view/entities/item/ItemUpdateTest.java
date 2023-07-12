@@ -2,8 +2,8 @@ package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.RetrievalException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
 
 /**
  * @author Jesper Truedsson

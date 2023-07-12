@@ -2,10 +2,10 @@ package dev.tias.librarydbms.control.entities.rental;
 
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.model.entities.Rental;
-import dev.tias.librarydbms.model.exceptions.EntityNotFoundException;
-import dev.tias.librarydbms.model.exceptions.InvalidDateException;
-import dev.tias.librarydbms.model.exceptions.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.InvalidTypeException;
+import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
+import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
 import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
