@@ -1,0 +1,163 @@
+VIDEO 1:
+[Introduction]
+Hello and welcome to the video demonstration of our library system.
+Today, we will show you how we fulfill the different requirements of the system.
+
+We are group 18, consisting of members me, Jesper Truedsson,
+Johan Lund who is going to do the second part of this demonstration,
+and Mattias Fridsén who will manage the final part of the demonstration.
+
+[Explain list of requirements]
+
+REQUIREMENTS:
+
+    (JESPER)
+    * Searching: Being able to search for library items without being logged in (1)
+    * User account handling: Being able to log in to rent an item (2)
+    * Renting: Being able to rent an item when logged in (2)
+    * Receipt: Being able to print a receipt when an item is rented (2)
+    * Returning: Being able to return a rented item (2)
+
+    (JOHAN)
+    * Adding items: Being able to add items to the library (3)
+    * Updating items: Being able to change properties of existing items in the library (3)
+    * Deleting items: Being able to delete existing items from the library (3)
+    * Overdue items: Being able to display a list of all overdue items in the library (4)
+
+    (MATTIAS)
+    * Use of relational database: the system needs to use a relational database to store and manage information
+
+    * Use of inheritance and polymorphism: To make the system more flexible and extensible,
+        appropriate parts of the system need to utilize inheritance and polymorphism.
+
+    * Exception handling: Exceptions should be handled consistently and logically, not just crash the system
+
+    * GUI: The system should have a basic, user-friendly GUI to interact with the system
+
+
+[Functional Requirement 1: Search function for objects]
+To facilitate our users, we have implemented a search function. Users can search for items based on title,
+author/director, ISBN, or subject/genre. When "search" is clicked, the system will perform separate searches
+for each field that has data entered into it, and then remove duplicate results before presentation.
+
+[Show the search function and demonstrate how users can search for items using different criteria]
+
+    SEARCH:
+        ID (1),
+        title (item2),
+        author (Joe, Abercrombie, Joe Abercrombie),
+        classification (Horror, Fantasy)
+    DONT: ISBN, it's a pain in the ass, we have tested it, but it's 13 numbers long
+
+    REMEMBER TO PRESS SOME OTHER FIELD BEFORE SEARCH
+
+[Functional Requirement 2: Handling borrowing and returning]
+Now, let's move on to the handling of borrowing and returning items. Users need to log in to borrow or reserve items.
+When a loan is made, a receipt will be printed with all the relevant information.
+
+    [Show the login process, borrowing and returning items, and printing the receipt]
+
+    user3
+    password3
+
+    CLICK RENT
+    LOGIN
+    EXPLAIN THAT WE CAN NOW RENT AGAIN
+    CLICK RENT
+    SHOW RECEIPT
+        AND TABLE PRINT
+    CLICK RETURN
+    SHOW TABLE PRINT
+
+
+
+
+
+
+VIDEO 2 JOHAN:
+
+"Hello everyone, my name is Johan Lund, and I am going to demonstrate to you how our system is capable of performing
+the necessary basic CRUD operations for items in the Library, as a staff member of the library.
+
+First and foremost, we have the capability to add, modify, and delete items in the system. We also have the capability
+to show a list of all overdue items in the system.
+
+For demonstration purposes, this test class that we are using will already be logged on as user1, who is an ADMIN."
+
+STARTA ITEMHANDLERGUITEST
+
+VISA LISTAN MED ITEMS: "As you can see in the Run window,
+the test class prints a list of all the items added from test_data.sql."
+
+SHOW CREATION "now I'm going to demonstrate how we can create new items that are added to the library"
+    "Note that this technically only works for Film creation, as we haven't had the time to split the
+    ItemCreateGUI into the two necessary classes."
+
+    FILL IN FIELDS
+    SHOW RESET FIELDS FUNCTION
+    FILL IN FIELDS AGAIN
+    CREATE
+
+        title: whatever
+        authorID: 1
+        classID: 1
+        Barcode: 1337
+        Age Rating 13
+
+SHOW UPDATE
+    update fields
+    Country: USA
+    Actors: Tom Cruise
+
+SHOW DELETE
+
+"as you can see, deletion requires validation. We are logged in as user1, so we fill in password1"
+
+    password1
+
+"As you can now see from the printed list, the item is removed"
+
+SHOW SEARCH FOR ITEM RETURNS NOTHING
+
+"As you can see, no such item was found"
+
+PRESS BACK
+
+[Show the user interface and demonstrate adding, modifying, and deleting items]
+
+[Functional Requirement 4: List of overdue items]
+To keep track of items that have not been returned on time, we have a list that displays these items.
+It helps us remind borrowers to return the items promptly. For this demonstration we have populated the rentals
+table with some overdue rentals.
+
+[Show the list of overdue items]
+
+SHOW OVERDUE FUNCTION
+
+
+VIDEO 3 MATTIAS:
+[General Requirement 1: Use of a relational database]
+All data in the system is stored in a relational database for efficient management and storage of information.
+
+display the diagram, the create_tables file and the test_data file
+        Explain relation with classes
+
+[Show the database and how data is stored and retrieved]
+
+[General Requirement 2: Use of inheritance and polymorphism]
+To make the system more flexible and extensible, we have utilized inheritance and polymorphism in appropriate parts of the system.
+
+[Show examples of inheritance and polymorphism in the code]
+
+[General Requirement 3: Exception handling]
+We have also implemented exception handling to provide meaningful feedback to the user in case of erroneous operations or situations.
+
+[Show examples of exception handling and how error messages are displayed to the user]
+
+[General Requirement 4: Graphical user interface] THIS HAS BEEN SHOWED ALREADY
+Lastly, we have developed a user-friendly graphical user interface to interact with the system in an intuitive manner.
+
+[Show the graphical user interface and demonstrate how users can interact with the system]
+
+[Conclusion]
+That concludes the overview demonstration of how we fulfill the requirements of our library system. Thank you for watching the video, and please feel free to reach out if you have any questions or feedback.

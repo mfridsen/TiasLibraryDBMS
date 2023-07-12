@@ -1,0 +1,172 @@
+/**
+ * <Javadoc providing a brief description of what the method tests.>
+ */
+@Test
+@Order(<Test_Number>)
+void test<MethodName>_<TestCase>()
+{
+    System.out.println("\n<Test_Number>: Testing <MethodName> method with <explanation of test case>...");
+
+    //TODO test implementation here
+
+    System.out.println("\nTest finished.");
+}
+
+Example:
+
+/**
+ * <Javadoc providing a brief description of what the method tests.>
+ */
+@Test
+@Order(7)
+void testSetup_EmptyDatabase()
+{
+    System.out.println("\n7: Testing setup method with an empty database...");
+
+    // Call the setup method
+    UserHandler.setup();
+
+    // Verify that the storedTitles and availableTitles maps are empty
+    assertEquals(0, UserHandler.getStoredUsernames().size(), "storedUsernames list should be empty after setup with an empty database");
+
+    System.out.println("\nTest finished.");
+}
+
+Setup method format:
+
+/**
+ * <Javadoc providing brief description of what the setup does>
+ /*
+@BeforeAll
+static void setUp()
+{
+    System.out.println("Performing pre-test setup...");
+
+    <SETUP WORK HERE>
+
+    System.out.println("\nSetup finished.");
+}
+
+Example:
+
+    @BeforeAll
+    static void setUp()
+    {
+        System.out.println("\n1: Setting up User object for tests...");
+
+        try
+        {
+            user = new User(validUserID1, validUsername, validPassword, userType, validEmail, allowedRentals,
+                    currentRentals, lateFee, allowedToRent, deleted);
+        }
+        catch (ConstructionException e)
+        {
+            e.printStackTrace();
+            fail("Exception occurred during test: " + e.getMessage());
+        }
+
+        System.out.println("\nSetup finished.");
+    }
+
+If exceptions can be thrown, either catch or assert them depending on the test case. No need to assert messages
+in exceptions:
+
+Example 1:
+
+    /**
+     * Test case for the setPublisherName method with valid data.
+     * This test checks if the setPublisherName method correctly sets the publisherName.
+     */
+    @Test
+    @Order(3)
+    void testSetPublisherName_ValidData()
+    {
+        System.out.println("\n3: Testing setPublisherName method with valid data...");
+
+        try {
+            Publisher publisher = new Publisher("Test Publisher");
+            String validName = "Valid Publisher";
+            publisher.setPublisherName(validName);
+            assertEquals(validName, publisher.getPublisherName(),
+                         "Publisher name must be the same as the one set");
+        } catch (InvalidNameException | ConstructionException e) {
+            e.printStackTrace();
+            fail("Valid operations should not throw exceptions.");
+        }
+
+        System.out.println("\nTest finished.");
+    }
+
+Example 2, use lambda expressions and for gods sake use .repeat to generate too-long strings:
+
+    @Test
+    @Order(19)
+    void testUser_LongEmail()
+    {
+        System.out.println("\n19: Testing User constructor with long email...");
+
+        String longEmail = "a".repeat(User.MAX_EMAIL_LENGTH + 1); // More than MAX_EMAIL_LENGTH
+
+        assertThrows(ConstructionException.class, () ->
+                new User("username", "password", User.UserType.PATRON, longEmail));
+
+        System.out.println("\nTest finished.");
+    }
+
+For Model classes, create one test class per constructor and then one for the setters.
+
+Example:
+
+/**
+ * <Javadoc providing brief description of what the class tests.>
+ /*
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class AuthorCreationTest
+{
+
+    /**
+     * <Javadoc providing a brief description of what the method tests.>
+     */
+    @Test
+    @Order(1)
+    void testAuthorCreation_ValidData()
+    {
+
+    }
+}
+
+AuthorRetrievalTest
+AuthorCopyTest
+AuthorSettersTest
+
+
+
+For Control classes (named <ModelClassName>Handler), create one test class per one major method in the Handler, named
+like so:
+
+/**
+ * Javadoc providing brief description of what the class tests.
+ /*
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class CreateItemTest
+{
+    /**
+     * Javadoc providing a brief description of what the method tests.
+     */
+    @Test
+    @Order(1)
+    void testCreateItem_ValidData()
+    {
+
+    }
+}
+
+Remember to test ALL the fields are set correctly in the ValidData tests, both declared AND inherited!
+Remember to test Strings for null, empty and length, where applicable.
+Remember to test IDs where applicable.
+Remember to test causes of exceptions where applicable.
+
+For utility methods and generally short methods we can create one or two classes depending on circumstances.
+For instance, if we have a setup() method, which I usually do, at the very top of the class, that method and the methods
+it calls should be tested in one test class, and any other utility methods found at the bottom of the class should be
+covered by another test class.
