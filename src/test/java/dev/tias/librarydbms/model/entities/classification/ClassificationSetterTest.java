@@ -1,9 +1,9 @@
-package edu.groupeighteen.librarydbms.model.entities.classification;
+package dev.tias.librarydbms.model.entities.classification;
 
-import edu.groupeighteen.librarydbms.model.entities.Classification;
-import edu.groupeighteen.librarydbms.model.exceptions.ConstructionException;
-import edu.groupeighteen.librarydbms.model.exceptions.InvalidIDException;
-import edu.groupeighteen.librarydbms.model.exceptions.InvalidNameException;
+import dev.tias.librarydbms.model.entities.Classification;
+import dev.tias.librarydbms.model.exceptions.ConstructionException;
+import dev.tias.librarydbms.model.exceptions.InvalidIDException;
+import dev.tias.librarydbms.model.exceptions.InvalidNameException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

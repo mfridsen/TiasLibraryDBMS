@@ -1,16 +1,16 @@
-package edu.groupeighteen.librarydbms.control.entities;
+package dev.tias.librarydbms.control.entities;
 
-import edu.groupeighteen.librarydbms.control.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.model.entities.*;
+import dev.tias.librarydbms.model.exceptions.*;
 import edu.groupeighteen.librarydbms.model.entities.*;
 import edu.groupeighteen.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.item.InvalidISBNException;
-import edu.groupeighteen.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
+import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import static edu.groupeighteen.librarydbms.control.entities.ItemHandler.getItemByID;
 
 /**
  * @author Mattias Fridsén
@@ -101,7 +101,7 @@ public class ItemHandlerUtils
         {
             checkNullItem(item);
 
-            if (getItemByID(item.getItemID()) == null)
+            if (ItemHandler.getItemByID(item.getItemID()) == null)
                 throw new EntityNotFoundException("Item with ID " + item.getItemID() + " not found in table.");
         }
         catch (RetrievalException e)
@@ -178,7 +178,7 @@ public class ItemHandlerUtils
     throws InvalidIDException, EntityNotFoundException, RetrievalException
     {
         // Get the old item
-        Item oldItem = getItemByID(item.getItemID());
+        Item oldItem = ItemHandler.getItemByID(item.getItemID());
         // Check if the item exists in the database
         if (oldItem == null)
             throw new EntityNotFoundException("Delete failed: could not find Item with ID " + item.getItemID());
@@ -198,7 +198,7 @@ public class ItemHandlerUtils
     throws InvalidIDException, RetrievalException, EntityNotFoundException
     {
         // Get the old item
-        Item oldItem = getItemByID(item.getItemID());
+        Item oldItem = ItemHandler.getItemByID(item.getItemID());
         // Check if the item exists in the database
         if (oldItem == null)
             throw new EntityNotFoundException("Delete failed: could not find Item with ID " + item.getItemID());

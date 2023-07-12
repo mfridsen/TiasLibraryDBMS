@@ -1,4 +1,4 @@
-package edu.groupeighteen.librarydbms.view.entities.user;
+package dev.tias.librarydbms.view.entities.user;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

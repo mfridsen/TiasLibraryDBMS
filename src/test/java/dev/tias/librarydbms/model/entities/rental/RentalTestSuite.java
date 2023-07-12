@@ -1,4 +1,4 @@
-package edu.groupeighteen.librarydbms.model.entities.rental;
+package dev.tias.librarydbms.model.entities.rental;
 
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;

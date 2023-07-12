@@ -1,4 +1,4 @@
-package edu.groupeighteen.librarydbms.model.entities.item;
+package dev.tias.librarydbms.model.entities.item;
 
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;

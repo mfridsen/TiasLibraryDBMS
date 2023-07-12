@@ -1,9 +1,9 @@
-package edu.groupeighteen.librarydbms.model.entities;
+package dev.tias.librarydbms.model.entities;
 
-import edu.groupeighteen.librarydbms.control.db.DatabaseHandler;
-import edu.groupeighteen.librarydbms.model.exceptions.ConstructionException;
-import edu.groupeighteen.librarydbms.model.exceptions.InvalidAgeRatingException;
-import edu.groupeighteen.librarydbms.model.exceptions.InvalidNameException;
+import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.model.exceptions.ConstructionException;
+import dev.tias.librarydbms.model.exceptions.InvalidAgeRatingException;
+import dev.tias.librarydbms.model.exceptions.InvalidNameException;
 
 /**
  * @author Mattias Fridsén

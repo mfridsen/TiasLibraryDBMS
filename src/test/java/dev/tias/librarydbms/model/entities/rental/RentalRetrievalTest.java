@@ -1,7 +1,7 @@
-package edu.groupeighteen.librarydbms.model.entities.rental;
+package dev.tias.librarydbms.model.entities.rental;
 
-import edu.groupeighteen.librarydbms.model.entities.Rental;
-import edu.groupeighteen.librarydbms.model.exceptions.ConstructionException;
+import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.model.exceptions.ConstructionException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

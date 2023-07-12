@@ -1,6 +1,6 @@
-package edu.groupeighteen.librarydbms.view;
+package dev.tias.librarydbms.view;
 
-import edu.groupeighteen.librarydbms.view.gui.GUI;
+import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;
 import java.awt.*;

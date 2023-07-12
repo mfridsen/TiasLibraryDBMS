@@ -1,17 +1,18 @@
-package edu.groupeighteen.librarydbms.control.entities;
+package dev.tias.librarydbms.control.entities;
 
-import edu.groupeighteen.librarydbms.control.db.DatabaseHandler;
-import edu.groupeighteen.librarydbms.control.exceptions.ExceptionHandler;
-import edu.groupeighteen.librarydbms.model.db.QueryResult;
-import edu.groupeighteen.librarydbms.model.entities.Item;
-import edu.groupeighteen.librarydbms.model.entities.Rental;
-import edu.groupeighteen.librarydbms.model.entities.User;
+import dev.tias.librarydbms.control.db.DatabaseHandler;
+import dev.tias.librarydbms.control.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.model.db.QueryResult;
+import dev.tias.librarydbms.model.entities.Item;
+import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.model.exceptions.*;
 import edu.groupeighteen.librarydbms.model.exceptions.*;
-import edu.groupeighteen.librarydbms.model.exceptions.item.InvalidTitleException;
-import edu.groupeighteen.librarydbms.model.exceptions.rental.InvalidReceiptException;
-import edu.groupeighteen.librarydbms.model.exceptions.rental.RentalNotAllowedException;
-import edu.groupeighteen.librarydbms.model.exceptions.rental.RentalReturnException;
-import edu.groupeighteen.librarydbms.model.exceptions.user.InvalidUserRentalsException;
+import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.model.exceptions.rental.InvalidReceiptException;
+import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.model.exceptions.rental.RentalReturnException;
+import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

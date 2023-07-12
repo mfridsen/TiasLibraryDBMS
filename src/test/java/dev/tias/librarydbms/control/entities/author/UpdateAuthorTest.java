@@ -1,4 +1,4 @@
-package edu.groupeighteen.librarydbms.control.entities.author;
+package dev.tias.librarydbms.control.entities.author;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
