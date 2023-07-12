@@ -3,7 +3,7 @@ package dev.tias.librarydbms.view.entities.user;
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.user.UserValidationException;
+import dev.tias.librarydbms.service.exceptions.custom.user.UserValidationException;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

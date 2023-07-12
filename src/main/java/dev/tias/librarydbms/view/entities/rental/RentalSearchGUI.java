@@ -6,7 +6,7 @@ import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

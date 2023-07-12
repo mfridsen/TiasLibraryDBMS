@@ -2,7 +2,7 @@ package dev.tias.librarydbms.model.entities;
 
 import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
 
 /**
  * @author Mattias Fridsén

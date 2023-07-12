@@ -7,8 +7,8 @@ import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
-import dev.tias.librarydbms.model.exceptions.rental.RentalReturnException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalReturnException;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 import org.junit.jupiter.api.*;
 

@@ -10,7 +10,7 @@ import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
-import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
 import dev.tias.librarydbms.view.entities.rental.RentalGUI;
 import dev.tias.librarydbms.view.gui.GUI;
 import dev.tias.librarydbms.view.optionpanes.LoginOptionPane;

@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.model.entities.rental;
 
 import dev.tias.librarydbms.model.entities.Rental;
-import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
-import dev.tias.librarydbms.model.exceptions.rental.InvalidReceiptException;
-import dev.tias.librarydbms.model.exceptions.user.InvalidLateFeeException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.InvalidReceiptException;
+import dev.tias.librarydbms.service.exceptions.custom.user.InvalidLateFeeException;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;

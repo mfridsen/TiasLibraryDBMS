@@ -6,7 +6,7 @@ import dev.tias.librarydbms.service.exceptions.custom.CreationException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidEmailException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
-import dev.tias.librarydbms.model.exceptions.user.InvalidPasswordException;
+import dev.tias.librarydbms.service.exceptions.custom.user.InvalidPasswordException;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

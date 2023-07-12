@@ -9,7 +9,7 @@ import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
-import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

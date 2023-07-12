@@ -1,4 +1,4 @@
-package dev.tias.librarydbms.model.exceptions.item;
+package dev.tias.librarydbms.service.exceptions.custom.item;
 
 /**
  * @author Mattias Fridsén

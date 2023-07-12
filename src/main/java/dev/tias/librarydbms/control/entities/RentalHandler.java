@@ -6,11 +6,11 @@ import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
-import dev.tias.librarydbms.model.exceptions.rental.InvalidReceiptException;
-import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
-import dev.tias.librarydbms.model.exceptions.rental.RentalReturnException;
-import dev.tias.librarydbms.model.exceptions.user.InvalidUserRentalsException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.InvalidReceiptException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalReturnException;
+import dev.tias.librarydbms.service.exceptions.custom.user.InvalidUserRentalsException;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;

@@ -2,8 +2,8 @@ package dev.tias.librarydbms.control.entities;
 
 import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.*;
-import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;

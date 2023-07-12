@@ -8,7 +8,7 @@ import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
 import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
-import dev.tias.librarydbms.model.exceptions.rental.RentalNotAllowedException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;

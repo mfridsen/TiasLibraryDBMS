@@ -9,10 +9,10 @@ import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidAgeRatingException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import dev.tias.librarydbms.service.exceptions.custom.NullEntityException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidBarcodeException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidItemTypeException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidItemTypeException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

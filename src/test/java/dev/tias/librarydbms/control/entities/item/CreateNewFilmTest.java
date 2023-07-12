@@ -6,7 +6,7 @@ import dev.tias.librarydbms.model.entities.Film;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidBarcodeException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import org.junit.jupiter.api.*;
 
 import java.util.Collections;

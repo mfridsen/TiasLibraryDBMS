@@ -6,8 +6,8 @@ import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidISBNException;
-import dev.tias.librarydbms.model.exceptions.item.InvalidTitleException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

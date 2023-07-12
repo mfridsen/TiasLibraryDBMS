@@ -2,7 +2,7 @@ package dev.tias.librarydbms.view.entities.rental;
 
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.model.entities.Rental;
-import dev.tias.librarydbms.model.exceptions.rental.RentalReturnException;
+import dev.tias.librarydbms.service.exceptions.custom.rental.RentalReturnException;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

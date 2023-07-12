@@ -5,8 +5,8 @@ import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.User;
 import dev.tias.librarydbms.service.exceptions.custom.*;
-import dev.tias.librarydbms.model.exceptions.user.*;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidEmailException;
+import dev.tias.librarydbms.service.exceptions.custom.user.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
