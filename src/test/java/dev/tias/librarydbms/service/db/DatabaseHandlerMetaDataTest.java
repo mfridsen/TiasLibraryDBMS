@@ -1,6 +1,5 @@
 package dev.tias.librarydbms.service.db;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,7 +38,7 @@ public class DatabaseHandlerMetaDataTest
     {
         System.out.println("\n1: Testing to retrieve Author meta data...");
 
-        int[] metaData = DatabaseHandler.getAuthorMetaData();
+        int[] metaData = MetaDataRetriever.getAuthorMetaData();
         assertEquals(100, metaData[0]);
         assertEquals(100, metaData[1]);
 
@@ -55,7 +54,7 @@ public class DatabaseHandlerMetaDataTest
     {
         System.out.println("\n2: Testing to retrieve Classification meta data...");
 
-        int[] metaData = DatabaseHandler.getClassificationMetaData();
+        int[] metaData = MetaDataRetriever.getClassificationMetaData();
         assertEquals(255, metaData[0]);
 
         System.out.println("\nTEST FINISHED.");
@@ -70,7 +69,7 @@ public class DatabaseHandlerMetaDataTest
     {
         System.out.println("\n3: Testing to retrieve Item meta data...");
 
-        int[] metaData = DatabaseHandler.getItemMetaData();
+        int[] metaData = MetaDataRetriever.getItemMetaData();
         assertEquals(255, metaData[0]);
         assertEquals(255, metaData[1]);
 
@@ -86,7 +85,7 @@ public class DatabaseHandlerMetaDataTest
     {
         System.out.println("\n4: Testing to retrieve User meta data...");
 
-        int[] metaData = DatabaseHandler.getUserMetaData();
+        int[] metaData = MetaDataRetriever.getUserMetaData();
         assertEquals(20, metaData[0]);
         assertEquals(50, metaData[1]);
         assertEquals(255, metaData[2]);
@@ -103,7 +102,7 @@ public class DatabaseHandlerMetaDataTest
     {
         System.out.println("\n5: Testing to retrieve Literature meta data...");
 
-        int[] metaData = DatabaseHandler.getLiteratureMetaData();
+        int[] metaData = MetaDataRetriever.getLiteratureMetaData();
         assertEquals(13, metaData[0]);
 
         System.out.println("\nTEST FINISHED.");
@@ -118,7 +117,7 @@ public class DatabaseHandlerMetaDataTest
     {
         System.out.println("\n6: Testing to retrieve Film meta data...");
 
-        int[] metaData = DatabaseHandler.getFilmMetaData();
+        int[] metaData = MetaDataRetriever.getFilmMetaData();
         assertEquals(100, metaData[0]);
 
         System.out.println("\nTEST FINISHED.");

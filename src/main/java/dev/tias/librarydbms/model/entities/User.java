@@ -1,11 +1,11 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.MetaDataRetriever;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidLateFeeException;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidPasswordException;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidRentalStatusChangeException;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidUserRentalsException;
-import dev.tias.librarydbms.service.exceptions.custom.*;
 
 /**
  * @author Mattias Fridsén
@@ -71,7 +71,7 @@ public class User extends Entity
      */
     static
     {
-        int[] metaData = DatabaseHandler.getUserMetaData();
+        int[] metaData = MetaDataRetriever.getUserMetaData();
         MAX_USERNAME_LENGTH = metaData[0];
         MAX_PASSWORD_LENGTH = metaData[1];
         MAX_EMAIL_LENGTH = metaData[2];

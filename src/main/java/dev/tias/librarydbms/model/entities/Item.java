@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.MetaDataRetriever;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
@@ -55,7 +55,7 @@ public abstract class Item extends Entity
      */
     static
     {
-        int[] metaData = DatabaseHandler.getItemMetaData();
+        int[] metaData = MetaDataRetriever.getItemMetaData();
         ITEM_TITLE_MAX_LENGTH = metaData[0];
         ITEM_BARCODE_LENGTH = metaData[1];
     }

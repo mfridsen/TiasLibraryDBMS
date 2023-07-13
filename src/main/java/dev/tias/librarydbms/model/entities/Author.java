@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.MetaDataRetriever;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
@@ -34,7 +34,7 @@ public class Author extends Entity
      */
     static
     {
-        int[] metaData = DatabaseHandler.getAuthorMetaData();
+        int[] metaData = MetaDataRetriever.getAuthorMetaData();
         AUTHOR_FIRST_NAME_LENGTH = metaData[0]; //100
         AUTHOR_LAST_NAME_LENGTH = metaData[1];  //100
     }

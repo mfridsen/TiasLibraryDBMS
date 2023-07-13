@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.MetaDataRetriever;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
 
@@ -27,7 +27,7 @@ public class Literature extends Item
      */
     static
     {
-        int[] metaData = DatabaseHandler.getLiteratureMetaData();
+        int[] metaData = MetaDataRetriever.getLiteratureMetaData();
         LITERATURE_ISBN_LENGTH = metaData[0];
     }
 

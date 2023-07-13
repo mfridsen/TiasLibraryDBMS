@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.MetaDataRetriever;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
@@ -27,7 +27,7 @@ public class Classification extends Entity
      */
     static
     {
-        int[] metaData = DatabaseHandler.getClassificationMetaData();
+        int[] metaData = MetaDataRetriever.getClassificationMetaData();
         CLASSIFICATION_NAME_LENGTH = metaData[0];
     }
 

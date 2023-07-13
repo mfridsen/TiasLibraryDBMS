@@ -5,6 +5,7 @@ import dev.tias.librarydbms.model.ModelTestSuite;
 import dev.tias.librarydbms.service.ServiceTestSuite;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
@@ -46,17 +47,22 @@ public class LibraryManagerTestSuite
     @BeforeAll
     public void setUp()
     {
-        System.out.println("SETTING UP TEST SUITE");
-        logger.info("starting");
+        System.out.println("!!DEBUG PRINT!! SETTING UP MASTER TEST SUITE");
+        logger.info("Master Test Suite Start.");
         startTime = System.currentTimeMillis();
     }
 
     @AfterAll
     public void tearDown()
     {
-        System.out.println("TEARING DOWN TEST SUITE");
+        System.out.println("!!DEBUG PRINT!! TEARING DOWN MASTER TEST SUITE");
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
-        logger.info("Test suite took: " + duration + "ms");
+        logger.info("Master Test Suite End. Master Test Suite time: " + duration + "ms");
+    }
+
+    @Test
+    public void emptyTestMethod()
+    {
     }
 }

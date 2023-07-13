@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.model.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.MetaDataRetriever;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidAgeRatingException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
@@ -33,7 +33,7 @@ public class Film extends Item
      */
     static
     {
-        int[] metaData = DatabaseHandler.getFilmMetaData();
+        int[] metaData = MetaDataRetriever.getFilmMetaData();
         FILM_COUNTRY_LENGTH = metaData[0];
     }
 
