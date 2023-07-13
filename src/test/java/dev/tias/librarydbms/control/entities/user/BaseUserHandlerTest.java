@@ -16,7 +16,7 @@ import java.sql.SQLException;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.control.entities.user
+ * @package dev.tias.librarydbms.control.entities.user
  * @contact matfir-1@student.ltu.se
  * @date 6/2/2023
  * <p>

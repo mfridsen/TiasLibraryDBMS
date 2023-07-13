@@ -7,7 +7,7 @@ import java.sql.Statement;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.model.db
+ * @package dev.tias.librarydbms.model.db
  * @contact matfir-1@student.ltu.se
  * @date 5/8/2023
  * <p>

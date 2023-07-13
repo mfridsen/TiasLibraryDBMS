@@ -11,7 +11,7 @@ import java.awt.*;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.view.GUI.entities.item
+ * @package dev.tias.librarydbms.view.GUI.entities.item
  * @contact matfir-1@student.ltu.se
  * @date 5/15/2023
  * <p>

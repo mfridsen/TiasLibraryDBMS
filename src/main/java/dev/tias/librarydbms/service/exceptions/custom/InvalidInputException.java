@@ -3,7 +3,7 @@ package dev.tias.librarydbms.service.exceptions.custom;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.model
+ * @package dev.tias.librarydbms.model
  * @contact matfir-1@student.ltu.se
  * @date 6/2/2023
  * <p>

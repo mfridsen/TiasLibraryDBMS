@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.view.GUI.entities.rental
+ * @package dev.tias.librarydbms.view.GUI.entities.rental
  * @contact matfir-1@student.ltu.se
  * @date 5/15/2023
  * <p>

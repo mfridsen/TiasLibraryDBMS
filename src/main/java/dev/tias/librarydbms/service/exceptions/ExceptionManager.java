@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.control.exceptions
+ * @package dev.tias.librarydbms.control.exceptions
  * @contact matfir-1@student.ltu.se
  * @date 5/20/2023
  * <p>

@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.control
+ * @package dev.tias.librarydbms.control
  * @contact matfir-1@student.ltu.se
  * @date 4/5/2023
  * <p>

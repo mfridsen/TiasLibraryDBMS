@@ -10,7 +10,7 @@ import dev.tias.librarydbms.service.exceptions.custom.user.InvalidUserRentalsExc
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.model
+ * @package dev.tias.librarydbms.model
  * @contact matfir-1@student.ltu.se
  * @date 4/5/2023
  * <p>

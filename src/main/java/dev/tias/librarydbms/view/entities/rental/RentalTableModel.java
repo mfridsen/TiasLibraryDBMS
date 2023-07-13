@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.view.GUI.entities.rental
+ * @package dev.tias.librarydbms.view.GUI.entities.rental
  * @contact matfir-1@student.ltu.se
  * @date 5/18/2023
  * <p>

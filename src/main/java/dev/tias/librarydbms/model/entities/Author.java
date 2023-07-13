@@ -8,7 +8,7 @@ import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.model.entities
+ * @package dev.tias.librarydbms.model.entities
  * @contact matfir-1@student.ltu.se
  * @date 5/23/2023
  * <p>

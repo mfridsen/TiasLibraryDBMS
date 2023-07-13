@@ -3,7 +3,7 @@ package dev.tias.librarydbms.control.entities;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.control.entities
+ * @package dev.tias.librarydbms.control.entities
  * @contact matfir-1@student.ltu.se
  * @date 6/7/2023
  * <p>

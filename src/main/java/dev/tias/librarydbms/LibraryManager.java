@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms
+ * @package dev.tias.librarydbms
  * @contact matfir-1@student.ltu.se
  * @date 4/5/2023
  */

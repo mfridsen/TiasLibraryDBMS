@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
 /**
  * @author Mattias Fridsén, Johan Lund, Jesper Truedsson
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.model.entities
+ * @package dev.tias.librarydbms.model.entities
  * @contact matfir-1@student.ltu.se
  * @date 4/27/2023
  * <p>

@@ -13,7 +13,7 @@ import java.awt.*;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.view.optionpanes
+ * @package dev.tias.librarydbms.view.optionpanes
  * @contact matfir-1@student.ltu.se
  * @date 5/19/2023
  * <p>

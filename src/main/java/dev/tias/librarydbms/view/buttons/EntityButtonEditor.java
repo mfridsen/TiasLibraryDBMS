@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.view.gui
+ * @package dev.tias.librarydbms.view.gui
  * @contact matfir-1@student.ltu.se
  * @date 5/18/2023
  * <p>

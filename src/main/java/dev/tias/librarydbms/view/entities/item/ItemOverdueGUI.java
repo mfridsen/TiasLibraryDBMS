@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.view.entities.item
+ * @package dev.tias.librarydbms.view.entities.item
  * @contact matfir-1@student.ltu.se
  * @date 6/6/2023
  * <p>

@@ -7,7 +7,7 @@ import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.model.entities
+ * @package dev.tias.librarydbms.model.entities
  * @contact matfir-1@student.ltu.se
  * @date 5/29/2023
  * <p>

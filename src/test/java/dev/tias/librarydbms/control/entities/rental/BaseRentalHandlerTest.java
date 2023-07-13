@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
- * @package edu.groupeighteen.librarydbms.control.entities.rental
+ * @package dev.tias.librarydbms.control.entities.rental
  * @contact matfir-1@student.ltu.se
  * @date 6/4/2023
  * <p>

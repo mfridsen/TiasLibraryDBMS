@@ -20,6 +20,9 @@ import java.sql.SQLException;
  */
 public class MetaDataRetriever
 {
+    //TODO-prio create a generalized method to replace the specific methods
+    // or be used by the specific methods
+
     /**
      * Retrieves the metadata for the "authors" table from the database, specifically the sizes of the
      * "authorFirstname" and "authorLastName" columns.
