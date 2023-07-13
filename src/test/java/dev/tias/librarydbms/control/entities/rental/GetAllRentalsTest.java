@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control.entities.rental;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
@@ -48,7 +48,7 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
         System.out.println("\n11: Testing getAllRentals method with an empty database...");
 
         // Clear the rentals table in the database
-        DatabaseHandler.executeCommand("DELETE FROM rentals");
+        DataAccessManager.executePreparedUpdate("DELETE FROM rentals", null);
 
         List<Rental> expectedRentals = Collections.emptyList();
         List<Rental> actualRentals;

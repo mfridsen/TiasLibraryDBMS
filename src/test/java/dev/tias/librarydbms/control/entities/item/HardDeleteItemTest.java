@@ -1,14 +1,14 @@
 package dev.tias.librarydbms.control.entities.item;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.service.db.DatabaseConnection;
-import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.Film;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Literature;
-import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.DatabaseConnection;
+import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.service.exceptions.custom.*;
+import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
@@ -40,19 +40,19 @@ public class HardDeleteItemTest
     throws SQLException, ClassNotFoundException
     {
         connection = DatabaseConnection.setup();
-        DatabaseHandler.setConnection(connection);
-        DatabaseHandler.setVerbose(true); //For testing we want DBHandler to be Verboten
-        DatabaseHandler.executeCommand("drop database if exists " + testDatabaseName);
-        DatabaseHandler.executeCommand("create database " + testDatabaseName);
-        DatabaseHandler.executeCommand("use " + testDatabaseName);
-        DatabaseHandler.setVerbose(false);
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
+        DataAccessManager.setConnection(connection);
+        DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
+        DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
+        DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
+        DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
+        DataAccessManager.setVerbose(false);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
     static void setupTestData()
     {
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
-        DatabaseHandler.setVerbose(true);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
+        DataAccessManager.setVerbose(true);
     }
 
     @BeforeAll
@@ -89,7 +89,7 @@ public class HardDeleteItemTest
         try
         {
             // Drop the test database
-            DatabaseHandler.executeCommand("DROP DATABASE IF EXISTS " + testDatabaseName);
+            DataAccessManager.executePreparedUpdate("DROP DATABASE IF EXISTS " + testDatabaseName, null);
 
             // Close the database connection
             if (connection != null && !connection.isClosed())
@@ -176,7 +176,7 @@ public class HardDeleteItemTest
             // Check if literature was deleted from the 'literature' table
             String sql = "SELECT * FROM literature WHERE literatureID = ?";
             String[] params = {String.valueOf(literature.getItemID())};
-            QueryResult queryResult = DatabaseHandler.executePreparedQuery(sql, params);
+            QueryResult queryResult = DataAccessManager.executePreparedQuery(sql, params);
             ResultSet resultSet = queryResult.getResultSet();
             assertFalse(resultSet.next(), "Deleted literature should not exist in 'literature' table");
         }
@@ -210,7 +210,7 @@ public class HardDeleteItemTest
             // Check if film was deleted from the 'films' table
             String sql = "SELECT * FROM films WHERE filmID = ?";
             String[] params = {String.valueOf(film.getItemID())};
-            QueryResult queryResult = DatabaseHandler.executePreparedQuery(sql, params);
+            QueryResult queryResult = DataAccessManager.executePreparedQuery(sql, params);
             ResultSet resultSet = queryResult.getResultSet();
             assertFalse(resultSet.next(), "Deleted film should not exist in 'films' table");
         }

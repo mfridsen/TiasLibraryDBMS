@@ -1,11 +1,11 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.User;
-import dev.tias.librarydbms.service.exceptions.custom.*;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.QueryResult;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidEmailException;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.user.*;
 
 import java.sql.ResultSet;
@@ -97,7 +97,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         {
             //Execute the query to retrieve all usernames
             String query = "SELECT username FROM users ORDER BY userID ASC";
-            try (QueryResult result = DatabaseHandler.executeQuery(query))
+            try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
             {
 
                 //Add the retrieved usernames to the ArrayList
@@ -109,8 +109,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve usernames from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve usernames from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -124,7 +124,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         {
             //Execute the query to retrieve all emails
             String query = "SELECT email FROM users ORDER BY userID ASC";
-            try (QueryResult result = DatabaseHandler.executeQuery(query))
+            try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
             {
 
                 //Add the retrieved usernames to the ArrayList
@@ -136,8 +136,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve emails from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve emails from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -272,8 +272,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (ConstructionException | InvalidIDException e)
         {
-            ExceptionHandler.HandleFatalException(String.format("Failed to create User with username: " +
-                    "'%s' due to %s: %s", username, e.getClass().getName(), e.getMessage()), e);
+            ExceptionManager.HandleFatalException(e, String.format("Failed to create User with username: " +
+                    "'%s' due to %s: %s", username, e.getClass().getName(), e.getMessage()));
         }
         catch (InvalidEmailException | InvalidNameException | InvalidPasswordException | InvalidTypeException e)
         {
@@ -317,7 +317,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
 
             //Execute query and get the generated userID, using try-with-resources
             try (QueryResult queryResult =
-                         DatabaseHandler.executePreparedQuery(query, params, Statement.RETURN_GENERATED_KEYS))
+                         DataAccessManager.executePreparedQuery(query, params, Statement.RETURN_GENERATED_KEYS))
             {
                 ResultSet generatedKeys = queryResult.getStatement().getGeneratedKeys();
                 if (generatedKeys.next())
@@ -328,8 +328,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to save user to database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to save user to database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Not reachable, but needed for compilation
@@ -374,7 +374,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             String[] params = {String.valueOf(userID)};
 
             //Execute the query and store the result in a ResultSet.
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 //If the ResultSet contains data, create a new User object using the retrieved username and password,
@@ -397,8 +397,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (SQLException | ConstructionException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve user by ID from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve user by ID from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Return null if not found.
@@ -433,7 +433,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             String[] params = {String.valueOf(userToDelete.getUserID())};
 
             //Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             //Update the deleted field of the user object
             userToDelete.setDeleted(true);
@@ -479,7 +479,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
                     String.valueOf(userToRecover.getUserID())};
 
             //Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
         }
         catch (NullEntityException | EntityNotFoundException | InvalidIDException |
                InvalidRentalStatusChangeException e)
@@ -520,7 +520,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             String[] params = {String.valueOf(userToDelete.getUserID())};
 
             //Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             //Set booleans
             userToDelete.setDeleted(true);
@@ -588,7 +588,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             };
 
             //Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
         }
         catch (InvalidIDException | InvalidNameException | EntityNotFoundException | InvalidEmailException e)
         {
@@ -643,7 +643,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             String[] params = {username};
 
             //Execute the query and check if the input password matches the retrieved password
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 if (resultSet.next())
@@ -658,8 +658,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Login failed due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Login failed due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
         catch (EntityNotFoundException | InvalidNameException | InvalidPasswordException e)
         {
@@ -721,7 +721,7 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             String[] params = {username};
 
             //Execute the query and store the result in a ResultSet
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 //If the ResultSet contains data, create a new User object using the retrieved username and password,
@@ -744,8 +744,8 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
         }
         catch (SQLException | ConstructionException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve user by username from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve user by username from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Return null if not found

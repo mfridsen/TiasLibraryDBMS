@@ -17,9 +17,38 @@ import java.util.logging.Logger;
  * <p>
  * Brought to you by enough nicotine to kill a large horse.
  */
-public class ExceptionHandler
+public class ExceptionManager
 {
-    public static void HandleFatalException(String message, Throwable cause)
+    public static void HandleFatalException(Throwable cause)
+    {
+        //TODO-future fix the logging
+        // Log the error
+        Logger logger = Logger.getLogger("DatabaseErrorLogger");
+            /*if (cause instanceof SQLException) {
+                logger.log(Level.SEVERE, "Fatal database error occurred", cause);
+                System.err.println(cause.getMessage()); //TODO-future remove later
+                cause.printStackTrace();
+            }
+            if (cause instanceof FileNotFoundException) {
+                logger.log(Level.SEVERE, "Fatal file not found error occurred", cause);
+                System.err.println(cause.getMessage()); //TODO-future remove later
+                cause.printStackTrace();
+            }
+            if (cause instanceof IOException) {
+                logger.log(Level.SEVERE, "Fatal IOException occurred", cause);
+                System.err.println(cause.getMessage()); //TODO-future remove later
+                cause.printStackTrace();
+            }*/
+
+        System.err.println(cause.getMessage());
+        cause.printStackTrace();
+
+        // Exit the program
+        System.err.println("A fatal error occurred. Please check the log file for more details.");
+        System.exit(1);
+    }
+
+    public static void HandleFatalException(Throwable cause, String message)
     {
         {
             //TODO-future fix the logging
@@ -50,36 +79,7 @@ public class ExceptionHandler
         }
     }
 
-    public static void HandleFatalException(Throwable cause)
-    {
-        //TODO-future fix the logging
-        // Log the error
-        Logger logger = Logger.getLogger("DatabaseErrorLogger");
-            /*if (cause instanceof SQLException) {
-                logger.log(Level.SEVERE, "Fatal database error occurred", cause);
-                System.err.println(cause.getMessage()); //TODO-future remove later
-                cause.printStackTrace();
-            }
-            if (cause instanceof FileNotFoundException) {
-                logger.log(Level.SEVERE, "Fatal file not found error occurred", cause);
-                System.err.println(cause.getMessage()); //TODO-future remove later
-                cause.printStackTrace();
-            }
-            if (cause instanceof IOException) {
-                logger.log(Level.SEVERE, "Fatal IOException occurred", cause);
-                System.err.println(cause.getMessage()); //TODO-future remove later
-                cause.printStackTrace();
-            }*/
-
-        System.err.println(cause.getMessage());
-        cause.printStackTrace();
-
-        // Exit the program
-        System.err.println("A fatal error occurred. Please check the log file for more details.");
-        System.exit(1);
-    }
-
-    public static void HandleTestExceptionWithCause(String message, Throwable e)
+    public static void HandleTestExceptionWithCause(Throwable e, String message)
     {
         Throwable cause = e.getCause();
         e.printStackTrace();

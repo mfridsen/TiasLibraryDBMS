@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.Author;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.QueryResult;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;
@@ -59,8 +59,8 @@ public class AuthorHandler
         }
         catch (ConstructionException | InvalidIDException e)
         {
-            ExceptionHandler.HandleFatalException(String.format("Failed to create Author with the given name: " +
-                    "'%s' due to %s: %s", authorFirstname, e.getClass().getName(), e.getMessage()), e);
+            ExceptionManager.HandleFatalException(e, String.format("Failed to create Author with the given name: " +
+                    "'%s' due to %s: %s", authorFirstname, e.getClass().getName(), e.getMessage()));
         }
 
         return newAuthor;
@@ -81,7 +81,7 @@ public class AuthorHandler
 
             // Execute query and get the generated authorID, using try-with-resources
             try (QueryResult queryResult =
-                         DatabaseHandler.executePreparedQuery(query, params, Statement.RETURN_GENERATED_KEYS))
+                         DataAccessManager.executePreparedQuery(query, params, Statement.RETURN_GENERATED_KEYS))
             {
                 ResultSet generatedKeys = queryResult.getStatement().getGeneratedKeys();
                 if (generatedKeys.next())
@@ -92,8 +92,8 @@ public class AuthorHandler
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to save author to database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to save author to database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Not reachable, but needed for compilation
@@ -110,7 +110,7 @@ public class AuthorHandler
         String[] params = {String.valueOf(authorID)};
 
         //Execute statement
-        try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params))
+        try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params))
         {
             ResultSet resultSet = queryResult.getResultSet();
             if (resultSet.next())
@@ -124,8 +124,8 @@ public class AuthorHandler
         }
         catch (SQLException | ConstructionException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve author by ID from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve author by ID from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         return author;
@@ -149,7 +149,7 @@ public class AuthorHandler
         };
 
         // Execute the update.
-        DatabaseHandler.executePreparedUpdate(sql, params);
+        DataAccessManager.executePreparedUpdate(sql, params);
     }
 
     public static void deleteAuthor(Author authorToDelete)
@@ -178,7 +178,7 @@ public class AuthorHandler
             };
 
             //Executor-class Star Dreadnought
-            DatabaseHandler.executePreparedUpdate(query, params);
+            DataAccessManager.executePreparedUpdate(query, params);
         }
     }
 
@@ -207,7 +207,7 @@ public class AuthorHandler
         };
 
         // Executor-class Star Dreadnought
-        DatabaseHandler.executePreparedUpdate(query, params);
+        DataAccessManager.executePreparedUpdate(query, params);
     }
 
 
@@ -231,7 +231,7 @@ public class AuthorHandler
             String[] params = {String.valueOf(authorToDelete.getAuthorID())};
 
             //Executor-class Star Dreadnought
-            DatabaseHandler.executePreparedUpdate(query, params);
+            DataAccessManager.executePreparedUpdate(query, params);
         }
     }
 
@@ -270,7 +270,7 @@ public class AuthorHandler
             String[] paramsArray = params.toArray(new String[0]);
 
             // Execute the query and store the result in a ResultSet
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, paramsArray))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, paramsArray))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 // If the ResultSet contains data, create a new Author object using the retrieved ,

@@ -2,9 +2,9 @@ package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.control.entities.RentalHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
@@ -78,9 +78,10 @@ public class ItemGUIButtonEditor extends EntityButtonEditor
                         }
                         catch (EntityNotFoundException | InvalidIDException | InvalidTypeException fatalException) //This SHOULD NOT happen
                         {
-                            ExceptionHandler.HandleFatalException("Rental creation failed fatally due to: " +
+                            ExceptionManager.HandleFatalException(fatalException, "Rental creation failed fatally due" +
+                                    " to: " +
                                     fatalException.getCause().getClass().getName() + ", Message: " +
-                                    fatalException.getMessage(), fatalException);
+                                    fatalException.getMessage());
                         }
                         catch (RentalNotAllowedException rentalNotAllowedException) //This is perfectly fine
                         {

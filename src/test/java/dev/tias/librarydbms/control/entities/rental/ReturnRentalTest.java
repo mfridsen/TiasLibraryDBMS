@@ -1,15 +1,15 @@
 package dev.tias.librarydbms.control.entities.rental;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
 import dev.tias.librarydbms.service.exceptions.custom.rental.RentalReturnException;
-import dev.tias.librarydbms.service.exceptions.custom.*;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
@@ -70,7 +70,7 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
     @AfterEach
     void resetRentalsTable()
     {
-        DatabaseHandler.executeCommand("DELETE FROM rentals;");
+        DataAccessManager.executePreparedUpdate("DELETE FROM rentals;", null);
     }
 
     /**

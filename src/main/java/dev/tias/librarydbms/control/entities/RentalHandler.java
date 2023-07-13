@@ -1,17 +1,17 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Rental;
 import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.QueryResult;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
 import dev.tias.librarydbms.service.exceptions.custom.rental.InvalidReceiptException;
 import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
 import dev.tias.librarydbms.service.exceptions.custom.rental.RentalReturnException;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidUserRentalsException;
-import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,7 +46,7 @@ import java.util.List;
  * - compareRentals(Rental oldRental, Rental newRental): Compares two Rental objects and validates/updates user and
  * item data.
  * <p>
- * The RentalHandler class uses the DatabaseHandler class to interact with the database and performs data validation
+ * The RentalHandler class uses the DataAccessManager class to interact with the database and performs data validation
  * before executing database operations. It throws SQLException if an error occurs while interacting with the database
  * and IllegalArgumentException if the provided data is not valid.
  * <p>
@@ -172,12 +172,12 @@ public class RentalHandler
                InvalidReceiptException e)
         {
             String cause = (e.getCause() != null) ? e.getCause().getClass().getName() : "Unknown";
-            ExceptionHandler.HandleFatalException("Rental creation failed due to " + cause + ":" + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Rental creation failed due to " + cause + ":" + e.getMessage());
         }
         catch (ConstructionException e)
         {
             String cause = (e.getCause() != null) ? e.getCause().getClass().getName() : "Unknown";
-            ExceptionHandler.HandleFatalException("Rental construction failed due to " + cause, e);
+            ExceptionManager.HandleFatalException(e, "Rental construction failed due to " + cause);
 
         }
 
@@ -248,7 +248,7 @@ public class RentalHandler
             };
 
             //Execute query and get the generated rentalID, using try-with-resources
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params,
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params,
                     Statement.RETURN_GENERATED_KEYS))
             {
                 ResultSet generatedKeys = queryResult.getStatement().getGeneratedKeys();
@@ -257,8 +257,8 @@ public class RentalHandler
         }
         catch (NullEntityException | SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to save Rental due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to save Rental due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Cannot be reached, but needed for compilation
@@ -332,7 +332,7 @@ public class RentalHandler
         catch (InvalidDateException | UpdateException | InvalidIDException | RetrievalException |
                InvalidUserRentalsException | NullEntityException | EntityNotFoundException e)
         { //We get these and something has gone seriously wrong
-            ExceptionHandler.HandleFatalException("Rental return failed fatally: " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Rental return failed fatally: " + e.getMessage());
         }
 
         return rentalToReturn;
@@ -382,7 +382,7 @@ public class RentalHandler
      * @param params    An array of Strings representing the parameters to be set in the PreparedStatement for the query.
      *                  Each '?' character in the sqlSuffix will be replaced by a value from this array. Can be null if no
      *                  parameters are required.
-     * @param settings  Settings to apply to the Statement, passed to the DatabaseHandler's executePreparedQuery method.
+     * @param settings  Settings to apply to the Statement, passed to the DataAccessManager's executePreparedQuery method.
      *                  For example, it can be used to set Statement.RETURN_GENERATED_KEYS.
      * @return A list of Rental objects matching the query, or an empty list if no matching rentals are found.
      */
@@ -397,7 +397,7 @@ public class RentalHandler
         try
         {
             //Execute the query.
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(sql, params, settings))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(sql, params, settings))
             {
 
                 //Retrieve the ResultSet from the QueryResult
@@ -416,8 +416,8 @@ public class RentalHandler
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve rentals from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve rentals from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Return the List of rentals
@@ -472,8 +472,8 @@ public class RentalHandler
         }
         catch (SQLException | InvalidIDException | RetrievalException | ConstructionException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to construct retrieved rental from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to construct retrieved rental from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Not reached, but needed for compilation
@@ -540,7 +540,7 @@ public class RentalHandler
 
         //Check results, this first option should not happen and will be considered fatal
         if (rentals.size() > 1)
-            ExceptionHandler.HandleFatalException(new InvalidIDException("There should not be more than 1 rental " +
+            ExceptionManager.HandleFatalException(new InvalidIDException("There should not be more than 1 rental " +
                     "with ID " + rentalID + ", received: " + rentals.size()));
 
             //Found something
@@ -614,7 +614,7 @@ public class RentalHandler
         };
 
         //Executor-class Star Dreadnought
-        DatabaseHandler.executePreparedUpdate(query, params);
+        DataAccessManager.executePreparedUpdate(query, params);
     }
 
     /**
@@ -649,7 +649,7 @@ public class RentalHandler
         };
 
         //Executor-class Star Dreadnought
-        DatabaseHandler.executePreparedUpdate(query, params);
+        DataAccessManager.executePreparedUpdate(query, params);
     }
 
     /**
@@ -689,7 +689,7 @@ public class RentalHandler
         };
 
         //Executor-class Star Dreadnought
-        DatabaseHandler.executePreparedUpdate(query, params);
+        DataAccessManager.executePreparedUpdate(query, params);
     }
 
     /**
@@ -718,7 +718,7 @@ public class RentalHandler
         String[] params = {String.valueOf(rentalToDelete.getRentalID())};
 
         //Executor-class Star Dreadnought
-        DatabaseHandler.executePreparedUpdate(query, params);
+        DataAccessManager.executePreparedUpdate(query, params);
     }
 
     //RETRIEVING -------------------------------------------------------------------------------------------------------

@@ -25,11 +25,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 5/5/2023
  * @contact matfir-1@student.ltu.se
  * <p>
- * Unit Test for the DatabaseHandler class.
+ * Unit Test for the DataAccessManager class.
  */
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class DatabaseHandlerTest extends BaseHandlerTest
+public class DataAccessManagerTest extends BaseHandlerTest
 {
 
     //TODO-future make all tests more verbose
@@ -42,17 +42,17 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         System.out.println("\n1: Testing executeSingleSQLCommand method...");
         //1. Create a temporary table in the test database
         String createTempTable = "CREATE TABLE temp_table (id INT PRIMARY KEY, name VARCHAR(255));";
-        DatabaseHandler.executeCommand(createTempTable);
+        DataAccessManager.executePreparedUpdate(createTempTable, null);
 
         //2. Insert some data into the temporary table
         String insertData = "INSERT INTO temp_table (id, name) VALUES (1, 'Test User');";
-        DatabaseHandler.executeCommand(insertData);
+        DataAccessManager.executePreparedUpdate(insertData, null);
 
         //3. Check if the data was inserted correctly
         String queryData = "SELECT * FROM temp_table WHERE id = 1;";
         try
         {
-            ResultSet resultSet = DatabaseHandler.getConnection().createStatement().executeQuery(queryData);
+            ResultSet resultSet = DataAccessManager.getConnection().createStatement().executeQuery(queryData);
             assertTrue(resultSet.next(), "No data found in temp_table");
             assertEquals(1, resultSet.getInt("id"), "ID value does not match");
             assertEquals("Test User", resultSet.getString("name"), "Name value does not match");
@@ -65,12 +65,12 @@ public class DatabaseHandlerTest extends BaseHandlerTest
 
         //Clean up: Drop the temporary table
         String dropTempTable = "DROP TABLE IF EXISTS temp_table;";
-        DatabaseHandler.executeCommand(dropTempTable);
+        DataAccessManager.executePreparedUpdate(dropTempTable, null);
         System.out.println("\nTEST FINISHED.");
     }
 
     /**
-     * Tests the executePreparedUpdate method in the DatabaseHandler class.
+     * Tests the executePreparedUpdate method in the DataAccessManager class.
      * This test includes operations of creating a new table, inserting data, updating the data, and deleting the data.
      * For each operation, it validates the successful execution by checking the affected rows and the resulting state of the database.
      */
@@ -89,22 +89,22 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         try
         {
             //Create a new table
-            DatabaseHandler.executeCommand(createCommand);
+            DataAccessManager.executePreparedUpdate(createCommand, null);
 
             //Insert data into the table
             String[] insertParams = {"1", "100"};
-            DatabaseHandler.executePreparedUpdate(insertCommand, insertParams);
+            DataAccessManager.executePreparedUpdate(insertCommand, insertParams);
 
             //Update the data
             String[] updateParams = {"200", "1"};
-            int affectedRows = DatabaseHandler.executePreparedUpdate(updateCommand, updateParams);
+            int affectedRows = DataAccessManager.executePreparedUpdate(updateCommand, updateParams);
 
             //Assert that the expected number of rows were affected
             assertEquals(1, affectedRows);
 
             //Check if the update worked
             String selectCommand = "SELECT value FROM test_table WHERE id = 1";
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(selectCommand, new String[]{}))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(selectCommand, new String[]{}))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 if (resultSet.next())
@@ -120,13 +120,13 @@ public class DatabaseHandlerTest extends BaseHandlerTest
 
             //Delete the data
             String[] deleteParams = {"1"};
-            affectedRows = DatabaseHandler.executePreparedUpdate(deleteCommand, deleteParams);
+            affectedRows = DataAccessManager.executePreparedUpdate(deleteCommand, deleteParams);
 
             //Assert that the expected number of rows were affected
             assertEquals(1, affectedRows);
 
             //Check if the deletion worked
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(selectCommand, new String[]{}))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(selectCommand, new String[]{}))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 if (resultSet.next())
@@ -145,7 +145,7 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         {
             //Clean up by dropping the test table
             String dropCommand = "DROP TABLE test_table";
-            DatabaseHandler.executeCommand(dropCommand);
+            DataAccessManager.executePreparedUpdate(dropCommand, null);
         }
 
         System.out.println("\nTEST FINISHED.");
@@ -161,18 +161,18 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         {
             //Create a new table
             String createTableQuery = "CREATE TABLE " + tableName + " (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255))";
-            DatabaseHandler.executeCommand(createTableQuery);
+            DataAccessManager.executePreparedUpdate(createTableQuery, null);
 
             //Verify the table was created
-            QueryResult tableVerificationResult = DatabaseHandler.executeQuery("SHOW TABLES LIKE '" + tableName + "'");
+            QueryResult tableVerificationResult = DataAccessManager.executePreparedQuery("SHOW TABLES LIKE '" + tableName + "'", null);
             assertTrue(tableVerificationResult.getResultSet().next(), "Table " + tableName + " should exist");
 
             //Insert data into the table
             String insertDataQuery = "INSERT INTO " + tableName + " (name) VALUES ('John Doe')";
-            DatabaseHandler.executeCommand(insertDataQuery);
+            DataAccessManager.executePreparedUpdate(insertDataQuery, null);
 
             //Verify data was inserted
-            QueryResult dataVerificationResult = DatabaseHandler.executeQuery("SELECT * FROM " + tableName);
+            QueryResult dataVerificationResult = DataAccessManager.executePreparedQuery("SELECT * FROM " + tableName, null);
             ResultSet resultSet = dataVerificationResult.getResultSet();
             assertNotNull(resultSet, "Result set should not be null");
             assertTrue(resultSet.next(), "Result set should have at least one row");
@@ -187,7 +187,7 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         finally
         {
             //Drop the test table and close resources
-            DatabaseHandler.executeCommand("DROP TABLE IF EXISTS " + tableName);
+            DataAccessManager.executePreparedUpdate("DROP TABLE IF EXISTS " + tableName, null);
         }
         System.out.println("\nTEST FINISHED.");
     }
@@ -202,12 +202,12 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         {
             //Create a new table
             String createTableQuery = "CREATE TABLE " + tableName + " (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255))";
-            DatabaseHandler.executeCommand(createTableQuery);
+            DataAccessManager.executePreparedUpdate(createTableQuery, null);
 
             //Insert data into the table using executePreparedQuery
             String insertDataQuery = "INSERT INTO " + tableName + " (name) VALUES (?)";
             String[] parameters = {"John Doe"};
-            QueryResult queryResult = DatabaseHandler.executePreparedQuery(insertDataQuery, parameters,
+            QueryResult queryResult = DataAccessManager.executePreparedQuery(insertDataQuery, parameters,
                     Statement.RETURN_GENERATED_KEYS);
 
             //Verify data was inserted
@@ -232,7 +232,7 @@ public class DatabaseHandlerTest extends BaseHandlerTest
         finally
         {
             //Drop the test table and close resources
-            DatabaseHandler.executeCommand("DROP TABLE IF EXISTS " + tableName);
+            DataAccessManager.executePreparedUpdate("DROP TABLE IF EXISTS " + tableName, null);
         }
         System.out.println("\nTEST FINISHED.");
     }
@@ -250,7 +250,7 @@ public class DatabaseHandlerTest extends BaseHandlerTest
 
         //Call the method to execute the commands in the test SQL file
         assert testFile != null;
-        DatabaseHandler.executeSQLCommandsFromFile(testFile.getPath());
+        DataAccessManager.executeSQLCommandsFromFile(testFile.getPath());
 
         //Verify that the expected changes have been made to the database
         //For example, if the SQL file creates a table called "test_table"
@@ -267,7 +267,7 @@ public class DatabaseHandlerTest extends BaseHandlerTest
             assertEquals("value1", resultSet.getString("column1"));
             assertEquals("value2", resultSet.getString("column2"));
             //Clean up - drop the test_table and close resources
-            DatabaseHandler.executeCommand("DROP TABLE test_table");
+            DataAccessManager.executePreparedUpdate("DROP TABLE test_table", null);
             resultSet.close();
             statement.close();
         }
@@ -321,12 +321,12 @@ public class DatabaseHandlerTest extends BaseHandlerTest
     void testDatabaseExistsAndCreateDatabase()
     {
         System.out.println("\n6: Testing databaseExists and createDatabase methods...");
-        DatabaseHandler.executeCommand("drop database if exists " + LibraryManager.databaseName);
-        assertFalse(DatabaseHandler.databaseExists(LibraryManager.databaseName));
-        DatabaseHandler.setVerbose(false);
-        DatabaseHandler.createDatabase(LibraryManager.databaseName);
-        DatabaseHandler.setVerbose(true);
-        assertTrue(DatabaseHandler.databaseExists(LibraryManager.databaseName));
+        DataAccessManager.executePreparedUpdate("drop database if exists " + LibraryManager.databaseName, null);
+        assertFalse(DataAccessManager.databaseExists(LibraryManager.databaseName));
+        DataAccessManager.setVerbose(false);
+        DataAccessManager.createDatabase(LibraryManager.databaseName);
+        DataAccessManager.setVerbose(true);
+        assertTrue(DataAccessManager.databaseExists(LibraryManager.databaseName));
         System.out.println("\nTEST FINISHED.");
     }
 
@@ -347,7 +347,7 @@ public class DatabaseHandlerTest extends BaseHandlerTest
 
         //Execute the update.
         int rowsAffected = 0;
-        rowsAffected = DatabaseHandler.executeUpdate(sql, params);
+        rowsAffected = DataAccessManager.executePreparedUpdate(sql, params);
         //Verify that the update was successful.
         assertTrue(rowsAffected > 0);
 

@@ -1,11 +1,11 @@
 package dev.tias.librarydbms.control.entities.rental;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.control.entities.RentalHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.service.db.DatabaseConnection;
 import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.DatabaseConnection;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;
@@ -57,7 +57,7 @@ public abstract class BaseRentalHandlerTest
         setupTestData();
         ItemHandler.setup(); //Fills maps with items
         UserHandler.setup(); //Fills list with users
-        DatabaseHandler.setVerbose(false); //Get that thing to shut up
+        DataAccessManager.setVerbose(false); //Get that thing to shut up
 
         System.out.println("\nTest environment setup finished.");
     }
@@ -70,13 +70,13 @@ public abstract class BaseRentalHandlerTest
         try
         {
             connection = DatabaseConnection.setup();
-            DatabaseHandler.setConnection(connection);
-            DatabaseHandler.setVerbose(true); //For testing we want DBHandler to be Verboten
-            DatabaseHandler.executeCommand("drop database if exists " + testDatabaseName);
-            DatabaseHandler.executeCommand("create database " + testDatabaseName);
-            DatabaseHandler.executeCommand("use " + testDatabaseName);
-            DatabaseHandler.setVerbose(false);
-            DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
+            DataAccessManager.setConnection(connection);
+            DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
+            DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
+            DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
+            DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
+            DataAccessManager.setVerbose(false);
+            DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
         }
         catch (SQLException | ClassNotFoundException e)
         {
@@ -92,8 +92,8 @@ public abstract class BaseRentalHandlerTest
     {
         System.out.println("\nFilling tables with test data...");
 
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
-        DatabaseHandler.setVerbose(true);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
+        DataAccessManager.setVerbose(true);
 
         System.out.println("\nTest data setup finished.");
     }
@@ -107,12 +107,12 @@ public abstract class BaseRentalHandlerTest
         try
         {
             //Drop the test database
-            DatabaseHandler.executeCommand("DROP DATABASE IF EXISTS " + testDatabaseName);
+            DataAccessManager.executePreparedUpdate("DROP DATABASE IF EXISTS " + testDatabaseName, null);
 
             //Close the database connection
             if (connection != null && !connection.isClosed())
             {
-                DatabaseHandler.closeDatabaseConnection();
+                DataAccessManager.closeDatabaseConnection();
             }
         }
         catch (SQLException e)
@@ -154,7 +154,7 @@ public abstract class BaseRentalHandlerTest
                         String.valueOf(rental.getRentalID())
                 };
 
-                DatabaseHandler.executePreparedUpdate(query, params);
+                DataAccessManager.executePreparedUpdate(query, params);
             }
 
         }
@@ -210,7 +210,7 @@ public abstract class BaseRentalHandlerTest
                         String.valueOf(rental.getRentalID())
                 };
 
-                DatabaseHandler.executePreparedUpdate(query, params);
+                DataAccessManager.executePreparedUpdate(query, params);
             }
             catch (InvalidIDException e)
             {
@@ -254,7 +254,7 @@ public abstract class BaseRentalHandlerTest
                         String.valueOf(rental.getRentalID())
                 };
 
-                DatabaseHandler.executePreparedUpdate(query, params);
+                DataAccessManager.executePreparedUpdate(query, params);
             }
 
         }
@@ -267,13 +267,13 @@ public abstract class BaseRentalHandlerTest
     @AfterEach
     protected void resetItemsTable()
     {
-        DatabaseHandler.executeCommand("DELETE FROM rentals");
-        DatabaseHandler.executeCommand("ALTER TABLE rentals AUTO_INCREMENT = 1;");
-        DatabaseHandler.executeCommand("DELETE FROM literature");
-        DatabaseHandler.executeCommand("DELETE FROM films");
-        DatabaseHandler.executeCommand("DELETE FROM items");
-        DatabaseHandler.executeCommand("DELETE FROM users");
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/data/user_test_data.sql");
+        DataAccessManager.executePreparedUpdate("DELETE FROM rentals", null);
+        DataAccessManager.executePreparedUpdate("ALTER TABLE rentals AUTO_INCREMENT = 1;", null);
+        DataAccessManager.executePreparedUpdate("DELETE FROM literature", null);
+        DataAccessManager.executePreparedUpdate("DELETE FROM films", null);
+        DataAccessManager.executePreparedUpdate("DELETE FROM items", null);
+        DataAccessManager.executePreparedUpdate("DELETE FROM users", null);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/user_test_data.sql");
     }
 }

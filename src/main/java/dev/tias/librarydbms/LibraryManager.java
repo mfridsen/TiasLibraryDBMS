@@ -1,9 +1,9 @@
 package dev.tias.librarydbms;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 
 import java.sql.SQLException;
 
@@ -37,7 +37,7 @@ public class LibraryManager
      */
     public static void setup()
     {
-        DatabaseHandler.setup(false);
+        DataAccessManager.setup(false);
         UserHandler.setup();
         ItemHandler.setup();
         //RentalHandler.setup() //Might not be needed
@@ -49,9 +49,9 @@ public class LibraryManager
      */
     public static void exit(int status)
     {
-        if (DatabaseHandler.getConnection() != null)
+        if (DataAccessManager.getConnection() != null)
         { //Always close the connection to the database after use
-            DatabaseHandler.closeDatabaseConnection();
+            DataAccessManager.closeDatabaseConnection();
         }
         System.exit(status);
     }

@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.Classification;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.QueryResult;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;
@@ -56,7 +56,7 @@ public class ClassificationHandler
         {
             // Execute the query to retrieve all the ClassificationNames
             String query = "SELECT classificationName FROM classifications ORDER BY classificationID ASC";
-            try (QueryResult result = DatabaseHandler.executeQuery(query))
+            try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
             {
 
                 // Add the retrieved classificationNames to the ArrayList
@@ -68,8 +68,8 @@ public class ClassificationHandler
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve classifications from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve classifications from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -144,9 +144,9 @@ public class ClassificationHandler
         }
         catch (ConstructionException | InvalidIDException e)
         {
-            ExceptionHandler.HandleFatalException(
+            ExceptionManager.HandleFatalException(e,
                     String.format("Failed to create Classification with classificationName: " +
-                            "'%s' due to %s: %s", classificationName, e.getClass().getName(), e.getMessage()), e);
+                            "'%s' due to %s: %s", classificationName, e.getClass().getName(), e.getMessage()));
         }
 
         return newClassification;
@@ -167,7 +167,7 @@ public class ClassificationHandler
 
             // Execute query and get the generated classificationID, using try-with-resources.
             try (QueryResult queryResult =
-                         DatabaseHandler.executePreparedQuery(query, params, Statement.RETURN_GENERATED_KEYS))
+                         DataAccessManager.executePreparedQuery(query, params, Statement.RETURN_GENERATED_KEYS))
             {
                 ResultSet generatedKeys = queryResult.getStatement().getGeneratedKeys();
                 if (generatedKeys.next())
@@ -178,8 +178,8 @@ public class ClassificationHandler
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to save user to database due to " +
-                    e.getClass().getName() + ":" + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to save user to database due to " +
+                    e.getClass().getName() + ":" + e.getMessage());
         }
         return 0;
     }
@@ -208,7 +208,7 @@ public class ClassificationHandler
             String[] params = {String.valueOf(classificationID)};
 
             // Execute the query and store the result in a ResultSet.
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params))
             {
                 ResultSet resultSet = queryResult.getResultSet();
                 // If the ResultSet contains data, create a new Classification object using the retrieved classificationsName,
@@ -226,8 +226,8 @@ public class ClassificationHandler
         }
         catch (SQLException | ConstructionException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve user by ID from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve user by ID from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
         // Return null if not found
         return null;
@@ -314,7 +314,7 @@ public class ClassificationHandler
             String[] params = {String.valueOf(classificationToDelete.getClassificationID())};
 
             // Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             //Update the deleted field of the classification object
             classificationToDelete.setDeleted(true);
@@ -358,7 +358,7 @@ public class ClassificationHandler
             String[] params = {String.valueOf(classificationToRecover.getClassificationID())};
 
             // Execute the update
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
         }
         catch (NullEntityException | EntityNotFoundException | InvalidIDException e)
@@ -399,7 +399,7 @@ public class ClassificationHandler
             String[] params = {String.valueOf(classificationToDelete.getClassificationID())};
 
             // Execute the update
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             // Set booleans
             classificationToDelete.setDeleted(true);
@@ -455,7 +455,7 @@ public class ClassificationHandler
             };
 
             //Execute the update
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
         }
         catch (InvalidIDException | InvalidNameException e)
         {
@@ -501,7 +501,7 @@ public class ClassificationHandler
             String[] params = {classificationName};
 
             // Execute the query and store the result in a ResultSet
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params))
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params))
             {
 
                 ResultSet resultSet = queryResult.getResultSet();
@@ -523,8 +523,8 @@ public class ClassificationHandler
         }
         catch (SQLException | ConstructionException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve user by username from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve user by username from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
 
         }
         return null;

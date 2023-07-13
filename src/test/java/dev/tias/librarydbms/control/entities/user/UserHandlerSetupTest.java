@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.control.entities.user;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -60,9 +60,9 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
         String[] params1 = {"user1", "pass1", "PATRON", "email1@test.com", "5", "0", "0.0", "1", "0"};
         String[] params2 = {"user2", "pass2", "PATRON", "email2@test.com", "5", "0", "0.0", "1", "0"};
         String[] params3 = {"user3", "pass3", "PATRON", "email3@test.com", "5", "0", "0.0", "1", "0"};
-        DatabaseHandler.executePreparedUpdate(query, params1);
-        DatabaseHandler.executePreparedUpdate(query, params2);
-        DatabaseHandler.executePreparedUpdate(query, params3);
+        DataAccessManager.executePreparedUpdate(query, params1);
+        DataAccessManager.executePreparedUpdate(query, params2);
+        DataAccessManager.executePreparedUpdate(query, params3);
 
         //Call the setup method
         UserHandler.setup();

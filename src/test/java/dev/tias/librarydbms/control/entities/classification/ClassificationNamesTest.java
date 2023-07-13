@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control.entities.classification;
 
 import dev.tias.librarydbms.control.BaseHandlerTest;
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ClassificationHandler;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
@@ -77,9 +77,9 @@ public class ClassificationNamesTest extends BaseHandlerTest
         String[] params1 = {"Physics", "Scientific literature on the topic of physics", "0"};
         String[] params2 = {"Chemistry", "Scientific literature on the topic of chemistry", "0"};
         String[] params3 = {"Horror", "The best genre", "0"};
-        DatabaseHandler.executePreparedQuery(query, params1);
-        DatabaseHandler.executePreparedQuery(query, params2);
-        DatabaseHandler.executePreparedQuery(query, params3);
+        DataAccessManager.executePreparedQuery(query, params1);
+        DataAccessManager.executePreparedQuery(query, params2);
+        DataAccessManager.executePreparedQuery(query, params3);
 
 
         // Call the setup method

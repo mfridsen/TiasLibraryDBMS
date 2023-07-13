@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.service;
 
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.db.DatabaseConnectionTest;
-import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.service.db.DatabaseHandlerMetaDataTest;
+import dev.tias.librarydbms.service.db.MetaDataRetrieverTest;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
@@ -19,8 +19,8 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @SelectClasses({
         DatabaseConnectionTest.class,
-        DatabaseHandler.class,
-        DatabaseHandlerMetaDataTest.class,
+        DataAccessManager.class,
+        MetaDataRetrieverTest.class,
 })
 public class ServiceTestSuite
 {

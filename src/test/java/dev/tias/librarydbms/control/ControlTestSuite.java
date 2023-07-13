@@ -1,7 +1,5 @@
 package dev.tias.librarydbms.control;
 
-import dev.tias.librarydbms.service.db.DatabaseHandlerMetaDataTest;
-import dev.tias.librarydbms.service.db.DatabaseHandlerTest;
 import dev.tias.librarydbms.control.entities.item.ItemHandlerTestSuite;
 import dev.tias.librarydbms.control.entities.rental.RentalHandlerTestSuite;
 import dev.tias.librarydbms.control.entities.user.UserHandlerTestSuite;

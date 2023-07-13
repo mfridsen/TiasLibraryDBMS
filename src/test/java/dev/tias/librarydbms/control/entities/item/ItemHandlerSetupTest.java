@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control.entities.item;
 
 import dev.tias.librarydbms.control.BaseHandlerTest;
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.ItemHandler;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
@@ -79,7 +79,7 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
         for (String table : tablesToDelete)
         {
             String deleteCommand = "DELETE FROM " + table;
-            DatabaseHandler.executeCommand(deleteCommand);
+            DataAccessManager.executePreparedUpdate(deleteCommand, null);
         }
 
 
@@ -107,10 +107,10 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
 
         //Insert some items into the database without using the createNew methods,
         //because they automatically increment maps and list
-        DatabaseHandler.executePreparedQuery(query, params1);
-        DatabaseHandler.executePreparedQuery(query, params2);
-        DatabaseHandler.executePreparedQuery(query, params3);
-        DatabaseHandler.executePreparedQuery(query, params4);
+        DataAccessManager.executePreparedQuery(query, params1);
+        DataAccessManager.executePreparedQuery(query, params2);
+        DataAccessManager.executePreparedQuery(query, params3);
+        DataAccessManager.executePreparedQuery(query, params4);
 
         //Call the setup method
         ItemHandler.setup();

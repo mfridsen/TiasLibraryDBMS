@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.service.db;
 
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -29,11 +29,11 @@ public class MetaDataRetriever
      */
     public static int[] getAuthorMetaData()
     {
-        DatabaseHandler.checkConnection();
+        DataAccessManager.checkConnection();
 
         try
         {
-            DatabaseMetaData metaData = DatabaseHandler.getConnection().getMetaData();
+            DatabaseMetaData metaData = DataAccessManager.getConnection().getMetaData();
 
             //Get metadata for authorFirstname column
             ResultSet resultSet = metaData.getColumns(null, null,
@@ -58,8 +58,8 @@ public class MetaDataRetriever
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Couldn't retrieve Author Meta data due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Couldn't retrieve Author Meta data due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, but needed to compile
@@ -74,11 +74,11 @@ public class MetaDataRetriever
      */
     public static int[] getClassificationMetaData()
     {
-        DatabaseHandler.checkConnection();
+        DataAccessManager.checkConnection();
 
         try
         {
-            DatabaseMetaData metaData = DatabaseHandler.getConnection().getMetaData();
+            DatabaseMetaData metaData = DataAccessManager.getConnection().getMetaData();
 
             //Get metadata for classificationName column
             ResultSet resultSet = metaData.getColumns(null, null,
@@ -94,8 +94,8 @@ public class MetaDataRetriever
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Couldn't retrieve Classification Meta data due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Couldn't retrieve Classification Meta data due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, but needed to compile
@@ -109,11 +109,11 @@ public class MetaDataRetriever
      */
     public static int[] getItemMetaData()
     {
-        DatabaseHandler.checkConnection();
+        DataAccessManager.checkConnection();
 
         try
         {
-            DatabaseMetaData metaData = DatabaseHandler.getConnection().getMetaData();
+            DatabaseMetaData metaData = DataAccessManager.getConnection().getMetaData();
 
             //Get metadata for title column
             ResultSet resultSet = metaData.getColumns(null, null,
@@ -138,8 +138,8 @@ public class MetaDataRetriever
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Couldn't retrieve Item Meta data due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Couldn't retrieve Item Meta data due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, but needed to compile
@@ -153,11 +153,11 @@ public class MetaDataRetriever
      */
     public static int[] getLiteratureMetaData()
     {
-        DatabaseHandler.checkConnection();
+        DataAccessManager.checkConnection();
 
         try
         {
-            DatabaseMetaData metaData = DatabaseHandler.getConnection().getMetaData();
+            DatabaseMetaData metaData = DataAccessManager.getConnection().getMetaData();
 
             //Get metadata for title column
             ResultSet resultSet = metaData.getColumns(null, null,
@@ -172,8 +172,8 @@ public class MetaDataRetriever
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Couldn't retrieve Literature Meta data due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Couldn't retrieve Literature Meta data due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, but needed to compile
@@ -187,11 +187,11 @@ public class MetaDataRetriever
      */
     public static int[] getFilmMetaData()
     {
-        DatabaseHandler.checkConnection();
+        DataAccessManager.checkConnection();
 
         try
         {
-            DatabaseMetaData metaData = DatabaseHandler.getConnection().getMetaData();
+            DatabaseMetaData metaData = DataAccessManager.getConnection().getMetaData();
 
             //Get metadata for title column
             ResultSet resultSet = metaData.getColumns(null, null,
@@ -206,8 +206,8 @@ public class MetaDataRetriever
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Couldn't retrieve Literature Meta data due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Couldn't retrieve Literature Meta data due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, but needed to compile
@@ -223,11 +223,11 @@ public class MetaDataRetriever
      */
     public static int[] getUserMetaData()
     {
-        DatabaseHandler.checkConnection();
+        DataAccessManager.checkConnection();
 
         try
         {
-            DatabaseMetaData metaData = DatabaseHandler.getConnection().getMetaData();
+            DatabaseMetaData metaData = DataAccessManager.getConnection().getMetaData();
 
             //Get metadata for username column
             ResultSet resultSet = metaData.getColumns(null, null,
@@ -261,8 +261,8 @@ public class MetaDataRetriever
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Couldn't retrieve User Meta data due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Couldn't retrieve User Meta data due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, but needed to compile

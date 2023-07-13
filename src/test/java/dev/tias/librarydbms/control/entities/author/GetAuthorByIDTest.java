@@ -1,9 +1,9 @@
 package dev.tias.librarydbms.control.entities.author;
 
 import dev.tias.librarydbms.control.BaseHandlerTest;
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.AuthorHandler;
 import dev.tias.librarydbms.model.entities.Author;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
@@ -54,7 +54,8 @@ public class GetAuthorByIDTest extends BaseHandlerTest
             deletedAuthorID = deletedAuthor.getAuthorID();
 
             //Soft delete deletedUser
-            DatabaseHandler.executeCommand("UPDATE authors SET deleted = 1 WHERE authorname = 'validauthorname3';");
+            DataAccessManager.executePreparedUpdate("UPDATE authors SET deleted = 1 WHERE authorname = " +
+                    "'validauthorname3';", null);
         }
         catch (ConstructionException | InvalidIDException e)
         {

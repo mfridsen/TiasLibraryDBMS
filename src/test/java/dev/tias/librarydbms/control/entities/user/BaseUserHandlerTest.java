@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.control.entities.user;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.db.DatabaseConnection;
 import dev.tias.librarydbms.service.db.QueryResult;
 import org.junit.jupiter.api.AfterAll;
@@ -60,13 +60,13 @@ public abstract class BaseUserHandlerTest
         try
         {
             connection = DatabaseConnection.setup();
-            DatabaseHandler.setConnection(connection);
-            DatabaseHandler.setVerbose(true); //For testing we want DBHandler to be Verboten
-            DatabaseHandler.executeCommand("drop database if exists " + testDatabaseName);
-            DatabaseHandler.executeCommand("create database " + testDatabaseName);
-            DatabaseHandler.executeCommand("use " + testDatabaseName);
-            DatabaseHandler.setVerbose(false);
-            DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
+            DataAccessManager.setConnection(connection);
+            DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
+            DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
+            DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
+            DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
+            DataAccessManager.setVerbose(false);
+            DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
         }
         catch (SQLException | ClassNotFoundException e)
         {
@@ -80,8 +80,8 @@ public abstract class BaseUserHandlerTest
      */
     protected static void setupTestData()
     {
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/data/user_test_data.sql");
-        DatabaseHandler.setVerbose(true);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/user_test_data.sql");
+        DataAccessManager.setVerbose(true);
     }
 
     /**
@@ -103,12 +103,12 @@ public abstract class BaseUserHandlerTest
         try
         {
             //Drop the test database
-            DatabaseHandler.executeCommand("DROP DATABASE IF EXISTS " + testDatabaseName);
+            DataAccessManager.executePreparedUpdate("DROP DATABASE IF EXISTS " + testDatabaseName, null);
 
             //Close the database connection
             if (connection != null && !connection.isClosed())
             {
-                DatabaseHandler.closeDatabaseConnection();
+                DataAccessManager.closeDatabaseConnection();
             }
 
             //Reset UserHandler
@@ -133,15 +133,15 @@ public abstract class BaseUserHandlerTest
         //When a new record is inserted into the table, MySQL automatically increments the userID value,
         //regardless of whether old records are deleted. So, if the first user is deleted, the next user that is
         //created will have userID equal to 2, not 1.
-        DatabaseHandler.executeCommand("DELETE FROM users;");
-        DatabaseHandler.executeCommand("ALTER TABLE users AUTO_INCREMENT = 1;");
+        DataAccessManager.executePreparedUpdate("DELETE FROM users;", null);
+        DataAccessManager.executePreparedUpdate("ALTER TABLE users AUTO_INCREMENT = 1;", null);
     }
 
     protected static int getNumberOfUsers()
     {
         int numberOfUsers = 0;
 
-        try (QueryResult queryResult = DatabaseHandler.executePreparedQuery("SELECT COUNT(*) FROM users;", null))
+        try (QueryResult queryResult = DataAccessManager.executePreparedQuery("SELECT COUNT(*) FROM users;", null))
         {
             ResultSet resultSet = queryResult.getResultSet();
             if (resultSet.next())

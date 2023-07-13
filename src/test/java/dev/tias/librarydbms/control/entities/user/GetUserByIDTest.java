@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control.entities.user;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
 import dev.tias.librarydbms.control.entities.UserHandler;
 import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.CreationException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
@@ -63,7 +63,8 @@ public class GetUserByIDTest extends BaseUserHandlerTest
             deletedUserID = deletedUser.getUserID();
 
             //Soft delete deletedUser
-            DatabaseHandler.executeCommand("UPDATE users SET deleted = 1 WHERE username = 'validusername3';");
+            DataAccessManager.executePreparedUpdate("UPDATE users SET deleted = 1 WHERE username = 'validusername3';",
+                    null);
         }
         catch (CreationException | ConstructionException | InvalidIDException e)
         {

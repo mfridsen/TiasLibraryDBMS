@@ -1,11 +1,11 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.Film;
 import dev.tias.librarydbms.model.entities.Item;
 import dev.tias.librarydbms.model.entities.Literature;
 import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
 import dev.tias.librarydbms.view.buttons.ButtonRenderer;
@@ -52,7 +52,7 @@ public class ItemOverdueGUI extends GUI
             }
             catch (InvalidIDException | RetrievalException e) //Fatal
             {
-                ExceptionHandler.HandleFatalException(e);
+                ExceptionManager.HandleFatalException(e);
             }
         }
 

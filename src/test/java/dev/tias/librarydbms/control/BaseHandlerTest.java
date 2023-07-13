@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.control;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.db.DatabaseConnection;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +30,7 @@ public abstract class BaseHandlerTest
     @AfterAll
     static protected void tearDown()
     {
-        DatabaseHandler.closeDatabaseConnection();
+        DataAccessManager.closeDatabaseConnection();
     }
 
     /**
@@ -56,18 +56,18 @@ public abstract class BaseHandlerTest
     throws SQLException, ClassNotFoundException
     {
         connection = DatabaseConnection.setup();
-        DatabaseHandler.setConnection(connection);
-        DatabaseHandler.setVerbose(true); //For testing we want DBHandler to be Verboten
-        DatabaseHandler.executeCommand("drop database if exists " + testDatabaseName);
-        DatabaseHandler.executeCommand("create database " + testDatabaseName);
-        DatabaseHandler.executeCommand("use " + testDatabaseName);
-        DatabaseHandler.setVerbose(false);
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
+        DataAccessManager.setConnection(connection);
+        DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
+        DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
+        DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
+        DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
+        DataAccessManager.setVerbose(false);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
     protected void setupTestData()
     {
-        DatabaseHandler.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
-        DatabaseHandler.setVerbose(true);
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
+        DataAccessManager.setVerbose(true);
     }
 }

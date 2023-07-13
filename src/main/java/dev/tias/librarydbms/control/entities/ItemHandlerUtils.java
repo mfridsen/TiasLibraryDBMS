@@ -1,10 +1,10 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.*;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
-import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -104,8 +104,8 @@ public class ItemHandlerUtils
         }
         catch (RetrievalException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to validate Item by due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to validate Item by due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -234,8 +234,8 @@ public class ItemHandlerUtils
         }
         catch (ConstructionException | SQLException | InvalidIDException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve Literature by ID due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve Literature by ID due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         return literature;
@@ -274,8 +274,8 @@ public class ItemHandlerUtils
         }
         catch (ConstructionException | SQLException | InvalidIDException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve Film by ID due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve Film by ID due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         return film;

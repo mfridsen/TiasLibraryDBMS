@@ -10,23 +10,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @date 5/29/2023
  * @contact matfir-1@student.ltu.se
  * <p>
- * Tests the Meta Data retrieval methods in DatabaseHandler.
+ * Tests the Meta Data retrieval methods in DataAccessManager.
  * <p>
  * NOTE: These tests will fail if rules of any related tables are changed.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class DatabaseHandlerMetaDataTest
+public class MetaDataRetrieverTest
 {
     @BeforeAll
     static void setUp()
     {
-        DatabaseHandler.setup(false);
+        DataAccessManager.setup(false);
     }
 
     @AfterAll
     static void tearDown()
     {
-        DatabaseHandler.closeDatabaseConnection();
+        DataAccessManager.closeDatabaseConnection();
     }
 
     /**

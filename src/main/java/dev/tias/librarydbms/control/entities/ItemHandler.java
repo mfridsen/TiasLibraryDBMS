@@ -1,13 +1,13 @@
 package dev.tias.librarydbms.control.entities;
 
-import dev.tias.librarydbms.service.db.DatabaseHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
-import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.model.entities.*;
+import dev.tias.librarydbms.service.db.DataAccessManager;
+import dev.tias.librarydbms.service.db.QueryResult;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
-import dev.tias.librarydbms.service.exceptions.custom.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -224,7 +224,7 @@ public class ItemHandler
     {
         //Execute the query to retrieve data
         String query = "SELECT title, available, barcode FROM items ORDER BY " + "title ASC";
-        try (QueryResult result = DatabaseHandler.executeQuery(query))
+        try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
         {
             while (result.getResultSet().next())
             {
@@ -246,8 +246,8 @@ public class ItemHandler
         }
         catch (SQLException e) //This is fatal
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve titles and barcodes from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve titles and barcodes from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
         finally
         {
@@ -391,7 +391,7 @@ public class ItemHandler
      * availability status, and deletion status.
      * <p>
      * If a SQLException occurs during the operation, the method will throw a fatal exception
-     * that is handled by the ExceptionHandler.
+     * that is handled by the ExceptionManager.
      * <p>
      * Note: The returned value of 0 is a fallback and should never be reached in normal circumstances
      * as any SQLException will halt the execution of the program.
@@ -418,7 +418,7 @@ public class ItemHandler
             };
 
             //Execute query and get the generated itemID
-            try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(query, params,
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, params,
                     Statement.RETURN_GENERATED_KEYS))
             {
                 ResultSet generatedKeys = queryResult.getStatement().getGeneratedKeys();
@@ -430,8 +430,8 @@ public class ItemHandler
         }
         catch (SQLException e) //Fatal
         {
-            ExceptionHandler.HandleFatalException("Failed to save Item to database due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to save Item to database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //Won't reach, needed for compilation
@@ -447,7 +447,7 @@ public class ItemHandler
     {
         //Save to literature table
         String query = "INSERT INTO literature (literatureID, ISBN) VALUES (?, ?)";
-        DatabaseHandler.executePreparedQuery(query,
+        DataAccessManager.executePreparedQuery(query,
                 new String[]{
                         String.valueOf(literature.getItemID()),
                         literature.getISBN()});
@@ -466,7 +466,7 @@ public class ItemHandler
 
         //Save to films table
         String query = "INSERT INTO films (filmID, ageRating, countryOfProduction, actors) VALUES (?, ?, ?, ?)";
-        DatabaseHandler.executePreparedQuery(query,
+        DataAccessManager.executePreparedQuery(query,
                 new String[]{
                         String.valueOf(film.getItemID()),
                         String.valueOf(film.getAgeRating()),
@@ -518,7 +518,7 @@ public class ItemHandler
             };
 
             // Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             // Depending on the itemType, update the appropriate details in either the films or literature table
             if (item instanceof Literature) updateLiterature((Literature) item);
@@ -529,8 +529,8 @@ public class ItemHandler
         }
         catch (InvalidIDException | RetrievalException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to update Item due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to update Item due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -546,7 +546,7 @@ public class ItemHandler
                 literature.getISBN(),
                 String.valueOf(literature.getItemID()) // Literature's itemID is same as literatureID
         };
-        DatabaseHandler.executePreparedUpdate(updateLiteratureQuery, literatureParams);
+        DataAccessManager.executePreparedUpdate(updateLiteratureQuery, literatureParams);
     }
 
     /**
@@ -568,7 +568,7 @@ public class ItemHandler
                 listOfActors, // actors is a string
                 String.valueOf(film.getItemID()) // Film's itemID is same as filmID
         };
-        DatabaseHandler.executePreparedUpdate(updateFilmQuery, filmParams);
+        DataAccessManager.executePreparedUpdate(updateFilmQuery, filmParams);
     }
 
     /**
@@ -620,7 +620,7 @@ public class ItemHandler
             String[] params = {String.valueOf(itemToDelete.getItemID())};
 
             // Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             // Update the deleted field of the item object
             itemToDelete.setDeleted(true);
@@ -650,7 +650,7 @@ public class ItemHandler
             String[] params = {String.valueOf(itemToRecover.getItemID())};
 
             // Execute the update.
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             // Update the deleted field of the item object
             itemToRecover.setDeleted(false);
@@ -694,7 +694,7 @@ public class ItemHandler
             String[] params = new String[]{String.valueOf(item.getItemID())};
 
             // Execute the update //TODO-prio handle cascades in rentals
-            DatabaseHandler.executePreparedUpdate(sql, params);
+            DataAccessManager.executePreparedUpdate(sql, params);
 
             // Decrement the count of the old title. Remove the entry if the count reaches 0
             decrementTitle(oldTitle);
@@ -704,8 +704,8 @@ public class ItemHandler
         }
         catch (InvalidIDException | RetrievalException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to delete Item due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to delete Item due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
@@ -721,7 +721,7 @@ public class ItemHandler
         String[] params = new String[]{String.valueOf(item.getItemID())};
 
         // Execute the update
-        DatabaseHandler.executePreparedUpdate(sql, params);
+        DataAccessManager.executePreparedUpdate(sql, params);
     }
 
     /**
@@ -736,7 +736,7 @@ public class ItemHandler
         String[] params = new String[]{String.valueOf(item.getItemID())};
 
         // Execute the update
-        DatabaseHandler.executePreparedUpdate(sql, params);
+        DataAccessManager.executePreparedUpdate(sql, params);
     }
 
     //RETRIEVING -------------------------------------------------------------------------------------------------------
@@ -759,7 +759,7 @@ public class ItemHandler
                 "LEFT JOIN literature ON items.itemID = literature.literatureID " +
                 (sqlSuffix == null ? "" : " " + sqlSuffix);
 
-        try (QueryResult queryResult = DatabaseHandler.executePreparedQuery(sql, params, settings))
+        try (QueryResult queryResult = DataAccessManager.executePreparedQuery(sql, params, settings))
         {
             //Retrieve the ResultSet from the QueryResult
             ResultSet resultSet = queryResult.getResultSet();
@@ -775,8 +775,8 @@ public class ItemHandler
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to retrieve Items due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve Items due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
         return items;
     }
@@ -969,7 +969,7 @@ public class ItemHandler
 
         try
         {
-            QueryResult queryResult = DatabaseHandler.executePreparedQuery(sql, params);
+            QueryResult queryResult = DataAccessManager.executePreparedQuery(sql, params);
             try (queryResult)
             {
                 if (queryResult.getResultSet().next())
@@ -978,8 +978,8 @@ public class ItemHandler
         }
         catch (SQLException e)
         {
-            ExceptionHandler.HandleFatalException("Failed to get Item title by ID due to " +
-                    e.getClass().getName() + ": " + e.getMessage(), e);
+            ExceptionManager.HandleFatalException(e, "Failed to get Item title by ID due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
         }
 
         //If no item title was found

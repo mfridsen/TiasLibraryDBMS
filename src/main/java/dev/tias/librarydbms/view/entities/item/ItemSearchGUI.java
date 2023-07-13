@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.service.exceptions.ExceptionHandler;
 import dev.tias.librarydbms.model.entities.Item;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 import dev.tias.librarydbms.service.exceptions.custom.RetrievalException;
@@ -227,7 +227,7 @@ public class ItemSearchGUI extends GUI
         }
         catch (InvalidIDException | RetrievalException e)
         {
-            ExceptionHandler.HandleFatalException(e);
+            ExceptionManager.HandleFatalException(e);
         }
 
         return item;
