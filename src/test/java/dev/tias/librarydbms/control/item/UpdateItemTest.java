@@ -37,7 +37,7 @@ public class UpdateItemTest extends BaseHandlerTest
     @Order(1)
     void testUpdateItem_ValidInput()
     {
-        System.out.println("\n1: Testing updateItem method with valid input...");
+        System.out.print("\n1: Testing updateItem method with valid input...");
 
         try
         {
@@ -68,7 +68,7 @@ public class UpdateItemTest extends BaseHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class UpdateItemTest extends BaseHandlerTest
     @Order(2)
     void testUpdateItem_NonExistingItem()
     {
-        System.out.println("\n2: Testing updateItem method with non-existing item...");
+        System.out.print("\n2: Testing updateItem method with non-existing item...");
 
         try
         {
@@ -98,7 +98,7 @@ public class UpdateItemTest extends BaseHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -108,7 +108,7 @@ public class UpdateItemTest extends BaseHandlerTest
     @Order(3)
     void testUpdateItem_FilmItem()
     {
-        System.out.println("\n3: Testing updateItem method with film item...");
+        System.out.print("\n3: Testing updateItem method with film item...");
 
         try
         {
@@ -138,7 +138,7 @@ public class UpdateItemTest extends BaseHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -148,7 +148,7 @@ public class UpdateItemTest extends BaseHandlerTest
     @Order(4)
     void testUpdateItem_LiteratureItem()
     {
-        System.out.println("\n4: Testing updateItem method with literature item...");
+        System.out.print("\n4: Testing updateItem method with literature item...");
 
         try
         {
@@ -179,7 +179,7 @@ public class UpdateItemTest extends BaseHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
 }

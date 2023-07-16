@@ -52,7 +52,7 @@ public class ModelTestSuite
     @BeforeAll
     public static void setUp()
     {
-        System.out.println("!!DEBUG PRINT!! SETTING UP MODEL TEST SUITE");
+        System.out.print("!!DEBUG PRINT!! SETTING UP MODEL TEST SUITE");
         logger.info("Model Test Suite Start.");
         startTime = System.currentTimeMillis();
     }
@@ -60,7 +60,7 @@ public class ModelTestSuite
     @AfterAll
     public static void tearDown()
     {
-        System.out.println("!!DEBUG PRINT!! TEARING DOWN MODEL TEST SUITE");
+        System.out.print("!!DEBUG PRINT!! TEARING DOWN MODEL TEST SUITE");
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         logger.info("Model Test Suite End. Model Test Suite time: " + duration + "ms");

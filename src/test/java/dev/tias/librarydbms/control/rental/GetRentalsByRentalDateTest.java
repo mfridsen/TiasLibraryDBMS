@@ -39,7 +39,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
     @Order(37)
     void testGetRentalsByRentalDate_InvalidDate()
     {
-        System.out.println("\n37: Testing getRentalsByRentalDate method with invalid date...");
+        System.out.print("\n37: Testing getRentalsByRentalDate method with invalid date...");
 
         LocalDateTime invalidDate = null;
 
@@ -51,7 +51,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
         assertThrows(InvalidDateException.class, () -> RentalHandler.getRentalsByRentalDate(futureDate),
                 "Expected InvalidDateException to be thrown, but it didn't");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -62,7 +62,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
     @Order(38)
     void testGetRentalsByRentalDate_NoRentalsFound()
     {
-        System.out.println("\n3: Testing getRentalsByRentalDate method with a date that doesn't match any rentals...");
+        System.out.print("\n3: Testing getRentalsByRentalDate method with a date that doesn't match any rentals...");
 
         LocalDateTime dateWithNoRentals = LocalDateTime.now().minusDays(
                 1); //Assuming no rentals are made 1 day in the past
@@ -80,7 +80,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
             fail("Exception occurred during test: " + e.getMessage());
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -91,7 +91,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
     @Order(39)
     void testGetRentalsByRentalDate_OneRentalFound()
     {
-        System.out.println("\n39: Testing getRentalsByRentalDate method with a date matching a single rental...");
+        System.out.print("\n39: Testing getRentalsByRentalDate method with a date matching a single rental...");
 
         // Assuming a rental was made today
         LocalDateTime dateWithOneRental = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
@@ -111,7 +111,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
             fail("Exception occurred during test: " + e.getMessage());
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -122,7 +122,7 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
     @Order(40)
     void testGetRentalsByRentalDate_MultipleRentalsFound()
     {
-        System.out.println("\n40: Testing getRentalsByRentalDate method with a date matching multiple rentals...");
+        System.out.print("\n40: Testing getRentalsByRentalDate method with a date matching multiple rentals...");
 
         // Assuming multiple rentals were made today
         LocalDateTime dateWithMultipleRentals = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
@@ -151,6 +151,6 @@ public class GetRentalsByRentalDateTest extends BaseRentalHandlerTest
             fail("Exception occurred during test: " + e.getMessage());
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

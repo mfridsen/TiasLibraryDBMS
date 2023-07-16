@@ -30,7 +30,7 @@ public class AuthorCopyTest
     @Order(1)
     void testAuthorCopy_ValidData()
     {
-        System.out.println("\n1: Testing Author Copy Constructor with valid Author object...");
+        System.out.print("\n1: Testing Author Copy Constructor with valid Author object...");
 
         int id = 1;
         String firstName = "John";
@@ -59,7 +59,7 @@ public class AuthorCopyTest
             fail("Author copy failed with valid data. Exception: " + e.getMessage());
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -70,13 +70,13 @@ public class AuthorCopyTest
     @Order(2)
     void testAuthorCopy_NullAuthor()
     {
-        System.out.println("\n2: Testing Author Copy Constructor with null Author object...");
+        System.out.print("\n2: Testing Author Copy Constructor with null Author object...");
 
         Author originalAuthor = null;
 
         assertThrows(NullPointerException.class, () -> new Author(originalAuthor),
                 "Expected NullPointerException for null author");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

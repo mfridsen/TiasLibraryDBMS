@@ -45,7 +45,7 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
     @Order(11)
     void testGetAllRentals_EmptyRentalsTable()
     {
-        System.out.println("\n11: Testing getAllRentals method with an empty database...");
+        System.out.print("\n11: Testing getAllRentals method with an empty database...");
 
         // Clear the rentals table in the database
         DataAccessManager.executePreparedUpdate("DELETE FROM rentals", null);
@@ -55,7 +55,7 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
         actualRentals = RentalHandler.getAllRentals();
         assertEquals(expectedRentals, actualRentals);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -77,7 +77,7 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
     @Order(12)
     void testGetAllRentals_PopulatedRentalsTable_OneRental()
     {
-        System.out.println("\n12: Testing getAllRentals method with some rentals in the database...");
+        System.out.print("\n12: Testing getAllRentals method with some rentals in the database...");
 
         try
         {
@@ -98,7 +98,7 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -120,7 +120,7 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
     @Order(13)
     void testGetAllRentals_PopulatedRentalsTable_MultipleRentals()
     {
-        System.out.println("\n13: Testing getAllRentals method with some rentals in the database...");
+        System.out.print("\n13: Testing getAllRentals method with some rentals in the database...");
 
         try
         {
@@ -142,6 +142,6 @@ public class GetAllRentalsTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

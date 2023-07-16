@@ -29,7 +29,7 @@ public class ClassificationCopyTest
     @Order(1)
     void testCopyConstructor_ValidData()
     {
-        System.out.println("\n1: Testing the copy constructor of the Classification class with valid data...");
+        System.out.print("\n1: Testing the copy constructor of the Classification class with valid data...");
 
         try
         {
@@ -52,6 +52,6 @@ public class ClassificationCopyTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

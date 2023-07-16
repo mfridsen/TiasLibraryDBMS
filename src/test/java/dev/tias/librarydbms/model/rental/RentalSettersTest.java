@@ -35,7 +35,7 @@ public class RentalSettersTest
     @Order(1)
     void testSetRentalID()
     {
-        System.out.println("\n1: Testing setRentalID...");
+        System.out.print("\n1: Testing setRentalID...");
 
         try
         {
@@ -51,14 +51,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(2)
     void testSetUserID()
     {
-        System.out.println("\n2: Testing setUserID...");
+        System.out.print("\n2: Testing setUserID...");
 
         try
         {
@@ -74,14 +74,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(3)
     void testSetItemID()
     {
-        System.out.println("\n3: Testing setItemID...");
+        System.out.print("\n3: Testing setItemID...");
 
         try
         {
@@ -97,14 +97,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(4)
     void testSetRentalDate()
     {
-        System.out.println("\n4: Testing setRentalDate...");
+        System.out.print("\n4: Testing setRentalDate...");
 
         try
         {
@@ -122,14 +122,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(5)
     void testSetRentalDueDate()
     {
-        System.out.println("\n5: Testing setRentalDueDate...");
+        System.out.print("\n5: Testing setRentalDueDate...");
 
         try
         {
@@ -148,14 +148,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(6)
     void testSetUsername()
     {
-        System.out.println("\n6: Testing setUsername...");
+        System.out.print("\n6: Testing setUsername...");
 
         try
         {
@@ -171,14 +171,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(7)
     void testSetItemTitle()
     {
-        System.out.println("\n7: Testing setItemTitle...");
+        System.out.print("\n7: Testing setItemTitle...");
 
         try
         {
@@ -194,14 +194,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(8)
     void testSetItemType()
     {
-        System.out.println("\n8: Testing setItemType...");
+        System.out.print("\n8: Testing setItemType...");
 
         try
         {
@@ -217,14 +217,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(9)
     void testSetRentalReturnDate()
     {
-        System.out.println("\n9: Testing setRentalReturnDate...");
+        System.out.print("\n9: Testing setRentalReturnDate...");
 
         try
         {
@@ -242,14 +242,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(10)
     void testSetLateFee()
     {
-        System.out.println("\n10: Testing setLateFee...");
+        System.out.print("\n10: Testing setLateFee...");
 
         try
         {
@@ -266,14 +266,14 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(11)
     void testSetReceipt()
     {
-        System.out.println("\n11: Testing setReceipt...");
+        System.out.print("\n11: Testing setReceipt...");
 
         try
         {
@@ -287,6 +287,6 @@ public class RentalSettersTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

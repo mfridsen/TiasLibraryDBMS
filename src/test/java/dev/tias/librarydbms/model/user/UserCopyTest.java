@@ -29,7 +29,7 @@ public class UserCopyTest
     @Order(1)
     void testUserCopy()
     {
-        System.out.println("\n1: Testing User Copy Constructor...");
+        System.out.print("\n1: Testing User Copy Constructor...");
 
         try
         {
@@ -71,6 +71,6 @@ public class UserCopyTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

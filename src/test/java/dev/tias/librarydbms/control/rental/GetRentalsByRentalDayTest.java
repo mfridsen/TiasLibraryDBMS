@@ -34,12 +34,12 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(41)
     void testGetRentalsByRentalDay_NullRentalDay()
     {
-        System.out.println("\n41: Testing getRentalsByRentalDay method with null rental day...");
+        System.out.print("\n41: Testing getRentalsByRentalDay method with null rental day...");
 
         assertThrows(InvalidDateException.class, () -> RentalHandler.getRentalsByRentalDay(null),
                 "getRentalsByRentalDay should throw InvalidDateException when rentalDay is null");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -50,14 +50,14 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(42)
     void testGetRentalsByRentalDay_FutureRentalDay()
     {
-        System.out.println("\n42: Testing getRentalsByRentalDay method with future rental day...");
+        System.out.print("\n42: Testing getRentalsByRentalDay method with future rental day...");
 
         LocalDate futureDate = LocalDate.now().plusDays(1);
 
         assertThrows(InvalidDateException.class, () -> RentalHandler.getRentalsByRentalDay(futureDate),
                 "getRentalsByRentalDay should throw InvalidDateException when rentalDay is in the future");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -68,7 +68,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(43)
     void testGetRentalsByRentalDay_NoExistingRentals()
     {
-        System.out.println("\n43: Testing getRentalsByRentalDay method with no existing rentals...");
+        System.out.print("\n43: Testing getRentalsByRentalDay method with no existing rentals...");
 
         LocalDate rentalDay = LocalDate.now();
 
@@ -84,7 +84,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -95,7 +95,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(44)
     void testGetRentalsByRentalDay_NoRentalsOnDesiredDate()
     {
-        System.out.println(
+        System.out.print(
                 "\n44: Testing getRentalsByRentalDay method with rentals existing, but none on desired date...");
 
         LocalDate rentalDay = LocalDate.now();
@@ -115,7 +115,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -126,7 +126,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(45)
     void testGetRentalsByRentalDay_OneRentalOnDesiredDate()
     {
-        System.out.println(
+        System.out.print(
                 "\n45: Testing getRentalsByRentalDay method with 5 existing rentals and 1 on desired date...");
 
         LocalDate rentalDay = LocalDate.now();
@@ -146,7 +146,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -157,7 +157,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(46)
     void testGetRentalsByRentalDay_ThreeRentalsOnDesiredDate()
     {
-        System.out.println(
+        System.out.print(
                 "\n46: Testing getRentalsByRentalDay method with 5 existing rentals and 3 on desired date...");
 
         LocalDate rentalDay = LocalDate.now();
@@ -177,7 +177,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -188,7 +188,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(47)
     void testGetRentalsByRentalDay_AllRentalsOnDesiredDate()
     {
-        System.out.println(
+        System.out.print(
                 "\n47: Testing getRentalsByRentalDay method with 5 existing rentals and all on desired date...");
 
         LocalDate rentalDay = LocalDate.now();
@@ -208,7 +208,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -219,7 +219,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(48)
     void testGetRentalsByRentalDay_SameDateDifferentTimes()
     {
-        System.out.println(
+        System.out.print(
                 "\n48: Testing getRentalsByRentalDay method with rentals having same date but different times...");
 
         LocalDate rentalDay = LocalDate.now();
@@ -239,7 +239,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -250,7 +250,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
     @Order(49)
     void testGetRentalsByRentalDay_BeforeExistingRentals()
     {
-        System.out.println(
+        System.out.print(
                 "\n49: Testing getRentalsByRentalDay method with a rental day before any existing rentals...");
 
         LocalDate rentalDay = LocalDate.now().minusDays(5);
@@ -270,7 +270,7 @@ public class GetRentalsByRentalDayTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
 }

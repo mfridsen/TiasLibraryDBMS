@@ -66,7 +66,7 @@ public class ClassificationNamesTest extends BaseHandlerTest
     @Order(3)
     void testSetup_WithSomeClassificationsInDatabase()
     {
-        System.out.println("\n8: Testing setup method with some classifications in the database...");
+        System.out.print("\n8: Testing setup method with some classifications in the database...");
 
         // Check that storedClassificationNames is empty
         Assertions.assertEquals(0, ClassificationHandler.getStoredClassificationNames().size());
@@ -88,7 +88,7 @@ public class ClassificationNamesTest extends BaseHandlerTest
         // Verify that there are the excepted amount of classifications in stored classification.
         Assertions.assertEquals(3, ClassificationHandler.getStoredClassificationNames().size());
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
 
     }
 }

@@ -54,7 +54,7 @@ public class UserSettersTest
     @BeforeAll
     static void setUp()
     {
-        System.out.println("Setting up User object for tests...");
+        System.out.print("Setting up User object for tests...");
 
         try
         {
@@ -68,7 +68,7 @@ public class UserSettersTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nSETUP FINISHED.");
+        System.out.print("\nSETUP FINISHED.");
     }
 
     /**
@@ -96,12 +96,12 @@ public class UserSettersTest
     @Order(1)
     void testUserSetters_SetUserID_ValidID()
     {
-        System.out.println("\n1: Testing setUserID with valid userID...");
+        System.out.print("\n1: Testing setUserID with valid userID...");
 
         assertDoesNotThrow(() -> user.setUserID(validUserID2));
         assertEquals(validUserID2, user.getUserID());
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -111,11 +111,11 @@ public class UserSettersTest
     @Order(2)
     void testUserSetters_SetUserID_InvalidID()
     {
-        System.out.println("\n2: Testing setUserID with valid userID...");
+        System.out.print("\n2: Testing setUserID with valid userID...");
 
         assertThrows(InvalidIDException.class, () -> user.setUserID(0));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -125,12 +125,12 @@ public class UserSettersTest
     @Order(3)
     void testUserSetters_SetUsername_ValidUsername()
     {
-        System.out.println("\n3: Testing setUsername with valid username...");
+        System.out.print("\n3: Testing setUsername with valid username...");
 
         assertDoesNotThrow(() -> user.setUsername(validUsername2));
         assertEquals(validUsername2, user.getUsername());
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -140,11 +140,11 @@ public class UserSettersTest
     @Order(4)
     void testUserSetters_SetUsername_NullUsername()
     {
-        System.out.println("\n4: Testing setUsername with null username...");
+        System.out.print("\n4: Testing setUsername with null username...");
 
         assertThrows(InvalidNameException.class, () -> user.setUsername(null));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -154,11 +154,11 @@ public class UserSettersTest
     @Order(5)
     void testUserSetters_SetUsername_EmptyUsername()
     {
-        System.out.println("\n5: Testing setUsername with empty username...");
+        System.out.print("\n5: Testing setUsername with empty username...");
 
         assertThrows(InvalidNameException.class, () -> user.setUsername(""));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -168,11 +168,11 @@ public class UserSettersTest
     @Order(6)
     void testUserSetters_SetUsername_ShortUsername()
     {
-        System.out.println("\n6: Testing setUsername with short username...");
+        System.out.print("\n6: Testing setUsername with short username...");
 
         assertThrows(InvalidNameException.class, () -> user.setUsername(shortUsername));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -182,11 +182,11 @@ public class UserSettersTest
     @Order(7)
     void testUserSetters_SetUsername_LongUsername()
     {
-        System.out.println("\n7: Testing setUsername with long username...");
+        System.out.print("\n7: Testing setUsername with long username...");
 
         assertThrows(InvalidNameException.class, () -> user.setUsername(longUsername));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -196,11 +196,11 @@ public class UserSettersTest
     @Order(8)
     void testUserSetters_SetPassword_NullPassword()
     {
-        System.out.println("\n8: Testing setPassword with null password...");
+        System.out.print("\n8: Testing setPassword with null password...");
 
         assertThrows(InvalidPasswordException.class, () -> user.setPassword(null));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -210,11 +210,11 @@ public class UserSettersTest
     @Order(9)
     void testUserSetters_SetPassword_EmptyPassword()
     {
-        System.out.println("\n9: Testing setPassword with empty password...");
+        System.out.print("\n9: Testing setPassword with empty password...");
 
         assertThrows(InvalidPasswordException.class, () -> user.setPassword(""));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -224,11 +224,11 @@ public class UserSettersTest
     @Order(10)
     void testUserSetters_SetPassword_ShortPassword()
     {
-        System.out.println("\n10: Testing setPassword with short password...");
+        System.out.print("\n10: Testing setPassword with short password...");
 
         assertThrows(InvalidPasswordException.class, () -> user.setPassword(shortPassword));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -238,11 +238,11 @@ public class UserSettersTest
     @Order(11)
     void testUserSetters_SetPassword_LongPassword()
     {
-        System.out.println("\n11: Testing setPassword with long password...");
+        System.out.print("\n11: Testing setPassword with long password...");
 
         assertThrows(InvalidPasswordException.class, () -> user.setPassword(longPassword));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -252,13 +252,13 @@ public class UserSettersTest
     @Order(12)
     void testUserSetters_SetUserType_ValidType()
     {
-        System.out.println("\n12: Testing setUserType with valid type, also verifying updates to user...");
+        System.out.print("\n12: Testing setUserType with valid type, also verifying updates to user...");
 
         assertDoesNotThrow(() -> user.setUserType(User.UserType.RESEARCHER));
         assertEquals(User.getDefaultAllowedRentals(User.UserType.RESEARCHER), user.getAllowedRentals());
         reset(); //Reset the object to original state
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -268,11 +268,11 @@ public class UserSettersTest
     @Order(13)
     void testUserSetters_SetUserType_NullUserType()
     {
-        System.out.println("\n13: Testing setUserType with null userType...");
+        System.out.print("\n13: Testing setUserType with null userType...");
 
         assertThrows(InvalidTypeException.class, () -> user.setUserType(null));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -282,12 +282,12 @@ public class UserSettersTest
     @Order(14)
     void testUserSetters_SetEmail_ValidEmail()
     {
-        System.out.println("\n14: Testing setEmail with valid email...");
+        System.out.print("\n14: Testing setEmail with valid email...");
 
         assertDoesNotThrow(() -> user.setEmail(validEmail2));
         assertEquals(validEmail2, user.getEmail());
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -297,11 +297,11 @@ public class UserSettersTest
     @Order(15)
     void testUserSetters_SetEmail_NullEmail()
     {
-        System.out.println("\n15: Testing setEmail with null email...");
+        System.out.print("\n15: Testing setEmail with null email...");
 
         assertThrows(InvalidEmailException.class, () -> user.setEmail(null));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -311,11 +311,11 @@ public class UserSettersTest
     @Order(16)
     void testUserSetters_SetEmail_EmptyEmail()
     {
-        System.out.println("\n16: Testing setEmail with empty email...");
+        System.out.print("\n16: Testing setEmail with empty email...");
 
         assertThrows(InvalidEmailException.class, () -> user.setEmail(""));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -325,11 +325,11 @@ public class UserSettersTest
     @Order(17)
     void testUserSetters_SetEmail_ShortEmail()
     {
-        System.out.println("\n17: Testing setEmail with short email...");
+        System.out.print("\n17: Testing setEmail with short email...");
 
         assertThrows(InvalidEmailException.class, () -> user.setEmail(shortEmail));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -339,11 +339,11 @@ public class UserSettersTest
     @Order(18)
     void testUserSetters_SetEmail_LongEmail()
     {
-        System.out.println("\n18: Testing setEmail with long email...");
+        System.out.print("\n18: Testing setEmail with long email...");
 
         assertThrows(InvalidEmailException.class, () -> user.setEmail(longEmail));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -353,11 +353,11 @@ public class UserSettersTest
     @Order(19)
     void testUserSetters_SetAllowedRentals_NegativeAllowedRentals()
     {
-        System.out.println("\n19: Testing setAllowedRentals with a negative number...");
+        System.out.print("\n19: Testing setAllowedRentals with a negative number...");
 
         assertThrows(InvalidUserRentalsException.class, () -> user.setAllowedRentals(-1));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -367,11 +367,11 @@ public class UserSettersTest
     @Order(20)
     void testUserSetters_SetCurrentRentals_NegativeCurrentRentals()
     {
-        System.out.println("\n20: Testing setCurrentRentals with a negative number...");
+        System.out.print("\n20: Testing setCurrentRentals with a negative number...");
 
         assertThrows(InvalidUserRentalsException.class, () -> user.setCurrentRentals(-1));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -381,11 +381,11 @@ public class UserSettersTest
     @Order(21)
     void testUserSetters_SetCurrentRentals_MoreThanAllowedRentals()
     {
-        System.out.println("\n21: Testing setCurrentRentals more than allowedRentals...");
+        System.out.print("\n21: Testing setCurrentRentals more than allowedRentals...");
 
         assertThrows(InvalidUserRentalsException.class, () -> user.setCurrentRentals(user.getAllowedRentals() + 1));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -395,11 +395,11 @@ public class UserSettersTest
     @Order(22)
     void testUserSetters_SetLateFee_NegativeLateFee()
     {
-        System.out.println("\n22: Testing setLateFee with a negative number...");
+        System.out.print("\n22: Testing setLateFee with a negative number...");
 
         assertThrows(InvalidLateFeeException.class, () -> user.setLateFee(-1));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -409,7 +409,7 @@ public class UserSettersTest
     @Order(23)
     void testUserSetters_SetAllowedToRent_ZeroLateFee_AllowedRentalsMoreThanCurrentRentals_AllowedToRentFalse()
     {
-        System.out.println("\n23: Testing setAllowedToRent when lateFee is 0.0 and allowedRentals is greater " +
+        System.out.print("\n23: Testing setAllowedToRent when lateFee is 0.0 and allowedRentals is greater " +
                 "than currentRentals, when allowedToRent is set to false...");
 
         assertDoesNotThrow(() -> user.setLateFee(0));
@@ -417,7 +417,7 @@ public class UserSettersTest
         assertThrows(InvalidRentalStatusChangeException.class, () -> user.setAllowedToRent(false));
         reset();
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -427,14 +427,14 @@ public class UserSettersTest
     @Order(24)
     void testUserSetters_SetAllowedToRent_PositiveLateFee_AllowedToRentTrue()
     {
-        System.out.println("\n24: Testing setAllowedToRent with lateFee greater than 0.0 and allowedToRent is set to " +
+        System.out.print("\n24: Testing setAllowedToRent with lateFee greater than 0.0 and allowedToRent is set to " +
                 "true...");
 
         assertDoesNotThrow(() -> user.setLateFee(1));
         assertThrows(InvalidRentalStatusChangeException.class, () -> user.setAllowedToRent(true));
         reset();
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -444,14 +444,14 @@ public class UserSettersTest
     @Order(25)
     void testUserSetters_SetAllowedToRent_MoreThanOrEqualsToDefaultAllowedRentals()
     {
-        System.out.println("\n25: Testing setAllowedToRent when currentRentals greater than or equals to " +
+        System.out.print("\n25: Testing setAllowedToRent when currentRentals greater than or equals to " +
                 "allowedRentals, when setting allowedToRent to true...");
 
         assertDoesNotThrow(() -> user.setCurrentRentals(user.getAllowedRentals()));
         assertThrows(InvalidRentalStatusChangeException.class, () -> user.setAllowedToRent(true));
         reset();
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -461,13 +461,13 @@ public class UserSettersTest
     @Order(26)
     void testUserSetters_SetDeletedAndAllowedToRent_True()
     {
-        System.out.println("\n26: Testing setting deleted to true and allowedToRent to true...");
+        System.out.print("\n26: Testing setting deleted to true and allowedToRent to true...");
 
         assertDoesNotThrow(() -> user.setDeleted(true));
         assertThrows(InvalidRentalStatusChangeException.class, () -> user.setAllowedToRent(true));
         reset();
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -477,11 +477,11 @@ public class UserSettersTest
     @Order(27)
     void testUserSetters_SetAllowedRentals_ValidAllowedRentals()
     {
-        System.out.println("\n27: Testing setAllowedRentals with valid allowedRentals...");
+        System.out.print("\n27: Testing setAllowedRentals with valid allowedRentals...");
 
         assertDoesNotThrow(() -> user.setAllowedRentals(7));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -491,11 +491,11 @@ public class UserSettersTest
     @Order(28)
     void testUserSetters_SetCurrentRentals_ValidCurrentRentals()
     {
-        System.out.println("\n28: Testing setCurrentRentals with valid currentRentals...");
+        System.out.print("\n28: Testing setCurrentRentals with valid currentRentals...");
 
         assertDoesNotThrow(() -> user.setCurrentRentals(2));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -505,11 +505,11 @@ public class UserSettersTest
     @Order(29)
     void testUserSetters_SetLateFee_ValidLateFee()
     {
-        System.out.println("\n29: Testing setLateFee with valid lateFee...");
+        System.out.print("\n29: Testing setLateFee with valid lateFee...");
 
         assertDoesNotThrow(() -> user.setLateFee(2));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -519,10 +519,10 @@ public class UserSettersTest
     @Order(30)
     void testUserSetters_SetPassword_ValidPassword()
     {
-        System.out.println("\n30: Testing setPassword with valid password...");
+        System.out.print("\n30: Testing setPassword with valid password...");
 
         assertDoesNotThrow(() -> user.setPassword(validPassword2));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

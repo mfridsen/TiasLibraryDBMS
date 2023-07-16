@@ -143,7 +143,7 @@ public class GetItemsByTitleTest
     @BeforeAll
     static void setUp()
     {
-        System.out.println("\nSetting up test data...");
+        System.out.print("\nSetting up test data...");
 
         try
         {
@@ -157,13 +157,13 @@ public class GetItemsByTitleTest
             e.printStackTrace();
         }
 
-        System.out.println("\nSETUP FINISHED.");
+        System.out.print("\nSETUP FINISHED.");
     }
 
     @AfterAll
     static void tearDown()
     {
-        System.out.println("\nCleaning up test data...");
+        System.out.print("\nCleaning up test data...");
 
         try
         {
@@ -182,38 +182,38 @@ public class GetItemsByTitleTest
             e.printStackTrace();
         }
 
-        System.out.println("\nCLEANUP FINISHED.");
+        System.out.print("\nCLEANUP FINISHED.");
     }
 
     @Test
     @Order(1)
     void testGetItemsByTitle_NullTitle()
     {
-        System.out.println("\n1: Testing getItemsByTitle method with null title...");
+        System.out.print("\n1: Testing getItemsByTitle method with null title...");
 
         assertThrows(InvalidTitleException.class, () -> ItemHandler.getItemsByTitle(null),
                 "getItemsByTitle should throw an InvalidTitleException when the title is null");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(2)
     void testGetItemsByTitle_EmptyTitle()
     {
-        System.out.println("\n2: Testing getItemsByTitle method with empty title...");
+        System.out.print("\n2: Testing getItemsByTitle method with empty title...");
 
         assertThrows(InvalidTitleException.class, () -> ItemHandler.getItemsByTitle(""),
                 "getItemsByTitle should throw an InvalidTitleException when the title is empty");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(3)
     void testGetItemsByTitle_NonexistentItem()
     {
-        System.out.println("\n3: Testing getItemsByTitle method with a title that doesn't exist...");
+        System.out.print("\n3: Testing getItemsByTitle method with a title that doesn't exist...");
 
         try
         {
@@ -227,14 +227,14 @@ public class GetItemsByTitleTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(4)
     void testGetItemsByTitle_OneItemExists()
     {
-        System.out.println("\n4: Testing getItemsByTitle method when one item exists with the title...");
+        System.out.print("\n4: Testing getItemsByTitle method when one item exists with the title...");
 
         try
         {
@@ -249,14 +249,14 @@ public class GetItemsByTitleTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(5)
     void testGetItemsByTitle_MultipleItemsExist()
     {
-        System.out.println("\n5: Testing getItemsByTitle method when multiple items exist with the title...");
+        System.out.print("\n5: Testing getItemsByTitle method when multiple items exist with the title...");
 
         try
         {
@@ -271,7 +271,7 @@ public class GetItemsByTitleTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
 }

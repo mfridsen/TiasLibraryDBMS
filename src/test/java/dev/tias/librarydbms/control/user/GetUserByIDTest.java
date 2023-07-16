@@ -80,7 +80,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
     @Order(1)
     void testGetUserByID_ValidExistingUser()
     {
-        System.out.println("\n1: Testing getUserByID method with a valid ID for an existing user...");
+        System.out.print("\n1: Testing getUserByID method with a valid ID for an existing user...");
 
         try
         {
@@ -92,7 +92,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
     @Order(2)
     void testGetUserByID_ValidNonExistingUser()
     {
-        System.out.println("\n2: Testing getUserByID method with a valid ID for a non-existing user...");
+        System.out.print("\n2: Testing getUserByID method with a valid ID for a non-existing user...");
 
         try
         {
@@ -114,7 +114,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -124,7 +124,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
     @Order(3)
     void testGetUserByID_ValidDeletedUser_GetDeletedFalse()
     {
-        System.out.println(
+        System.out.print(
                 "\n3: Testing getUserByID method with a valid ID for a deleted user (getDeleted = false)...");
 
         try
@@ -137,7 +137,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -147,7 +147,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
     @Order(4)
     void testGetUserByID_ValidDeletedUser_GetDeletedTrue()
     {
-        System.out.println("\n4: Testing getUserByID method with a valid ID for a deleted user (getDeleted = true)...");
+        System.out.print("\n4: Testing getUserByID method with a valid ID for a deleted user (getDeleted = true)...");
 
         try
         {
@@ -159,7 +159,7 @@ public class GetUserByIDTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -169,10 +169,10 @@ public class GetUserByIDTest extends BaseUserHandlerTest
     @Order(5)
     void testGetUserByID_InvalidUserID()
     {
-        System.out.println("\n5: Testing getUserByID method with an invalid user ID...");
+        System.out.print("\n5: Testing getUserByID method with an invalid user ID...");
 
         assertThrows(InvalidIDException.class, () -> UserHandler.getUserByID(invalidID));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

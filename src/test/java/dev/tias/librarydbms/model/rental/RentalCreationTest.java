@@ -33,7 +33,7 @@ public class RentalCreationTest
     @Order(1)
     void testRentalConstructor_ForCreation_ValidInput()
     {
-        System.out.println("\n1: Testing Rental constructor for creation with valid input...");
+        System.out.print("\n1: Testing Rental constructor for creation with valid input...");
 
         try
         {
@@ -66,7 +66,7 @@ public class RentalCreationTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -77,7 +77,7 @@ public class RentalCreationTest
     @Order(2)
     void testRentalConstructor_ForCreation_InvalidInput()
     {
-        System.out.println("\n2: Testing Rental constructor for creation with invalid input...");
+        System.out.print("\n2: Testing Rental constructor for creation with invalid input...");
 
         //Inputs for the constructor
         int invalidUserID = 0;
@@ -91,7 +91,7 @@ public class RentalCreationTest
         assertThrows(ConstructionException.class, () -> new Rental(1, invalidItemID),
                 "Constructor should throw an IllegalArgumentException when the item ID is not valid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
 }

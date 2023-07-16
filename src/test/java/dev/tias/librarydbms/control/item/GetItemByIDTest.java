@@ -37,7 +37,7 @@ public class GetItemByIDTest extends BaseHandlerTest
     @Order(1)
     void testGetItemByID_ValidID()
     {
-        System.out.println("\n1: Testing getItemByID method with valid itemID...");
+        System.out.print("\n1: Testing getItemByID method with valid itemID...");
 
         try
         {
@@ -53,7 +53,7 @@ public class GetItemByIDTest extends BaseHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -64,7 +64,7 @@ public class GetItemByIDTest extends BaseHandlerTest
     @Order(2)
     void testGetItemByID_InvalidID()
     {
-        System.out.println("\n2: Testing getItemByID method with invalid itemID...");
+        System.out.print("\n2: Testing getItemByID method with invalid itemID...");
 
         try
         {
@@ -77,7 +77,7 @@ public class GetItemByIDTest extends BaseHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class GetItemByIDTest extends BaseHandlerTest
     @Order(3)
     void testGetItemByID_NoExistingItem()
     {
-        System.out.println("\n3: Testing getItemByID method with valid itemID but no existing item...");
+        System.out.print("\n3: Testing getItemByID method with valid itemID but no existing item...");
 
         try
         {
@@ -103,14 +103,14 @@ public class GetItemByIDTest extends BaseHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(4)
     void testGetItemByID_LiteratureItem()
     {
-        System.out.println("\n4: Testing getItemByID method with literature item...");
+        System.out.print("\n4: Testing getItemByID method with literature item...");
 
         try
         {
@@ -130,14 +130,14 @@ public class GetItemByIDTest extends BaseHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(5)
     void testUpdateItem_FilmItem()
     {
-        System.out.println("\n5: Testing getItemByID method with film item...");
+        System.out.print("\n5: Testing getItemByID method with film item...");
 
         try
         {
@@ -155,6 +155,6 @@ public class GetItemByIDTest extends BaseHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

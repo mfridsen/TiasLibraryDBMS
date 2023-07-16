@@ -47,7 +47,7 @@ public class LibraryManagerTestSuite
     @BeforeAll
     public void setUp()
     {
-        System.out.println("!!DEBUG PRINT!! SETTING UP MASTER TEST SUITE");
+        System.out.print("!!DEBUG PRINT!! SETTING UP MASTER TEST SUITE");
         logger.info("Master Test Suite Start.");
         startTime = System.currentTimeMillis();
     }
@@ -55,7 +55,7 @@ public class LibraryManagerTestSuite
     @AfterAll
     public void tearDown()
     {
-        System.out.println("!!DEBUG PRINT!! TEARING DOWN MASTER TEST SUITE");
+        System.out.print("!!DEBUG PRINT!! TEARING DOWN MASTER TEST SUITE");
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         logger.info("Master Test Suite End. Master Test Suite time: " + duration + "ms");

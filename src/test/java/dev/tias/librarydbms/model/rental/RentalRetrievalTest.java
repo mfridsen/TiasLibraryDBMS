@@ -48,7 +48,7 @@ public class RentalRetrievalTest
     @Order(1)
     void testRetrievalConstructor_ValidInput()
     {
-        System.out.println("\n1: Testing Rental constructor with data retrieved from the database...");
+        System.out.print("\n1: Testing Rental constructor with data retrieved from the database...");
 
         try
         {
@@ -76,7 +76,7 @@ public class RentalRetrievalTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -86,7 +86,7 @@ public class RentalRetrievalTest
     @Order(2)
     void testRentalRetrievalConstructor_InvalidRentalID()
     {
-        System.out.println("\n2: Testing Rental Retrieval Constructor method with rentalID <= 0...");
+        System.out.print("\n2: Testing Rental Retrieval Constructor method with rentalID <= 0...");
 
         //Testing invalid rentalID
         assertThrows(ConstructionException.class, () -> new Rental(-1, userID, itemID, rentalDate,
@@ -94,7 +94,7 @@ public class RentalRetrievalTest
                         username, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when rentalID was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -104,14 +104,14 @@ public class RentalRetrievalTest
     @Order(3)
     void testRentalRetrievalConstructor_InvalidUserID()
     {
-        System.out.println("\n3: Testing Rental Retrieval Constructor method with userID <= 0...");
+        System.out.print("\n3: Testing Rental Retrieval Constructor method with userID <= 0...");
 
         //Testing invalid userID
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, -1, itemID, rentalDate,
                         rentalDueDate, username, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when userID was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
 // Additional test method skeletons below:
@@ -123,14 +123,14 @@ public class RentalRetrievalTest
     @Order(4)
     void testRentalRetrievalConstructor_InvalidItemID()
     {
-        System.out.println("\n4: Testing Rental Retrieval Constructor method with itemID <= 0...");
+        System.out.print("\n4: Testing Rental Retrieval Constructor method with itemID <= 0...");
 
         //Testing invalid itemID
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, -1, rentalDate,
                         rentalDueDate, username, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when itemID was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -140,14 +140,14 @@ public class RentalRetrievalTest
     @Order(5)
     void testRentalRetrievalConstructor_NullRentalDate()
     {
-        System.out.println("\n5: Testing Rental Retrieval Constructor method with null rentalDate...");
+        System.out.print("\n5: Testing Rental Retrieval Constructor method with null rentalDate...");
 
         //Testing invalid rentalDate null
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, null,
                         rentalDueDate, username, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when rentalDate was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -157,14 +157,14 @@ public class RentalRetrievalTest
     @Order(6)
     void testRentalRetrievalConstructor_FutureRentalDate()
     {
-        System.out.println("\n6: Testing Rental Retrieval Constructor method with future rentalDate...");
+        System.out.print("\n6: Testing Rental Retrieval Constructor method with future rentalDate...");
 
         //Testing invalid rentalDate in future
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate.plusDays(1),
                         rentalDueDate, username, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when rentalDate was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -174,14 +174,14 @@ public class RentalRetrievalTest
     @Order(7)
     void testRentalRetrievalConstructor_NullRentalDueDate()
     {
-        System.out.println("\n7: Testing Rental Retrieval Constructor method with null rentalDueDate...");
+        System.out.print("\n7: Testing Rental Retrieval Constructor method with null rentalDueDate...");
 
         //Testing invalid rentalDueDate null
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate, null,
                         username, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when rentalDueDate was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -191,7 +191,7 @@ public class RentalRetrievalTest
     @Order(8)
     void testRentalRetrievalConstructor_PastRentalDueDate()
     {
-        System.out.println("\n8: Testing Rental Retrieval Constructor method with past rentalDueDate...");
+        System.out.print("\n8: Testing Rental Retrieval Constructor method with past rentalDueDate...");
 
         //Testing invalid rentalDueDate in the past
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
@@ -199,7 +199,7 @@ public class RentalRetrievalTest
                         false),
                 "Rental constructor did not throw exception when rentalDueDate was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -209,14 +209,14 @@ public class RentalRetrievalTest
     @Order(9)
     void testRentalRetrievalConstructor_NullUsername()
     {
-        System.out.println("\n9: Testing Rental Retrieval Constructor method with null username...");
+        System.out.print("\n9: Testing Rental Retrieval Constructor method with null username...");
 
         //Testing invalid username null
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, null, itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when username was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -226,14 +226,14 @@ public class RentalRetrievalTest
     @Order(10)
     void testRentalRetrievalConstructor_EmptyUsername()
     {
-        System.out.println("\n10: Testing Rental Retrieval Constructor method with empty username...");
+        System.out.print("\n10: Testing Rental Retrieval Constructor method with empty username...");
 
         //Testing invalid username empty
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, "", itemTitle, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when username was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -243,14 +243,14 @@ public class RentalRetrievalTest
     @Order(11)
     void testRentalRetrievalConstructor_NullItemTitle()
     {
-        System.out.println("\n11: Testing Rental Retrieval Constructor method with null itemTitle...");
+        System.out.print("\n11: Testing Rental Retrieval Constructor method with null itemTitle...");
 
         //Testing invalid itemTitle null
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, username, null, itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when itemTitle was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -260,14 +260,14 @@ public class RentalRetrievalTest
     @Order(12)
     void testRentalRetrievalConstructor_EmptyItemTitle()
     {
-        System.out.println("\n12: Testing Rental Retrieval Constructor method with empty itemTitle...");
+        System.out.print("\n12: Testing Rental Retrieval Constructor method with empty itemTitle...");
 
         //Testing invalid itemTitle empty
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, username, "", itemType, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when itemTitle was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -277,14 +277,14 @@ public class RentalRetrievalTest
     @Order(13)
     void testRentalRetrievalConstructor_NullItemType()
     {
-        System.out.println("\n13: Testing Rental Retrieval Constructor method with null itemType...");
+        System.out.print("\n13: Testing Rental Retrieval Constructor method with null itemType...");
 
         //Testing invalid itemType null
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, username, itemTitle, null, rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when itemTitle was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -294,14 +294,14 @@ public class RentalRetrievalTest
     @Order(14)
     void testRentalRetrievalConstructor_EmptyItemType()
     {
-        System.out.println("\n14: Testing Rental Retrieval Constructor method with empty itemType...");
+        System.out.print("\n14: Testing Rental Retrieval Constructor method with empty itemType...");
 
         //Testing invalid itemType empty
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, username, itemTitle, "", rentalReturnDate, lateFee, receipt, false),
                 "Rental constructor did not throw exception when itemTitle was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -311,7 +311,7 @@ public class RentalRetrievalTest
     @Order(15)
     void testRentalRetrievalConstructor_PastRentalReturnDate()
     {
-        System.out.println("\n15: Testing Rental Retrieval Constructor method with past rentalReturnDate...");
+        System.out.print("\n15: Testing Rental Retrieval Constructor method with past rentalReturnDate...");
 
         //Testing invalid rentalReturnDate in the past
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
@@ -319,7 +319,7 @@ public class RentalRetrievalTest
                         false),
                 "Rental constructor did not throw exception when rentalReturnDate was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -329,14 +329,14 @@ public class RentalRetrievalTest
     @Order(16)
     void testRentalRetrievalConstructor_NegativeLateFee()
     {
-        System.out.println("\n16: Testing Rental Retrieval Constructor method with negative lateFee...");
+        System.out.print("\n16: Testing Rental Retrieval Constructor method with negative lateFee...");
 
         //Testing invalid lateFee less than 0
         assertThrows(ConstructionException.class, () -> new Rental(rentalID, userID, itemID, rentalDate,
                         rentalDueDate, username, itemTitle, itemType, rentalReturnDate, -1.0, receipt, false),
                 "Rental constructor did not throw exception when lateFee was invalid.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
 }

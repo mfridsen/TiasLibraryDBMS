@@ -36,13 +36,13 @@ public class MetaDataRetrieverTest
     @Order(1)
     void testGetAuthorMetaData()
     {
-        System.out.println("\n1: Testing to retrieve Author meta data...");
+        System.out.print("\n1: Testing to retrieve Author meta data...");
 
         int[] metaData = MetaDataRetriever.getAuthorMetaData();
         assertEquals(100, metaData[0]);
         assertEquals(100, metaData[1]);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -52,12 +52,12 @@ public class MetaDataRetrieverTest
     @Order(2)
     void testGetClassificationMetaData()
     {
-        System.out.println("\n2: Testing to retrieve Classification meta data...");
+        System.out.print("\n2: Testing to retrieve Classification meta data...");
 
         int[] metaData = MetaDataRetriever.getClassificationMetaData();
         assertEquals(255, metaData[0]);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -67,13 +67,13 @@ public class MetaDataRetrieverTest
     @Order(3)
     void testGetItemMetaData()
     {
-        System.out.println("\n3: Testing to retrieve Item meta data...");
+        System.out.print("\n3: Testing to retrieve Item meta data...");
 
         int[] metaData = MetaDataRetriever.getItemMetaData();
         assertEquals(255, metaData[0]);
         assertEquals(255, metaData[1]);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -83,14 +83,14 @@ public class MetaDataRetrieverTest
     @Order(4)
     void testGetUserMetaData()
     {
-        System.out.println("\n4: Testing to retrieve User meta data...");
+        System.out.print("\n4: Testing to retrieve User meta data...");
 
         int[] metaData = MetaDataRetriever.getUserMetaData();
         assertEquals(20, metaData[0]);
         assertEquals(50, metaData[1]);
         assertEquals(255, metaData[2]);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -100,12 +100,12 @@ public class MetaDataRetrieverTest
     @Order(5)
     void testGetLiteratureMetaData()
     {
-        System.out.println("\n5: Testing to retrieve Literature meta data...");
+        System.out.print("\n5: Testing to retrieve Literature meta data...");
 
         int[] metaData = MetaDataRetriever.getLiteratureMetaData();
         assertEquals(13, metaData[0]);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -115,11 +115,11 @@ public class MetaDataRetrieverTest
     @Order(6)
     void testGetFilmMetaData()
     {
-        System.out.println("\n6: Testing to retrieve Film meta data...");
+        System.out.print("\n6: Testing to retrieve Film meta data...");
 
         int[] metaData = MetaDataRetriever.getFilmMetaData();
         assertEquals(100, metaData[0]);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

@@ -39,7 +39,7 @@ public class DataAccessManagerTest extends BaseHandlerTest
     @Order(1)
     void testExecuteCommand()
     {
-        System.out.println("\n1: Testing executeSingleSQLCommand method...");
+        System.out.print("\n1: Testing executeSingleSQLCommand method...");
         //1. Create a temporary table in the test database
         String createTempTable = "CREATE TABLE temp_table (id INT PRIMARY KEY, name VARCHAR(255));";
         DataAccessManager.executePreparedUpdate(createTempTable, null);
@@ -66,7 +66,7 @@ public class DataAccessManagerTest extends BaseHandlerTest
         //Clean up: Drop the temporary table
         String dropTempTable = "DROP TABLE IF EXISTS temp_table;";
         DataAccessManager.executePreparedUpdate(dropTempTable, null);
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class DataAccessManagerTest extends BaseHandlerTest
     @Order(2)
     void testExecutePreparedUpdate()
     {
-        System.out.println("\n2: Testing executePreparedUpdate method...");
+        System.out.print("\n2: Testing executePreparedUpdate method...");
 
         //Prepare SQL commands to create a new table, insert data, update it and delete data
         String createCommand = "CREATE TABLE test_table (id INT, value INT)";
@@ -148,14 +148,14 @@ public class DataAccessManagerTest extends BaseHandlerTest
             DataAccessManager.executePreparedUpdate(dropCommand, null);
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(3)
     void testExecuteQuery()
     {
-        System.out.println("\n3: Testing executeQuery method...");
+        System.out.print("\n3: Testing executeQuery method...");
         String tableName = "test_table";
         try
         {
@@ -189,14 +189,14 @@ public class DataAccessManagerTest extends BaseHandlerTest
             //Drop the test table and close resources
             DataAccessManager.executePreparedUpdate("DROP TABLE IF EXISTS " + tableName, null);
         }
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(4)
     void testExecutePreparedQuery()
     {
-        System.out.println("\n4: Testing executePreparedQuery method...");
+        System.out.print("\n4: Testing executePreparedQuery method...");
         String tableName = "test_table";
         try
         {
@@ -234,14 +234,14 @@ public class DataAccessManagerTest extends BaseHandlerTest
             //Drop the test table and close resources
             DataAccessManager.executePreparedUpdate("DROP TABLE IF EXISTS " + tableName, null);
         }
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(5)
     void testExecuteSQLCommandsFromFile()
     {
-        System.out.println("\n5: Testing executeSQLCommandsFromFile method...");
+        System.out.print("\n5: Testing executeSQLCommandsFromFile method...");
         //Set up the path to the test SQL file
         String testSQLFilePath = "src/test/resources/sql/test_sql_file.sql";
 
@@ -279,7 +279,7 @@ public class DataAccessManagerTest extends BaseHandlerTest
         }
 
         testFile.delete();
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -320,21 +320,21 @@ public class DataAccessManagerTest extends BaseHandlerTest
     @Order(6)
     void testDatabaseExistsAndCreateDatabase()
     {
-        System.out.println("\n6: Testing databaseExists and createDatabase methods...");
+        System.out.print("\n6: Testing databaseExists and createDatabase methods...");
         DataAccessManager.executePreparedUpdate("drop database if exists " + LibraryManager.databaseName, null);
         assertFalse(DataAccessManager.databaseExists(LibraryManager.databaseName));
         DataAccessManager.setVerbose(false);
         DataAccessManager.createDatabase(LibraryManager.databaseName);
         DataAccessManager.setVerbose(true);
         assertTrue(DataAccessManager.databaseExists(LibraryManager.databaseName));
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(7)
     void testExecuteUpdate()
     {
-        System.out.println("\n7: Testing executeUpdate...");
+        System.out.print("\n7: Testing executeUpdate...");
 
         //Let's assume that there is a user with ID 1 in the database.
         int userIdToUpdate = 1;
@@ -365,6 +365,6 @@ public class DataAccessManagerTest extends BaseHandlerTest
         assertNotNull(updatedUser);
         assertEquals(newUsername, updatedUser.getUsername());
         assertEquals(newPassword, updatedUser.getPassword());
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

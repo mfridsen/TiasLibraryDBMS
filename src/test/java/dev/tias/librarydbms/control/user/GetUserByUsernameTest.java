@@ -28,7 +28,7 @@ public class GetUserByUsernameTest extends BaseUserHandlerTest
     @Order(1)
     void testGetUserByUsername_ValidUserPresent()
     {
-        System.out.println("\n1: Testing getUserByUsername method with a valid username present in database...");
+        System.out.print("\n1: Testing getUserByUsername method with a valid username present in database...");
 
         try
         {
@@ -58,14 +58,14 @@ public class GetUserByUsernameTest extends BaseUserHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(2)
     void testGetUserByUsername_ValidUserNotPresent()
     {
-        System.out.println("\n2: Testing getUserByUsername method with a valid username not present in database...");
+        System.out.print("\n2: Testing getUserByUsername method with a valid username not present in database...");
 
         try
         {
@@ -78,32 +78,32 @@ public class GetUserByUsernameTest extends BaseUserHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(3)
     void testGetUserByUsername_NullUsername()
     {
-        System.out.println("\n3: Testing getUserByUsername method with a null username...");
+        System.out.print("\n3: Testing getUserByUsername method with a null username...");
 
         //Verify that an InvalidNameException is thrown when a null username is provided
         assertThrows(InvalidNameException.class, () -> UserHandler.getUserByUsername(null),
                 "An InvalidNameException should be thrown when the username is null.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(4)
     void testGetUserByUsername_EmptyUsername()
     {
-        System.out.println("\n4: Testing getUserByUsername method with an empty username...");
+        System.out.print("\n4: Testing getUserByUsername method with an empty username...");
 
         //Verify that an InvalidNameException is thrown when an empty username is provided
         assertThrows(InvalidNameException.class, () -> UserHandler.getUserByUsername(""),
                 "An InvalidNameException should be thrown when the username is empty.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

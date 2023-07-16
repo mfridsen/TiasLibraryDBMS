@@ -30,7 +30,7 @@ public class ClassificationSetterTest
     @Order(1)
     void testSetClassificationID_ValidID()
     {
-        System.out.println("\n1: Testing setClassificationID method with a valid ID...");
+        System.out.print("\n1: Testing setClassificationID method with a valid ID...");
 
         try
         {
@@ -45,7 +45,7 @@ public class ClassificationSetterTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -56,7 +56,7 @@ public class ClassificationSetterTest
     @Order(2)
     void testSetClassificationID_InvalidID()
     {
-        System.out.println("\n2: Testing setClassificationID method with an invalid ID...");
+        System.out.print("\n2: Testing setClassificationID method with an invalid ID...");
 
         try
         {
@@ -72,7 +72,7 @@ public class ClassificationSetterTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -83,7 +83,7 @@ public class ClassificationSetterTest
     @Order(3)
     void testSetClassificationName_ValidName()
     {
-        System.out.println("\n3: Testing setClassificationName method with a valid name...");
+        System.out.print("\n3: Testing setClassificationName method with a valid name...");
 
         try
         {
@@ -99,7 +99,7 @@ public class ClassificationSetterTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -110,7 +110,7 @@ public class ClassificationSetterTest
     @Order(4)
     void testSetClassificationName_InvalidName()
     {
-        System.out.println("\n4: Testing setClassificationName method with an invalid name...");
+        System.out.print("\n4: Testing setClassificationName method with an invalid name...");
 
         try
         {
@@ -126,7 +126,7 @@ public class ClassificationSetterTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -137,7 +137,7 @@ public class ClassificationSetterTest
     @Order(5)
     void testSetDescription()
     {
-        System.out.println("\n5: Testing setDescription method...");
+        System.out.print("\n5: Testing setDescription method...");
 
         try
         {
@@ -153,6 +153,6 @@ public class ClassificationSetterTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

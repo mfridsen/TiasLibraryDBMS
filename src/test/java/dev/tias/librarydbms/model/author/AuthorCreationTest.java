@@ -31,7 +31,7 @@ public class AuthorCreationTest
     @Order(1)
     void testAuthorCreation_ValidData()
     {
-        System.out.println("\n1: Testing Author Creation Constructor with valid first and last names...");
+        System.out.print("\n1: Testing Author Creation Constructor with valid first and last names...");
 
         String firstName = "John";
         String lastName = "Doe";
@@ -50,7 +50,7 @@ public class AuthorCreationTest
             fail("Author creation failed with valid data. Exception: " + e.getMessage());
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -62,7 +62,7 @@ public class AuthorCreationTest
     @Order(2)
     void testAuthorCreation_EmptyFirstName()
     {
-        System.out.println("\n2: Testing Author Creation Constructor with an empty first name...");
+        System.out.print("\n2: Testing Author Creation Constructor with an empty first name...");
 
         String firstName = "";
         String lastName = "Doe";
@@ -70,7 +70,7 @@ public class AuthorCreationTest
         assertThrows(ConstructionException.class, () -> new Author(firstName, lastName),
                 "Expected ConstructionException for empty first name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -82,7 +82,7 @@ public class AuthorCreationTest
     @Order(3)
     void testAuthorCreation_NullFirstName()
     {
-        System.out.println("\n3: Testing Author Creation Constructor with a null first name...");
+        System.out.print("\n3: Testing Author Creation Constructor with a null first name...");
 
         String firstName = null;
         String lastName = "Doe";
@@ -90,7 +90,7 @@ public class AuthorCreationTest
         assertThrows(ConstructionException.class, () -> new Author(firstName, lastName),
                 "Expected ConstructionException for null first name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class AuthorCreationTest
     @Order(4)
     void testAuthorCreation_LongFirstName()
     {
-        System.out.println("\n4: Testing Author Creation Constructor with a first name exceeding the limit...");
+        System.out.print("\n4: Testing Author Creation Constructor with a first name exceeding the limit...");
 
         String firstName = "a".repeat(Author.AUTHOR_FIRST_NAME_LENGTH + 1);
         String lastName = "Doe";
@@ -110,7 +110,7 @@ public class AuthorCreationTest
         assertThrows(ConstructionException.class, () -> new Author(firstName, lastName),
                 "Expected ConstructionException for long first name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -122,7 +122,7 @@ public class AuthorCreationTest
     @Order(5)
     void testAuthorCreation_LongLastName()
     {
-        System.out.println("\n5: Testing Author Creation Constructor with a last name exceeding the limit...");
+        System.out.print("\n5: Testing Author Creation Constructor with a last name exceeding the limit...");
 
         String firstName = "John";
         String lastName = "a".repeat(Author.AUTHOR_LAST_NAME_LENGTH + 1);
@@ -130,6 +130,6 @@ public class AuthorCreationTest
         assertThrows(ConstructionException.class, () -> new Author(firstName, lastName),
                 "Expected ConstructionException for long last name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

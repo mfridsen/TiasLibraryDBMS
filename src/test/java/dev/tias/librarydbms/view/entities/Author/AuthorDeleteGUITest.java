@@ -18,14 +18,14 @@ public class AuthorDeleteGUITest
 
     static
     {
-        System.out.println("\n" + testClassTextBlock);
+        System.out.print("\n" + testClassTextBlock);
     }
 
 
     @Test
     public void testAuthorDeleteGUI()
     {
-        System.out.println("No test implemented here yet!");
+        System.out.print("No test implemented here yet!");
         // Write your code here
     }
 }

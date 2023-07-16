@@ -58,7 +58,7 @@ public class HardDeleteItemTest
     @BeforeAll
     static void setup()
     {
-        System.out.println("\nSetting up test data...");
+        System.out.print("\nSetting up test data...");
 
         try
         {
@@ -78,13 +78,13 @@ public class HardDeleteItemTest
             e.printStackTrace();
         }
 
-        System.out.println("\nSETUP FINISHED.");
+        System.out.print("\nSETUP FINISHED.");
     }
 
     @AfterAll
     static void cleanup()
     {
-        System.out.println("\nCleaning up test data...");
+        System.out.print("\nCleaning up test data...");
 
         try
         {
@@ -103,7 +103,7 @@ public class HardDeleteItemTest
             e.printStackTrace();
         }
 
-        System.out.println("\nCLEANUP FINISHED.");
+        System.out.print("\nCLEANUP FINISHED.");
     }
 
     /**
@@ -113,7 +113,7 @@ public class HardDeleteItemTest
     @Order(1)
     void testHardDeleteItem_NullItem()
     {
-        System.out.println("\n1: Testing hardDeleteItem method with null item...");
+        System.out.print("\n1: Testing hardDeleteItem method with null item...");
 
         // Attempt to delete null item
         assertThrows(NullEntityException.class, () ->
@@ -121,7 +121,7 @@ public class HardDeleteItemTest
             ItemHandler.hardDeleteItem(null);
         }, "Deleting null item should throw NullEntityException");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -131,7 +131,7 @@ public class HardDeleteItemTest
     @Order(2)
     void testHardDeleteItem_NonExistingItem()
     {
-        System.out.println("\n2: Testing hardDeleteItem method with non-existing item...");
+        System.out.print("\n2: Testing hardDeleteItem method with non-existing item...");
 
         // Attempt to delete non-existing item
         assertThrows(EntityNotFoundException.class, () ->
@@ -152,7 +152,7 @@ public class HardDeleteItemTest
                     "non-existing"));
         }, "Deleting non-existing item should throw EntityNotFoundException");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -162,7 +162,7 @@ public class HardDeleteItemTest
     @Order(3)
     void testHardDeleteItem_ExistingLiterature()
     {
-        System.out.println("\n3: Testing hardDeleteItem method with existing Literature...");
+        System.out.print("\n3: Testing hardDeleteItem method with existing Literature...");
 
         try
         {
@@ -186,7 +186,7 @@ public class HardDeleteItemTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -196,7 +196,7 @@ public class HardDeleteItemTest
     @Order(4)
     void testHardDeleteItem_ExistingFilm()
     {
-        System.out.println("\n4: Testing hardDeleteItem method with existing Film...");
+        System.out.print("\n4: Testing hardDeleteItem method with existing Film...");
 
         try
         {
@@ -220,6 +220,6 @@ public class HardDeleteItemTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

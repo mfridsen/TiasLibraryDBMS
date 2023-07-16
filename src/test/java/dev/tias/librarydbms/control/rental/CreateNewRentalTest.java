@@ -50,7 +50,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(1)
     void testCreateNewRental_ValidInput()
     {
-        System.out.println("\n1: Testing createNewRental method with valid input...");
+        System.out.print("\n1: Testing createNewRental method with valid input...");
 
         int validUserID = 3;
         int validItemID = 4;
@@ -119,7 +119,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
         assertTrue(ItemHandler.getAvailableTitles().containsKey(expectedTitle),
                 "Available titles should still contain " + expectedTitle);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -134,7 +134,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(2)
     void testCreateNewRental_InvalidUserID()
     {
-        System.out.println("\n2: Testing createNewRental method with invalid userID...");
+        System.out.print("\n2: Testing createNewRental method with invalid userID...");
 
         int invalidUserID = -1; // User IDs should be positive integers
         int validItemID = 1;
@@ -147,7 +147,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
 
         assertTrue(actualMessage.contains(expectedMessage));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -162,7 +162,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(3)
     void testCreateNewRental_InvalidItemID()
     {
-        System.out.println("\n3: Testing createNewRental method with invalid itemID...");
+        System.out.print("\n3: Testing createNewRental method with invalid itemID...");
 
         int invalidItemID = 0; // Item IDs should be positive integers
         int validUserID = 1;
@@ -175,7 +175,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
 
         assertTrue(actualMessage.contains(expectedMessage));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -188,7 +188,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(4)
     void testCreateNewRental_NonexistentUser()
     {
-        System.out.println("\n4: Testing createNewRental method with nonexistent user...");
+        System.out.print("\n4: Testing createNewRental method with nonexistent user...");
 
         int nonexistentUserID = 9999; // This user ID does not exist in the database
         int validItemID = 1;
@@ -201,7 +201,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
 
         assertTrue(actualMessage.contains(expectedMessage));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -212,7 +212,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(5)
     void testCreateNewRental_SoftDeletedUser()
     {
-        System.out.println("\n5: Testing createNewRental method with a user that doesn't exist...");
+        System.out.print("\n5: Testing createNewRental method with a user that doesn't exist...");
 
         int nonexistentUserID = 999; // assuming this ID does not exist in your database
         int validItemID = 1;
@@ -223,7 +223,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
         assertTrue(exception.getMessage().contains("User with ID " + nonexistentUserID + " not found."),
                 "The exception message should indicate the nonexistence of the user.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -236,7 +236,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(6)
     void testCreateNewRental_NonexistentItem()
     {
-        System.out.println("\n6: Testing createNewRental method with nonexistent item...");
+        System.out.print("\n6: Testing createNewRental method with nonexistent item...");
 
         int validUserID = 3;
         int nonexistentItemID = 9999; // This item ID does not exist in the database
@@ -248,7 +248,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -259,7 +259,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(7)
     void testCreateNewRental_SoftDeletedItem()
     {
-        System.out.println("\n7: Testing createNewRental method with an item that doesn't exist...");
+        System.out.print("\n7: Testing createNewRental method with an item that doesn't exist...");
 
         int validUserID = 3;
         int nonexistentItemID = 999; // assuming this ID does not exist in your database
@@ -270,7 +270,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
         assertTrue(exception.getMessage().contains("Item with ID " + nonexistentItemID + " not found."),
                 "The exception message should indicate the nonexistence of the item.");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -280,7 +280,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(8)
     void testCreateNewRental_ItemAlreadyRented()
     {
-        System.out.println("\n8: Testing createNewRental method with an item that's already rented out...");
+        System.out.print("\n8: Testing createNewRental method with an item that's already rented out...");
 
         try
         {
@@ -317,7 +317,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -327,7 +327,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(9)
     void testCreateNewRental_MaxRentalsExceeded()
     {
-        System.out.println("\n9: Testing createNewRental method with more rentals than allowed...");
+        System.out.print("\n9: Testing createNewRental method with more rentals than allowed...");
 
         try
         {
@@ -345,12 +345,12 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             //Tracer to find bug
             Item item3 = ItemHandler.getItemByID(validItemID);
             assertNotNull(item3);
-            System.out.println("item3 available 1: " + item3.isAvailable());
+            System.out.print("item3 available 1: " + item3.isAvailable());
 
             //Tracer to find second bug
             User user3 = UserHandler.getUserByID(validUserID);
             assertNotNull(user3);
-            System.out.println("Username: " + user3.getUsername() +
+            System.out.print("Username: " + user3.getUsername() +
                     ", allowedRentals: " + user3.getAllowedRentals() +
                     ", currentRentals: " + user3.getCurrentRentals() +
                     ", allowedToRent: " + user3.isAllowedToRent());
@@ -363,7 +363,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             String actualMessage = exception.getMessage();
 
             //Debug
-            System.out.println(actualMessage);
+            System.out.print(actualMessage);
 
             assertTrue(actualMessage.contains(expectedMessage));
 
@@ -385,7 +385,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             //Debug
             item3 = ItemHandler.getItemByID(3);
             assertNotNull(item3);
-            System.out.println("item3 available 2: " + item3.isAvailable());
+            System.out.print("item3 available 2: " + item3.isAvailable());
             //assertFalse(item3.isAvailable());
 
             RentalHandler.setVerbose(false);
@@ -398,7 +398,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             fail("Valid tests should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -408,7 +408,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
     @Order(10)
     void testCreateNewRental_UnpaidLateFees()
     {
-        System.out.println("\n10: Testing createNewRental method when user has unpaid late fees...");
+        System.out.print("\n10: Testing createNewRental method when user has unpaid late fees...");
 
         try
         {
@@ -432,7 +432,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             String expectedMessage = "User not allowed to rent either due to already renting at " +
                     "maximum capacity or having a late fee.";
             String actualMessage = exception.getMessage();
-            System.out.println(actualMessage);
+            System.out.print(actualMessage);
             assertTrue(actualMessage.contains(expectedMessage));
 
         }
@@ -442,6 +442,6 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

@@ -30,7 +30,7 @@ public class ClassificationCreationTest
     @Order(1)
     void testCreationConstructor_ValidData()
     {
-        System.out.println("\n1: Testing Classification creation constructor with valid data...");
+        System.out.print("\n1: Testing Classification creation constructor with valid data...");
 
         try
         {
@@ -48,7 +48,7 @@ public class ClassificationCreationTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -59,13 +59,13 @@ public class ClassificationCreationTest
     @Order(2)
     void testCreationConstructor_NullName()
     {
-        System.out.println("\n2: Testing Classification creation constructor with a null name...");
+        System.out.print("\n2: Testing Classification creation constructor with a null name...");
 
         String name = null;
         assertThrows(ConstructionException.class, () -> new Classification(name),
                 "Expected ConstructionException for null Classification name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -76,12 +76,12 @@ public class ClassificationCreationTest
     @Order(3)
     void testCreationConstructor_LongName()
     {
-        System.out.println("\n3: Testing Classification creation constructor with a long name...");
+        System.out.print("\n3: Testing Classification creation constructor with a long name...");
 
         String name = "a".repeat(Classification.CLASSIFICATION_NAME_LENGTH + 1);
         assertThrows(ConstructionException.class, () -> new Classification(name),
                 "Expected ConstructionException for long Classification name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

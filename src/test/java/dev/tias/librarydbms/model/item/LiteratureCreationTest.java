@@ -33,7 +33,7 @@ public class LiteratureCreationTest
     @Order(1)
     void testLiteratureCreation_ValidData()
     {
-        System.out.println("\n1: Testing Literature constructor with valid data...");
+        System.out.print("\n1: Testing Literature constructor with valid data...");
 
         try
         {
@@ -73,7 +73,7 @@ public class LiteratureCreationTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -83,7 +83,7 @@ public class LiteratureCreationTest
     @Order(2)
     void testLiteratureCreation_NullTitle()
     {
-        System.out.println("\n2: Testing Literature constructor with null title...");
+        System.out.print("\n2: Testing Literature constructor with null title...");
 
         try
         {
@@ -97,7 +97,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidTitleException, "Cause should be InvalidTitleException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -107,7 +107,7 @@ public class LiteratureCreationTest
     @Order(3)
     void testLiteratureCreation_EmptyTitle()
     {
-        System.out.println("\n3: Testing Literature constructor with empty title...");
+        System.out.print("\n3: Testing Literature constructor with empty title...");
 
         try
         {
@@ -121,7 +121,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidTitleException, "Cause should be InvalidTitleException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -131,7 +131,7 @@ public class LiteratureCreationTest
     @Order(4)
     void testLiteratureCreation_LongTitle()
     {
-        System.out.println("\n4: Testing Literature constructor with long title...");
+        System.out.print("\n4: Testing Literature constructor with long title...");
 
         //Generate a long title
         StringBuilder longTitle = new StringBuilder();
@@ -149,7 +149,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidTitleException, "Cause should be InvalidTitleException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -159,7 +159,7 @@ public class LiteratureCreationTest
     @Order(5)
     void testLiteratureCreation_NullISBN()
     {
-        System.out.println("\n5: Testing Literature constructor with null ISBN...");
+        System.out.print("\n5: Testing Literature constructor with null ISBN...");
 
         try
         {
@@ -173,7 +173,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidISBNException, "Cause should be InvalidISBNException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -183,7 +183,7 @@ public class LiteratureCreationTest
     @Order(6)
     void testLiteratureCreation_EmptyISBN()
     {
-        System.out.println("\n6: Testing Literature constructor with empty ISBN...");
+        System.out.print("\n6: Testing Literature constructor with empty ISBN...");
 
         try
         {
@@ -197,7 +197,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidISBNException, "Cause should be InvalidISBNException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -207,7 +207,7 @@ public class LiteratureCreationTest
     @Order(7)
     void testLiteratureCreation_LongISBN()
     {
-        System.out.println("\n7: Testing Literature constructor with long ISBN...");
+        System.out.print("\n7: Testing Literature constructor with long ISBN...");
 
         try
         {
@@ -221,7 +221,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidISBNException, "Cause should be InvalidISBNException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -231,7 +231,7 @@ public class LiteratureCreationTest
     @Order(8)
     void testLiteratureCreation_InvalidAuthorID()
     {
-        System.out.println("\n8: Testing Literature constructor with invalid authorID...");
+        System.out.print("\n8: Testing Literature constructor with invalid authorID...");
 
         try
         {
@@ -245,7 +245,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidIDException, "Cause should be InvalidAuthorIDException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -256,7 +256,7 @@ public class LiteratureCreationTest
     @Order(9)
     void testLiteratureCreation_InvalidClassificationID()
     {
-        System.out.println("\n9: Testing Literature constructor with invalid classificationID...");
+        System.out.print("\n9: Testing Literature constructor with invalid classificationID...");
 
         try
         {
@@ -271,7 +271,7 @@ public class LiteratureCreationTest
                     "Cause should be InvalidClassificationIDException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -282,7 +282,7 @@ public class LiteratureCreationTest
     @Order(9)
     void testLiteratureConstruction_NullBarcode()
     {
-        System.out.println("\n9: Testing Literature constructor with null barcode...");
+        System.out.print("\n9: Testing Literature constructor with null barcode...");
 
         try
         {
@@ -296,7 +296,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidBarcodeException, "InvalidBarcodeException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -307,7 +307,7 @@ public class LiteratureCreationTest
     @Order(10)
     void testLiteratureConstruction_EmptyBarcode()
     {
-        System.out.println("\n10: Testing Literature constructor with empty barcode...");
+        System.out.print("\n10: Testing Literature constructor with empty barcode...");
 
         try
         {
@@ -321,7 +321,7 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidBarcodeException, "InvalidBarcodeException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -332,7 +332,7 @@ public class LiteratureCreationTest
     @Order(11)
     void testLiteratureConstruction_TooLongBarcode()
     {
-        System.out.println(
+        System.out.print(
                 "\n11: Testing Literature constructor with title string longer than Item.ITEM_BARCODE_LENGTH...");
 
         try
@@ -348,6 +348,6 @@ public class LiteratureCreationTest
             assertTrue(e.getCause() instanceof InvalidBarcodeException, "InvalidBarcodeException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

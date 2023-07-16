@@ -48,7 +48,7 @@ public class RentalCopyTest
     @Order(1)
     void testRentalConstructor_CopyRental()
     {
-        System.out.println("\n1: Testing Rental copy constructor...");
+        System.out.print("\n1: Testing Rental copy constructor...");
 
         try
         {
@@ -80,6 +80,6 @@ public class RentalCopyTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

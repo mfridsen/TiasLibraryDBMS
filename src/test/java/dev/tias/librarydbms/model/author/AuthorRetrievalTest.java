@@ -31,7 +31,7 @@ public class AuthorRetrievalTest
     @Order(1)
     void testAuthorRetrieval_ValidData()
     {
-        System.out.println("\n1: Testing Author Retrieval Constructor with valid data...");
+        System.out.print("\n1: Testing Author Retrieval Constructor with valid data...");
 
         int id = 1;
         String firstName = "John";
@@ -53,7 +53,7 @@ public class AuthorRetrievalTest
             fail("Author retrieval failed with valid data. Exception: " + e.getMessage());
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -65,7 +65,7 @@ public class AuthorRetrievalTest
     @Order(2)
     void testAuthorRetrieval_InvalidID()
     {
-        System.out.println("\n2: Testing Author Retrieval Constructor with an invalid ID...");
+        System.out.print("\n2: Testing Author Retrieval Constructor with an invalid ID...");
 
         int id = 0;
         String firstName = "John";
@@ -76,7 +76,7 @@ public class AuthorRetrievalTest
         assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
                 "Expected ConstructionException for invalid ID");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class AuthorRetrievalTest
     @Order(3)
     void testAuthorRetrieval_EmptyFirstName()
     {
-        System.out.println("\n3: Testing Author Retrieval Constructor with an empty first name...");
+        System.out.print("\n3: Testing Author Retrieval Constructor with an empty first name...");
 
         int id = 1;
         String firstName = "";
@@ -99,7 +99,7 @@ public class AuthorRetrievalTest
         assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
                 "Expected ConstructionException for empty first name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -111,7 +111,7 @@ public class AuthorRetrievalTest
     @Order(4)
     void testAuthorRetrieval_NullFirstName()
     {
-        System.out.println("\n4: Testing Author Retrieval Constructor with a null first name...");
+        System.out.print("\n4: Testing Author Retrieval Constructor with a null first name...");
 
         int id = 1;
         String firstName = null;
@@ -122,7 +122,7 @@ public class AuthorRetrievalTest
         assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
                 "Expected ConstructionException for null first name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -134,7 +134,7 @@ public class AuthorRetrievalTest
     @Order(5)
     void testAuthorRetrieval_LongFirstName()
     {
-        System.out.println("\n5: Testing Author Retrieval Constructor with a first name exceeding the limit...");
+        System.out.print("\n5: Testing Author Retrieval Constructor with a first name exceeding the limit...");
 
         int id = 1;
         String firstName = "a".repeat(Author.AUTHOR_FIRST_NAME_LENGTH + 1);
@@ -145,7 +145,7 @@ public class AuthorRetrievalTest
         assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
                 "Expected ConstructionException for long first name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -157,7 +157,7 @@ public class AuthorRetrievalTest
     @Order(6)
     void testAuthorRetrieval_LongLastName()
     {
-        System.out.println("\n6: Testing Author Retrieval Constructor with a last name exceeding the limit...");
+        System.out.print("\n6: Testing Author Retrieval Constructor with a last name exceeding the limit...");
 
         int id = 1;
         String firstName = "John";
@@ -168,6 +168,6 @@ public class AuthorRetrievalTest
         assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
                 "Expected ConstructionException for long last name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

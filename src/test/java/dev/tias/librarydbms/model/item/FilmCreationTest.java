@@ -34,7 +34,7 @@ public class FilmCreationTest
     @Order(1)
     void testFilmCreation_ValidData()
     {
-        System.out.println("\n1: Testing Film Creation Constructor with valid data...");
+        System.out.print("\n1: Testing Film Creation Constructor with valid data...");
 
         try
         {
@@ -77,7 +77,7 @@ public class FilmCreationTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -87,7 +87,7 @@ public class FilmCreationTest
     @Order(2)
     void testFilmCreation_NullTitle()
     {
-        System.out.println("\n2: Testing Film constructor with null title...");
+        System.out.print("\n2: Testing Film constructor with null title...");
 
         try
         {
@@ -100,7 +100,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidTitleException, "Cause should be InvalidTitleException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -110,7 +110,7 @@ public class FilmCreationTest
     @Order(3)
     void testFilmCreation_EmptyTitle()
     {
-        System.out.println("\n3: Testing Film constructor with empty title...");
+        System.out.print("\n3: Testing Film constructor with empty title...");
 
         try
         {
@@ -123,7 +123,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidTitleException, "Cause should be InvalidTitleException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -133,7 +133,7 @@ public class FilmCreationTest
     @Order(4)
     void testFilmCreation_LongTitle()
     {
-        System.out.println("\n4: Testing Film constructor with long title...");
+        System.out.print("\n4: Testing Film constructor with long title...");
 
         //Generate a long title
         String longTitle = "a".repeat(Item.ITEM_TITLE_MAX_LENGTH + 1);
@@ -149,7 +149,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidTitleException, "Cause should be InvalidTitleException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -159,7 +159,7 @@ public class FilmCreationTest
     @Order(5)
     void testFilmCreation_InvalidAuthorID()
     {
-        System.out.println("\n5: Testing Film constructor with invalid authorID...");
+        System.out.print("\n5: Testing Film constructor with invalid authorID...");
 
         try
         {
@@ -172,7 +172,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidIDException, "Cause should be InvalidAuthorIDException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -183,7 +183,7 @@ public class FilmCreationTest
     @Order(6)
     void testFilmCreation_InvalidClassificationID()
     {
-        System.out.println("\n6: Testing Film constructor with invalid classificationID...");
+        System.out.print("\n6: Testing Film constructor with invalid classificationID...");
 
         try
         {
@@ -197,7 +197,7 @@ public class FilmCreationTest
                     "Cause should be InvalidClassificationIDException");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -208,7 +208,7 @@ public class FilmCreationTest
     @Order(7)
     void testFilmConstruction_NullBarcode()
     {
-        System.out.println("\n7: Testing Film constructor with null barcode...");
+        System.out.print("\n7: Testing Film constructor with null barcode...");
 
         try
         {
@@ -220,7 +220,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidBarcodeException, "InvalidBarcodeException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -231,7 +231,7 @@ public class FilmCreationTest
     @Order(8)
     void testFilmConstruction_EmptyBarcode()
     {
-        System.out.println("\n8 Testing Film constructor with empty barcode...");
+        System.out.print("\n8 Testing Film constructor with empty barcode...");
 
         try
         {
@@ -243,7 +243,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidBarcodeException, "InvalidBarcodeException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -254,7 +254,7 @@ public class FilmCreationTest
     @Order(9)
     void testFilmConstruction_TooLongBarcode()
     {
-        System.out.println(
+        System.out.print(
                 "\n9: Testing Film constructor with title string longer than Item.ITEM_BARCODE_LENGTH...");
 
         try
@@ -268,7 +268,7 @@ public class FilmCreationTest
             assertTrue(e.getCause() instanceof InvalidBarcodeException, "InvalidBarcodeException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -279,7 +279,7 @@ public class FilmCreationTest
     @Order(10)
     void testFilmConstruction_NegativeAgeRating()
     {
-        System.out.println("\n10: Testing Film constructor with age rating below 0...");
+        System.out.print("\n10: Testing Film constructor with age rating below 0...");
 
         try
         {
@@ -292,7 +292,7 @@ public class FilmCreationTest
                     "InvalidAgeRatingException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -303,7 +303,7 @@ public class FilmCreationTest
     @Order(11)
     void testFilmConstruction_TooHighAgeRating()
     {
-        System.out.println("\n11: Testing Film constructor with age rating below 0...");
+        System.out.print("\n11: Testing Film constructor with age rating below 0...");
 
         try
         {
@@ -317,6 +317,6 @@ public class FilmCreationTest
                     "InvalidAgeRatingException expected.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

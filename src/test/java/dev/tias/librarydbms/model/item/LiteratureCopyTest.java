@@ -28,7 +28,7 @@ public class LiteratureCopyTest
     @Order(1)
     void testLiteratureCopy_ValidData()
     {
-        System.out.println("\n1: Testing Literature copy constructor with valid data...");
+        System.out.print("\n1: Testing Literature copy constructor with valid data...");
 
         try
         {
@@ -71,6 +71,6 @@ public class LiteratureCopyTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

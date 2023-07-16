@@ -52,7 +52,7 @@ public class UserCreationTest
     @Order(1)
     void testUser_ValidAdmin()
     {
-        System.out.println("\n1: Testing User constructor with valid ADMIN...");
+        System.out.print("\n1: Testing User constructor with valid ADMIN...");
 
         try
         {
@@ -82,14 +82,14 @@ public class UserCreationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(2)
     void testUser_ValidStaff()
     {
-        System.out.println("\n2: Testing User constructor with valid STAFF...");
+        System.out.print("\n2: Testing User constructor with valid STAFF...");
 
         try
         {
@@ -119,14 +119,14 @@ public class UserCreationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(3)
     void testUser_ValidPatron()
     {
-        System.out.println("\n3: Testing User constructor with valid PATRON...");
+        System.out.print("\n3: Testing User constructor with valid PATRON...");
 
         try
         {
@@ -156,14 +156,14 @@ public class UserCreationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(4)
     void testUser_ValidStudent()
     {
-        System.out.println("\n4: Testing User constructor with valid STUDENT...");
+        System.out.print("\n4: Testing User constructor with valid STUDENT...");
 
         try
         {
@@ -193,14 +193,14 @@ public class UserCreationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(5)
     void testUser_ValidTeacher()
     {
-        System.out.println("\n5: Testing User constructor with valid TEACHER...");
+        System.out.print("\n5: Testing User constructor with valid TEACHER...");
 
         try
         {
@@ -230,14 +230,14 @@ public class UserCreationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(6)
     void testUser_ValidResearcher()
     {
-        System.out.println("\n6: Testing User constructor with valid RESEARCHER...");
+        System.out.print("\n6: Testing User constructor with valid RESEARCHER...");
 
         try
         {
@@ -267,52 +267,52 @@ public class UserCreationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(7)
     void testUser_NullUsername()
     {
-        System.out.println("\n7: Testing User constructor with null username...");
+        System.out.print("\n7: Testing User constructor with null username...");
 
         assertThrows(ConstructionException.class, () ->
                 new User(null, "password", "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(8)
     void testUser_EmptyUsername()
     {
-        System.out.println("\n8: Testing User constructor with empty username...");
+        System.out.print("\n8: Testing User constructor with empty username...");
 
         assertThrows(ConstructionException.class, () ->
                 new User("", "password", "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(9)
     void testUser_ShortUsername()
     {
-        System.out.println("\n9: Testing User constructor with short username...");
+        System.out.print("\n9: Testing User constructor with short username...");
 
         String shortUsername = "ab"; //less than MIN_USERNAME_LENGTH
 
         assertThrows(ConstructionException.class, () ->
                 new User(shortUsername, "password", "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(10)
     void testUser_LongUsername()
     {
-        System.out.println("\n10: Testing User constructor with long username...");
+        System.out.print("\n10: Testing User constructor with long username...");
 
         String longUsername = String.join("",
                 Collections.nCopies(User.MAX_USERNAME_LENGTH + 1, "a")); //More than MAX_USERNAME_LENGTH
@@ -320,53 +320,53 @@ public class UserCreationTest
         assertThrows(ConstructionException.class, () ->
                 new User(longUsername, "password", "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(11)
     void testUser_NullPassword()
     {
-        System.out.println("\n11: Testing User constructor with null password...");
+        System.out.print("\n11: Testing User constructor with null password...");
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", null, "patron@example.com", User.UserType.PATRON));
 
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(12)
     void testUser_EmptyPassword()
     {
-        System.out.println("\n12: Testing User constructor with empty password...");
+        System.out.print("\n12: Testing User constructor with empty password...");
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", "", "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(13)
     void testUser_ShortPassword()
     {
-        System.out.println("\n13: Testing User constructor with short password...");
+        System.out.print("\n13: Testing User constructor with short password...");
 
         String shortPassword = "abc1234"; //less than MIN_PASSWORD_LENGTH
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", shortPassword, "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(14)
     void testUser_LongPassword()
     {
-        System.out.println("\n14: Testing User constructor with long password...");
+        System.out.print("\n14: Testing User constructor with long password...");
 
         String longPassword = String.join("",
                 Collections.nCopies(User.MAX_PASSWORD_LENGTH + 1, "a")); //More than MAX_PASSWORD_LENGTH
@@ -374,70 +374,70 @@ public class UserCreationTest
         assertThrows(ConstructionException.class, () ->
                 new User("username", longPassword, "patron@example.com", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(15)
     void testUser_NullUserType()
     {
-        System.out.println("\n15: Testing User constructor with null userType...");
+        System.out.print("\n15: Testing User constructor with null userType...");
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", "password", "patron@example.com", null));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(16)
     void testUser_NullEmail()
     {
-        System.out.println("\n16: Testing User constructor with null email...");
+        System.out.print("\n16: Testing User constructor with null email...");
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", "password", null, User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(17)
     void testUser_EmptyEmail()
     {
-        System.out.println("\n17: Testing User constructor with empty email...");
+        System.out.print("\n17: Testing User constructor with empty email...");
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", "password", "", User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(18)
     void testUser_ShortEmail()
     {
-        System.out.println("\n18: Testing User constructor with short email...");
+        System.out.print("\n18: Testing User constructor with short email...");
 
         String shortEmail = "a@b.c"; //less than MIN_EMAIL_LENGTH
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", "password", shortEmail, User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     @Test
     @Order(19)
     void testUser_LongEmail()
     {
-        System.out.println("\n19: Testing User constructor with long email...");
+        System.out.print("\n19: Testing User constructor with long email...");
 
         String longEmail = "a".repeat(User.MAX_EMAIL_LENGTH + 1); //More than MAX_EMAIL_LENGTH
 
         assertThrows(ConstructionException.class, () ->
                 new User("username", "password", longEmail, User.UserType.PATRON));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

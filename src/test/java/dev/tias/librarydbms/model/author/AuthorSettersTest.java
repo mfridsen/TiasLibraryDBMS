@@ -33,7 +33,7 @@ public class AuthorSettersTest
     @Order(1)
     void testSetAuthorID_ValidID()
     {
-        System.out.println("\n1: Testing setAuthorID method with a valid ID...");
+        System.out.print("\n1: Testing setAuthorID method with a valid ID...");
 
         try
         {
@@ -48,7 +48,7 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     // Similar methods for setAuthorFirstname, setAuthorLastName, setBiography
@@ -62,7 +62,7 @@ public class AuthorSettersTest
     @Order(2)
     void testSetAuthorID_InvalidID()
     {
-        System.out.println("\n2: Testing setAuthorID method with an invalid ID...");
+        System.out.print("\n2: Testing setAuthorID method with an invalid ID...");
 
         try
         {
@@ -78,7 +78,7 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -89,7 +89,7 @@ public class AuthorSettersTest
     @Order(3)
     void testSetAuthorFirstname_ValidName()
     {
-        System.out.println("\n3: Testing setAuthorFirstname method with a valid name...");
+        System.out.print("\n3: Testing setAuthorFirstname method with a valid name...");
 
         try
         {
@@ -104,7 +104,7 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -115,7 +115,7 @@ public class AuthorSettersTest
     @Order(4)
     void testSetAuthorFirstname_NameTooLong()
     {
-        System.out.println("\n4: Testing setAuthorFirstname method with a name that exceeds the character limit...");
+        System.out.print("\n4: Testing setAuthorFirstname method with a name that exceeds the character limit...");
 
         try
         {
@@ -131,7 +131,7 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -142,7 +142,7 @@ public class AuthorSettersTest
     @Order(5)
     void testSetAuthorLastName_ValidName()
     {
-        System.out.println("\n5: Testing setAuthorLastName method with a valid name...");
+        System.out.print("\n5: Testing setAuthorLastName method with a valid name...");
 
         try
         {
@@ -157,7 +157,7 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -168,7 +168,7 @@ public class AuthorSettersTest
     @Order(6)
     void testSetAuthorLastName_NameTooLong()
     {
-        System.out.println("\n6: Testing setAuthorLastName method with a name that exceeds the character limit...");
+        System.out.print("\n6: Testing setAuthorLastName method with a name that exceeds the character limit...");
 
         try
         {
@@ -184,7 +184,7 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -195,7 +195,7 @@ public class AuthorSettersTest
     @Order(7)
     void testSetBiography_ValidBio()
     {
-        System.out.println("\n7: Testing setBiography method with valid biography text...");
+        System.out.print("\n7: Testing setBiography method with valid biography text...");
 
         try
         {
@@ -210,6 +210,6 @@ public class AuthorSettersTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

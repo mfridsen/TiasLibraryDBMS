@@ -50,7 +50,7 @@ public abstract class BaseHandlerTest
     @BeforeEach
     protected void reset()
     {
-        System.out.println("\nSetting up and resetting database...");
+        System.out.print("\nSetting up and resetting database...");
         try
         {
             setupConnectionAndTables();
@@ -60,7 +60,7 @@ public abstract class BaseHandlerTest
         {
             e.printStackTrace();
         }
-        System.out.println("Setup finished.");
+        System.out.print("Setup finished.");
     }
 
     protected void setupConnectionAndTables()

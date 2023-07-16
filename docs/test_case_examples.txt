@@ -28,7 +28,7 @@ Strings:
 
             assertTrue(e.getCause() instanceof InvalidNameException);
 
-            System.out.println("\nTEST FINISHED.");
+            System.out.print(" Test Finished.");
         }
 
 Numbers:

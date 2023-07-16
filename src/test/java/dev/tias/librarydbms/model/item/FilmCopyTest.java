@@ -30,7 +30,7 @@ public class FilmCopyTest
     @Order(1)
     void testFilmCopy_ValidData()
     {
-        System.out.println("\n1: Testing Film Copy Constructor with valid data...");
+        System.out.print("\n1: Testing Film Copy Constructor with valid data...");
 
         try
         {
@@ -78,6 +78,6 @@ public class FilmCopyTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

@@ -30,7 +30,7 @@ public class ClassificationRetrievalTest
     @Order(1)
     void testRetrievalConstructor_ValidData()
     {
-        System.out.println("\n1: Testing Classification retrieval constructor with valid data...");
+        System.out.print("\n1: Testing Classification retrieval constructor with valid data...");
 
         try
         {
@@ -50,7 +50,7 @@ public class ClassificationRetrievalTest
             e.printStackTrace();
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -61,7 +61,7 @@ public class ClassificationRetrievalTest
     @Order(2)
     void testRetrievalConstructor_InvalidID()
     {
-        System.out.println("\n2: Testing Classification retrieval constructor with an invalid ID...");
+        System.out.print("\n2: Testing Classification retrieval constructor with an invalid ID...");
 
         int id = -1;
         String name = "Fiction";
@@ -71,7 +71,7 @@ public class ClassificationRetrievalTest
                 () -> new Classification(id, name, description, false),
                 "Expected ConstructionException for invalid ID");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -82,7 +82,7 @@ public class ClassificationRetrievalTest
     @Order(3)
     void testRetrievalConstructor_NullName()
     {
-        System.out.println("\n3: Testing Classification retrieval constructor with a null name...");
+        System.out.print("\n3: Testing Classification retrieval constructor with a null name...");
 
         int id = 1;
         String name = null;
@@ -92,7 +92,7 @@ public class ClassificationRetrievalTest
                 () -> new Classification(id, name, description, false),
                 "Expected ConstructionException for null name");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -103,7 +103,7 @@ public class ClassificationRetrievalTest
     @Order(4)
     void testRetrievalConstructor_ExceedingNameLength()
     {
-        System.out.println(
+        System.out.print(
                 "\n4: Testing Classification retrieval constructor with a name that exceeds the maximum length...");
 
         int id = 1;
@@ -114,6 +114,6 @@ public class ClassificationRetrievalTest
                 () -> new Classification(id, name, description, false),
                 "Expected ConstructionException for name that exceeds the maximum length");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

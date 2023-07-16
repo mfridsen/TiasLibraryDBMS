@@ -47,7 +47,7 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
     @Order(1)
     void testSetup_EmptyDatabase()
     {
-        System.out.println("\n1: Testing setup method with an empty database...");
+        System.out.print("\n1: Testing setup method with an empty database...");
 
         // Call the setup method
         ItemHandler.setup();
@@ -60,7 +60,7 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
         assertEquals(0, ItemHandler.getRegisteredBarcodes().size(),
                 "registeredBarcodes list should be empty after setup with an empty database");
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -71,7 +71,7 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
     @Order(2)
     void testSetup_SomeItemsInDatabase()
     {
-        System.out.println("\n2: Testing setup method with some items in the database...");
+        System.out.print("\n2: Testing setup method with some items in the database...");
 
         //Setup the test data and clear the items, film and literature tables
         setupTestData();
@@ -137,6 +137,6 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
         assertEquals(barcode3, ItemHandler.getRegisteredBarcodes().get(2));
         assertEquals(barcode4, ItemHandler.getRegisteredBarcodes().get(3));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

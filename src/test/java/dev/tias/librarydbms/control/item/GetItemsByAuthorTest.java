@@ -53,7 +53,7 @@ public class GetItemsByAuthorTest
     @BeforeAll
     static void setUp()
     {
-        System.out.println("\nSetting up test data...");
+        System.out.print("\nSetting up test data...");
 
         try
         {
@@ -67,13 +67,13 @@ public class GetItemsByAuthorTest
             e.printStackTrace();
         }
 
-        System.out.println("\nSETUP FINISHED.");
+        System.out.print("\nSETUP FINISHED.");
     }
 
     @AfterAll
     static void tearDown()
     {
-        System.out.println("\nCleaning up test data...");
+        System.out.print("\nCleaning up test data...");
 
         try
         {
@@ -92,7 +92,7 @@ public class GetItemsByAuthorTest
             e.printStackTrace();
         }
 
-        System.out.println("\nCLEANUP FINISHED.");
+        System.out.print("\nCLEANUP FINISHED.");
     }
 
     /**
@@ -103,7 +103,7 @@ public class GetItemsByAuthorTest
     @Order(1)
     void testGetItemsByAuthor_EmptyFirstname_ValidLastname()
     {
-        System.out.println(
+        System.out.print(
                 "\n1: Testing getItemsByAuthor method with an empty authorFirstname and a valid authorLastname...");
 
         try
@@ -117,7 +117,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -128,7 +128,7 @@ public class GetItemsByAuthorTest
     @Order(2)
     void testGetItemsByAuthor_NullFirstname_ValidLastname()
     {
-        System.out.println(
+        System.out.print(
                 "\n2: Testing getItemsByAuthor method with a null authorFirstname and a valid authorLastname...");
 
         try
@@ -142,7 +142,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -153,7 +153,7 @@ public class GetItemsByAuthorTest
     @Order(3)
     void testGetItemsByAuthor_EmptyLastname_ValidFirstname()
     {
-        System.out.println(
+        System.out.print(
                 "\n3: Testing getItemsByAuthor method with an empty authorLastname and a valid authorFirstname...");
 
         try
@@ -167,7 +167,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -178,7 +178,7 @@ public class GetItemsByAuthorTest
     @Order(4)
     void testGetItemsByAuthor_NullLastname_ValidFirstname()
     {
-        System.out.println(
+        System.out.print(
                 "\n4: Testing getItemsByAuthor method with a null authorLastname and a valid authorFirstname...");
 
         try
@@ -192,7 +192,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -203,11 +203,11 @@ public class GetItemsByAuthorTest
     @Order(5)
     void testGetItemsByAuthor_EmptyNames()
     {
-        System.out.println("\n5: Testing getItemsByAuthor method with an empty authorFirstname and authorLastname...");
+        System.out.print("\n5: Testing getItemsByAuthor method with an empty authorFirstname and authorLastname...");
 
         assertThrows(InvalidNameException.class, () -> ItemHandler.getItemsByAuthor("", ""));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -218,11 +218,11 @@ public class GetItemsByAuthorTest
     @Order(6)
     void testGetItemsByAuthor_NullNames()
     {
-        System.out.println("\n6: Testing getItemsByAuthor method with a null authorFirstname and authorLastname...");
+        System.out.print("\n6: Testing getItemsByAuthor method with a null authorFirstname and authorLastname...");
 
         assertThrows(InvalidNameException.class, () -> ItemHandler.getItemsByAuthor(null, null));
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -233,7 +233,7 @@ public class GetItemsByAuthorTest
     @Order(7)
     void testGetItemsByAuthor_NoSuchAuthor()
     {
-        System.out.println(
+        System.out.print(
                 "\n7: Testing getItemsByAuthor method with an authorFirstname and authorLastname that does not exist...");
 
         try
@@ -247,7 +247,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -258,7 +258,7 @@ public class GetItemsByAuthorTest
     @Order(8)
     void testGetItemsByAuthor_AuthorExists_NoTitles()
     {
-        System.out.println("\n8: Testing getItemsByAuthor method with an author that exists but has no titles...");
+        System.out.print("\n8: Testing getItemsByAuthor method with an author that exists but has no titles...");
 
         try
         {
@@ -281,7 +281,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -292,7 +292,7 @@ public class GetItemsByAuthorTest
     @Order(9)
     void testGetItemsByAuthor_AuthorExists_HasTitle()
     {
-        System.out.println("\n9: Testing getItemsByAuthor method with an author that exists and has a title...");
+        System.out.print("\n9: Testing getItemsByAuthor method with an author that exists and has a title...");
 
         try
         {
@@ -305,7 +305,7 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -316,7 +316,7 @@ public class GetItemsByAuthorTest
     @Order(10)
     void testGetItemsByAuthor_MultipleItemsExist()
     {
-        System.out.println("\n10: Testing getItemsByAuthor method with an author that has multiple items...");
+        System.out.print("\n10: Testing getItemsByAuthor method with an author that has multiple items...");
 
         try
         {
@@ -329,6 +329,6 @@ public class GetItemsByAuthorTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

@@ -63,13 +63,13 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(1)
     void testCreateNewItem_ValidUsers_AllUserTypes()
     {
-        System.out.println("\n1: Testing createNewItem method with valid Users of all UserTypes...");
+        System.out.print("\n1: Testing createNewItem method with valid Users of all UserTypes...");
 
         for (User.UserType userType : User.UserType.values())
         {
             try
             {
-                System.out.println("\nTesting valid user of userType " + userType.toString());
+                System.out.print("\nTesting valid user of userType " + userType.toString());
 
                 //Create the user with given type
                 User user = UserHandler.createNewUser(validUsername, validPassword, validEmail, userType);
@@ -105,7 +105,7 @@ public class CreateNewUserTest extends BaseUserHandlerTest
             }
         }
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -115,7 +115,7 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(2)
     void testCreateNewItem_DuplicateUsername()
     {
-        System.out.println("\n2: Testing createNewItem method with a duplicate username...");
+        System.out.print("\n2: Testing createNewItem method with a duplicate username...");
 
         assertDoesNotThrow(() -> UserHandler.createNewUser(validUsername, validPassword, validEmail, userType));
 
@@ -124,7 +124,7 @@ public class CreateNewUserTest extends BaseUserHandlerTest
 
         assertTrue(e.getCause() instanceof InvalidNameException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -134,7 +134,7 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(3)
     void testCreateNewItem_DuplicateEmail()
     {
-        System.out.println("\n3: Testing createNewItem method with a duplicate email...");
+        System.out.print("\n3: Testing createNewItem method with a duplicate email...");
 
         assertDoesNotThrow(() -> UserHandler.createNewUser(validUsername, validPassword, validEmail, userType));
 
@@ -143,7 +143,7 @@ public class CreateNewUserTest extends BaseUserHandlerTest
 
         assertTrue(e.getCause() instanceof InvalidEmailException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -153,14 +153,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(4)
     void testCreateNewItem_NullUsername()
     {
-        System.out.println("\n4: Testing createNewItem method with null username...");
+        System.out.print("\n4: Testing createNewItem method with null username...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(null,
                 validPassword, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidNameException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -170,14 +170,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(5)
     void testCreateNewItem_EmptyUsername()
     {
-        System.out.println("\n5: Testing createNewItem method with an empty username...");
+        System.out.print("\n5: Testing createNewItem method with an empty username...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser("",
                 validPassword, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidNameException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -187,14 +187,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(6)
     void testCreateNewItem_ShortUsername()
     {
-        System.out.println("\n6: Testing createNewItem method with a short username of 3 characters...");
+        System.out.print("\n6: Testing createNewItem method with a short username of 3 characters...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(shortUsername,
                 validPassword, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidNameException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -204,14 +204,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(7)
     void testCreateNewItem_LongUsername()
     {
-        System.out.println("\n7: Testing createNewItem method with a long username of 20 characters...");
+        System.out.print("\n7: Testing createNewItem method with a long username of 20 characters...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(longUsername,
                 validPassword, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidNameException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -221,14 +221,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(8)
     void testCreateNewItem_NullPassword()
     {
-        System.out.println("\n8: Testing createNewItem method with null password...");
+        System.out.print("\n8: Testing createNewItem method with null password...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 null, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidPasswordException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -238,14 +238,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(9)
     void testCreateNewItem_EmptyPassword()
     {
-        System.out.println("\n9: Testing createNewItem method with an empty password...");
+        System.out.print("\n9: Testing createNewItem method with an empty password...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 "", validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidPasswordException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -255,14 +255,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(10)
     void testCreateNewItem_ShortPassword()
     {
-        System.out.println("\n10: Testing createNewItem method with a short password of 8 characters...");
+        System.out.print("\n10: Testing createNewItem method with a short password of 8 characters...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 shortPassword, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidPasswordException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -272,14 +272,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(11)
     void testCreateNewItem_LongPassword()
     {
-        System.out.println("\n11: Testing createNewItem method with a long password of 50 characters...");
+        System.out.print("\n11: Testing createNewItem method with a long password of 50 characters...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 longPassword, validEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidPasswordException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -289,14 +289,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(12)
     void testCreateNewItem_NullEmail()
     {
-        System.out.println("\n12: Testing createNewItem method with null email...");
+        System.out.print("\n12: Testing createNewItem method with null email...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 validPassword, null, userType));
 
         assertTrue(e.getCause() instanceof InvalidEmailException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -306,14 +306,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(13)
     void testCreateNewItem_EmptyEmail()
     {
-        System.out.println("\n13: Testing createNewItem method with an empty email...");
+        System.out.print("\n13: Testing createNewItem method with an empty email...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 validPassword, "", userType));
 
         assertTrue(e.getCause() instanceof InvalidEmailException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -323,14 +323,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(14)
     void testCreateNewItem_ShortEmail()
     {
-        System.out.println("\n14: Testing createNewItem method with a short email of 6 characters...");
+        System.out.print("\n14: Testing createNewItem method with a short email of 6 characters...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 validPassword, shortEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidEmailException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -340,14 +340,14 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(15)
     void testCreateNewItem_LongEmail()
     {
-        System.out.println("\n15: Testing createNewItem method with a long email of 255 characters...");
+        System.out.print("\n15: Testing createNewItem method with a long email of 255 characters...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 validPassword, longEmail, userType));
 
         assertTrue(e.getCause() instanceof InvalidEmailException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -357,13 +357,13 @@ public class CreateNewUserTest extends BaseUserHandlerTest
     @Order(16)
     void testCreateNewItem_NullUserType()
     {
-        System.out.println("\n16: Testing createNewItem method with null userType...");
+        System.out.print("\n16: Testing createNewItem method with null userType...");
 
         Exception e = assertThrows(CreationException.class, () -> UserHandler.createNewUser(validUsername,
                 validPassword, validEmail, null));
 
         assertTrue(e.getCause() instanceof InvalidTypeException);
 
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }

@@ -33,7 +33,7 @@ public class DatabaseConnectionTest
     {
         try
         {
-            System.out.println("BeforeAll:");
+            System.out.print("BeforeAll:");
             //TODO handle?
             DatabaseConnection.setVerbose(true);
             DatabaseConnection.setup();
@@ -61,13 +61,13 @@ public class DatabaseConnectionTest
     @Order(1)
     public void testConnection()
     {
-        System.out.println("\n1: Testing connection...");
-        System.out.println("Creating connection to database...");
+        System.out.print("\n1: Testing connection...");
+        System.out.print("Creating connection to database...");
         Connection connection = DatabaseConnection.getConnection();
-        System.out.println("Asserting connection is not null, should be true: " + (connection != null));
+        System.out.print("Asserting connection is not null, should be true: " + (connection != null));
         Assertions.assertNotNull(connection);
         DatabaseConnection.closeConnection();
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class DatabaseConnectionTest
     @Order(2)
     public void testConnectionWithIncorrectURL()
     {
-        System.out.println("\n2: Attempting to connect to an invalid URL...");
+        System.out.print("\n2: Attempting to connect to an invalid URL...");
         String url = "jdbc:mysql://localhost:3307"; // incorrect port number
         String user = "root";
         String password = "password";
@@ -91,10 +91,10 @@ public class DatabaseConnectionTest
         String expectedMessage = "Communications link failure";
         String actualMessage = exception.getMessage();
 
-        System.out.println("Asserting that error message contains '" + expectedMessage +
+        System.out.print("Asserting that error message contains '" + expectedMessage +
                 "', should be true: " + actualMessage.contains(expectedMessage));
         Assertions.assertTrue(actualMessage.contains(expectedMessage));
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -105,7 +105,7 @@ public class DatabaseConnectionTest
     @Order(3)
     public void testConnectionWithIncorrectUsername()
     {
-        System.out.println("\n3: Attempting to connect with an invalid username...");
+        System.out.print("\n3: Attempting to connect with an invalid username...");
         String url = "jdbc:mysql://localhost:3306";
         String user = "badusername";
         String password = "password";
@@ -118,10 +118,10 @@ public class DatabaseConnectionTest
         String expectedMessage = "Access denied for user";
         String actualMessage = exception.getMessage();
 
-        System.out.println("Asserting that error message contains '" + expectedMessage +
+        System.out.print("Asserting that error message contains '" + expectedMessage +
                 "', should be true: " + actualMessage.contains(expectedMessage));
         Assertions.assertTrue(actualMessage.contains(expectedMessage));
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 
     /**
@@ -132,7 +132,7 @@ public class DatabaseConnectionTest
     @Order(4)
     public void testConnectionWithIncorrectPassword()
     {
-        System.out.println("\n4: Attempting to connect with an invalid password...");
+        System.out.print("\n4: Attempting to connect with an invalid password...");
         String url = "jdbc:mysql://localhost:3306";
         String user = "root";
         String password = "badpassword";
@@ -145,9 +145,9 @@ public class DatabaseConnectionTest
         String expectedMessage = "Access denied for user";
         String actualMessage = exception.getMessage();
 
-        System.out.println("Asserting that error message contains '" + expectedMessage +
+        System.out.print("Asserting that error message contains '" + expectedMessage +
                 "', should be true: " + actualMessage.contains(expectedMessage));
         Assertions.assertTrue(actualMessage.contains(expectedMessage));
-        System.out.println("\nTEST FINISHED.");
+        System.out.print(" Test Finished.");
     }
 }
