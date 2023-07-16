@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
 })
 public class LibraryManagerTestSuite
 {
-    private static final Logger logger;
+    /*private static final Logger logger;
     private static long startTime;
 
     static
@@ -64,5 +64,5 @@ public class LibraryManagerTestSuite
     @Test
     public void emptyTestMethod()
     {
-    }
+    }*/
 }

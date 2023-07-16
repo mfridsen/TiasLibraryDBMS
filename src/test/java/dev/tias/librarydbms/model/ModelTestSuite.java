@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
 
 public class ModelTestSuite
 {
-    private static final Logger logger;
+    /*private static final Logger logger;
     private static long startTime;
 
     static
@@ -70,5 +70,5 @@ public class ModelTestSuite
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         logger.info("Model Test Suite End. Model Test Suite time: " + duration + "ms");
-    }
+    }*/
 }
