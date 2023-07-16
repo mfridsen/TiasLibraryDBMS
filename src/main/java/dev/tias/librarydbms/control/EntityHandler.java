@@ -13,7 +13,7 @@ package dev.tias.librarydbms.control;
  * <p>
  * Brought to you by enough nicotine to kill a large horse.
  */
-public class EntityHandler
+public abstract class EntityHandler
 {
     //TODO-prio collect utility and common methods here
 }

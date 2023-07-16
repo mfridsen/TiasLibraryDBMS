@@ -53,6 +53,9 @@ public class ExceptionManager
         {
             //TODO-future fix the logging
             // Log the error
+
+            //TODO-prio should print message and call first method
+
             Logger logger = Logger.getLogger("DatabaseErrorLogger");
             /*if (cause instanceof SQLException) {
                 logger.log(Level.SEVERE, "Fatal database error occurred", cause);
@@ -79,12 +82,12 @@ public class ExceptionManager
         }
     }
 
-    public static void HandleTestExceptionWithCause(Throwable e, String message)
+    public static void HandleTestException(Throwable e)
     {
         Throwable cause = e.getCause();
+        System.err.println("Test failed unexpectedly due to " + cause.getClass().getName() + ".");
         e.printStackTrace();
-        Assert.fail(message + "failed due to: " + cause.getClass().getName()
-                + ". Message: " + e.getMessage());
+        Assert.fail();
     }
 
     //TODO-prio handle test exception

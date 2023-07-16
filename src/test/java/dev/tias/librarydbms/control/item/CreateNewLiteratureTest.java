@@ -47,9 +47,9 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
 
     @Override
     @BeforeEach
-    protected void setupAndReset()
+    protected void reset()
     {
-        super.setupAndReset();
+        super.reset();
         ItemHandler.reset();
     }
 

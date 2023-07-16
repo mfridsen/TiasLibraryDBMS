@@ -23,7 +23,7 @@ public class ClassificationNamesTest extends BaseHandlerTest
 
     @BeforeEach
     @Override
-    protected void setupAndReset()
+    protected void reset()
     {
         try
         {
