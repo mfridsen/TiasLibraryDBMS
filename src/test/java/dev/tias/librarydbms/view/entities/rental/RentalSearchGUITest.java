@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.view.entities.rental;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.RentalHandler;
+import dev.tias.librarydbms.control.RentalHandler;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidTypeException;

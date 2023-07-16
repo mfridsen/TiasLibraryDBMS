@@ -1,10 +1,10 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.control.entities.ItemHandlerUtils;
-import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.model.entities.Item;
+import dev.tias.librarydbms.control.ItemHandler;
+import dev.tias.librarydbms.control.ItemHandlerUtils;
+import dev.tias.librarydbms.control.UserHandler;
+import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.NullEntityException;
 import dev.tias.librarydbms.service.exceptions.custom.user.UserValidationException;

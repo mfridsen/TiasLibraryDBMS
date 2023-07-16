@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.view.entities.Author;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.AuthorHandler;
+import dev.tias.librarydbms.control.AuthorHandler;
 import dev.tias.librarydbms.view.entities.author.AuthorGUI;
 
 /**

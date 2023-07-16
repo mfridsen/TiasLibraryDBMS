@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.view.entities.rental;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.control.UserHandler;
+import dev.tias.librarydbms.model.Rental;
 import dev.tias.librarydbms.service.exceptions.custom.user.UserValidationException;
 import dev.tias.librarydbms.view.gui.GUI;
 

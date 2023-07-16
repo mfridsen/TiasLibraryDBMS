@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.control;
 
-import dev.tias.librarydbms.control.entities.item.ItemHandlerTestSuite;
-import dev.tias.librarydbms.control.entities.rental.RentalHandlerTestSuite;
-import dev.tias.librarydbms.control.entities.user.UserHandlerTestSuite;
+import dev.tias.librarydbms.control.item.ItemHandlerTestSuite;
+import dev.tias.librarydbms.control.rental.RentalHandlerTestSuite;
+import dev.tias.librarydbms.control.user.UserHandlerTestSuite;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 

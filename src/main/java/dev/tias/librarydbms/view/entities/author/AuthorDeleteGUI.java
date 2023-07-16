@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.view.entities.author;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.model.entities.Author;
+import dev.tias.librarydbms.model.Author;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

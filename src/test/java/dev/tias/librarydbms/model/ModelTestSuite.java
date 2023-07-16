@@ -1,19 +1,13 @@
 package dev.tias.librarydbms.model;
 
-import dev.tias.librarydbms.LibraryManagerTestSuite;
-import dev.tias.librarydbms.model.entities.author.AuthorTestSuite;
-import dev.tias.librarydbms.model.entities.classification.ClassificationTestSuite;
-import dev.tias.librarydbms.model.entities.item.FilmTestSuite;
-import dev.tias.librarydbms.model.entities.item.LiteratureTestSuite;
-import dev.tias.librarydbms.model.entities.rental.RentalTestSuite;
-import dev.tias.librarydbms.model.entities.user.UserTestSuite;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import dev.tias.librarydbms.model.author.AuthorTestSuite;
+import dev.tias.librarydbms.model.classification.ClassificationTestSuite;
+import dev.tias.librarydbms.model.item.FilmTestSuite;
+import dev.tias.librarydbms.model.item.LiteratureTestSuite;
+import dev.tias.librarydbms.model.rental.RentalTestSuite;
+import dev.tias.librarydbms.model.user.UserTestSuite;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author Mattias Fridsén

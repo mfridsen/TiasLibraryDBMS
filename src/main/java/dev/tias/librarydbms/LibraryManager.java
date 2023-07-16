@@ -1,8 +1,8 @@
 package dev.tias.librarydbms;
 
-import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.control.ItemHandler;
+import dev.tias.librarydbms.control.UserHandler;
+import dev.tias.librarydbms.model.User;
 import dev.tias.librarydbms.service.db.DataAccessManager;
 
 import java.sql.SQLException;

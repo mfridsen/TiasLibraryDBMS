@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.view.entities.user;
 
-import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.model.User;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

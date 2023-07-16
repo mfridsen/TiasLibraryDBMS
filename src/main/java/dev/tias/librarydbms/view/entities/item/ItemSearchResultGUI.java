@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.view.entities.item;
 
-import dev.tias.librarydbms.model.entities.Item;
+import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.view.LoginScreenGUI;
 import dev.tias.librarydbms.view.buttons.ButtonRenderer;
 import dev.tias.librarydbms.view.gui.GUI;

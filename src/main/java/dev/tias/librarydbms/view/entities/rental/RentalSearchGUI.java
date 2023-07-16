@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.view.entities.rental;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.RentalHandler;
-import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.control.RentalHandler;
+import dev.tias.librarydbms.model.Rental;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;

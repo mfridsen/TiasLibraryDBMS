@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.view.buttons;
 
-import dev.tias.librarydbms.model.entities.Entity;
+import dev.tias.librarydbms.model.Entity;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

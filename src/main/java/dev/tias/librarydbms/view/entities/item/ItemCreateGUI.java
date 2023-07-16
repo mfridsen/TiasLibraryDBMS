@@ -1,8 +1,8 @@
 package dev.tias.librarydbms.view.entities.item;
 
-import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.control.entities.ItemHandlerUtils;
-import dev.tias.librarydbms.model.entities.Item;
+import dev.tias.librarydbms.control.ItemHandler;
+import dev.tias.librarydbms.control.ItemHandlerUtils;
+import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;

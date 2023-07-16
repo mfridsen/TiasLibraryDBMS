@@ -2,8 +2,8 @@ package dev.tias.librarydbms.service.db;
 
 import dev.tias.librarydbms.LibraryManager;
 import dev.tias.librarydbms.control.BaseHandlerTest;
-import dev.tias.librarydbms.control.entities.UserHandler;
-import dev.tias.librarydbms.model.entities.User;
+import dev.tias.librarydbms.control.UserHandler;
+import dev.tias.librarydbms.model.User;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;

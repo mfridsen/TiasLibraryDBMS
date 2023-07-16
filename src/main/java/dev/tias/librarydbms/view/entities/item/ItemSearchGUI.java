@@ -1,7 +1,7 @@
 package dev.tias.librarydbms.view.entities.item;
 
-import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.model.entities.Item;
+import dev.tias.librarydbms.control.ItemHandler;
+import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;

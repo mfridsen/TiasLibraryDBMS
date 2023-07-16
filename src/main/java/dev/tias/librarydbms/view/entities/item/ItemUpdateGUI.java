@@ -1,10 +1,10 @@
 package dev.tias.librarydbms.view.entities.item;
 
 import dev.tias.librarydbms.LibraryManager;
-import dev.tias.librarydbms.control.entities.ItemHandler;
-import dev.tias.librarydbms.model.entities.Film;
-import dev.tias.librarydbms.model.entities.Item;
-import dev.tias.librarydbms.model.entities.Literature;
+import dev.tias.librarydbms.control.ItemHandler;
+import dev.tias.librarydbms.model.Film;
+import dev.tias.librarydbms.model.Item;
+import dev.tias.librarydbms.model.Literature;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidAgeRatingException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;

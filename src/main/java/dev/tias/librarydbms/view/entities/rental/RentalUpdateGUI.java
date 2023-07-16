@@ -1,6 +1,6 @@
 package dev.tias.librarydbms.view.entities.rental;
 
-import dev.tias.librarydbms.model.entities.Rental;
+import dev.tias.librarydbms.model.Rental;
 import dev.tias.librarydbms.view.gui.GUI;
 
 import javax.swing.*;
