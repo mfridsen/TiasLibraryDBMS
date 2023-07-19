@@ -1,3 +1,4 @@
+-- (, '', '', '', ),
 INSERT INTO authors (authorID, authorFirstname, authorLastname, biography, deleted)
 VALUES (1, 'author1', 'lastname1', 'is the first author', 0),
        (2, 'author2', 'lastname2', 'is the second author', 0),

@@ -4,7 +4,6 @@ import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
-import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
@@ -12,7 +11,6 @@ import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import org.junit.jupiter.api.*;
 
-import java.sql.SQLException;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,7 +48,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
 
     protected void setupTestData()
     {
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
+        setupTestData_ForItemTests_full();
     }
 
     @BeforeEach

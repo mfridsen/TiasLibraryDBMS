@@ -40,6 +40,12 @@ public class CreateNewFilmTest extends BaseHandlerTest
     //Negative age rating
     //Too high age rating
 
+    @Override
+    protected void setupTestData()
+    {
+        setupTestData_ForItemTests_AuthorClassification();
+    }
+
     @BeforeEach
     protected void reset()
     {
@@ -347,11 +353,5 @@ public class CreateNewFilmTest extends BaseHandlerTest
         });
 
         System.out.print(" Test Finished.");
-    }
-
-    @Override
-    protected void setupTestData()
-    {
-
     }
 }

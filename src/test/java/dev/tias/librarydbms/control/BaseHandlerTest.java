@@ -4,7 +4,6 @@ import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.db.DatabaseConnection;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 
 import java.sql.Connection;
@@ -63,6 +62,17 @@ public abstract class BaseHandlerTest
     }
 
     protected abstract void setupTestData();
+
+    protected void setupTestData_ForItemTests_AuthorClassification()
+    {
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/author_test_data.sql");
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/classification_test_data.sql");
+    }
+
+    protected void setupTestData_ForItemTests_full()
+    {
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
+    }
 
     /**
      * Always delete the test database and close the connection to the server after use.

@@ -5,7 +5,6 @@ import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.service.db.DataAccessManager;
 import org.junit.jupiter.api.*;
 
-import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -64,7 +63,7 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
         System.out.print("\n2: Testing setup method with some items in the database...");
 
         //Setup the test data and clear the items, film and literature tables
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
+        setupTestData_ForItemTests_full();
         String[] tablesToDelete = {"films", "literature", "items"};
         for (String table : tablesToDelete)
         {
