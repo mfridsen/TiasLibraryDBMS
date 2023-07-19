@@ -33,22 +33,26 @@ public abstract class BaseHandlerTest
     @BeforeAll
     protected void setup()
     {
-        try
-        {
-            setupConnection();
-            setupTables();
-            setupTestData();
-        }
-        catch (SQLException | ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
+        System.out.println("\nSetting up test environment...");
+
+        setupConnection();
+        setupTables();
+        customSetupTestData();
+
+        System.out.println("\nTest environment setup finished.");
     }
 
     protected void setupConnection()
-    throws SQLException, ClassNotFoundException
     {
-        connection = DatabaseConnection.setup();
+        try
+        {
+            connection = DatabaseConnection.setup();
+        }
+        catch (SQLException | ClassNotFoundException e)
+        {
+            throw new RuntimeException(e);
+        }
+
         DataAccessManager.setConnection(connection);
         DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
     }
@@ -61,9 +65,7 @@ public abstract class BaseHandlerTest
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
-    protected abstract void setupTestData();
-
-
+    protected abstract void customSetupTestData();
 
     /**
      * Always delete the test database and close the connection to the server after use.

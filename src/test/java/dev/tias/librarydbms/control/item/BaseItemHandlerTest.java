@@ -25,6 +25,6 @@ public abstract class BaseItemHandlerTest extends BaseHandlerTest
 
     protected void setupTestData_ForItemTests_full()
     {
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_author_classification_test_data.sql");
     }
 }

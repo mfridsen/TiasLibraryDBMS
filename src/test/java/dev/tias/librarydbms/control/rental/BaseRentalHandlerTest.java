@@ -1,5 +1,6 @@
 package dev.tias.librarydbms.control.rental;
 
+import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.control.RentalHandler;
 import dev.tias.librarydbms.control.UserHandler;
@@ -33,12 +34,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * <p>
  * Brought to you by enough nicotine to kill a large horse.
  */
-public abstract class BaseRentalHandlerTest
+public abstract class BaseRentalHandlerTest extends BaseHandlerTest
 {
-    protected static final String testDatabaseName = "test_database";
     protected static final int[] validUserIDs = new int[]{3, 4, 5, 6, 8, 10};
     protected static final int[] validItemIDs = new int[18];
-    protected static Connection connection;
 
     static
     {
@@ -48,78 +47,15 @@ public abstract class BaseRentalHandlerTest
         }
     }
 
-    @BeforeAll
-    protected static void setup()
-    {
-        System.out.println("\nSetting up test environment...");
-
-        setupConnectionAndTables();
-        setupTestData();
-        ItemHandler.setup(); //Fills maps with items
-        UserHandler.setup(); //Fills list with users
-        DataAccessManager.setVerbose(false); //Get that thing to shut up
-
-        System.out.println("\nTest environment setup finished.");
-    }
-
-
-    protected static void setupConnectionAndTables()
-    {
-        System.out.println("\nSetting up connection and tables...");
-
-        try
-        {
-            connection = DatabaseConnection.setup();
-            DataAccessManager.setConnection(connection);
-            DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
-            DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
-            DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
-            DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
-            DataAccessManager.setVerbose(false);
-            DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
-        }
-        catch (SQLException | ClassNotFoundException e)
-        {
-            System.err.println("RentalHandlerTestSuite failed while setting up connection and tables due to " +
-                    e.getClass().getName() + " Message: " + e.getMessage());
-            e.printStackTrace();
-        }
-
-        System.out.println("\nConnection and tables setup finished.");
-    }
-
-    protected static void setupTestData()
+    protected void customSetupTestData()
     {
         System.out.println("\nFilling tables with test data...");
 
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
-        DataAccessManager.setVerbose(true);
+        ItemHandler.setup(); //Fills maps with items
+        UserHandler.setup(); //Fills list with users
 
         System.out.println("\nTest data setup finished.");
-    }
-
-    /**
-     * Always close the connection to the database after use.
-     */
-    @AfterAll
-    protected static void tearDown()
-    {
-        try
-        {
-            //Drop the test database
-            DataAccessManager.executePreparedUpdate("DROP DATABASE IF EXISTS " + testDatabaseName, null);
-
-            //Close the database connection
-            if (connection != null && !connection.isClosed())
-            {
-                DataAccessManager.closeDatabaseConnection();
-            }
-        }
-        catch (SQLException e)
-        {
-            System.err.println("An error occurred during cleanup: " + e.getMessage());
-            e.printStackTrace();
-        }
     }
 
     /**

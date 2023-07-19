@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
 public class ClassificationNamesTest extends BaseHandlerTest
 {
     @Override
-    protected void setupTestData()
+    protected void customSetupTestData()
     {
 
     }

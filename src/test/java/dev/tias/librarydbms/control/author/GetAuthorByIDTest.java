@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GetAuthorByIDTest extends BaseHandlerTest
 {
     @Override
-    protected void setupTestData()
+    protected void customSetupTestData()
     {
 
     }
