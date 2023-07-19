@@ -2,6 +2,7 @@ package dev.tias.librarydbms.model.item;
 
 import dev.tias.librarydbms.model.Film;
 import dev.tias.librarydbms.model.Item;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidItemTypeException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
@@ -65,8 +66,7 @@ public class FilmSettersTest
         }
         catch (InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -141,8 +141,7 @@ public class FilmSettersTest
         }
         catch (InvalidTitleException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -241,8 +240,7 @@ public class FilmSettersTest
         }
         catch (InvalidItemTypeException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -291,8 +289,7 @@ public class FilmSettersTest
         }
         catch (InvalidBarcodeException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -391,8 +388,7 @@ public class FilmSettersTest
         }
         catch (InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -467,8 +463,7 @@ public class FilmSettersTest
         }
         catch (InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -548,8 +543,7 @@ public class FilmSettersTest
         }
         catch (InvalidDateException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");

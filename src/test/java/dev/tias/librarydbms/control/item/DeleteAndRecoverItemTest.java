@@ -6,6 +6,7 @@ import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
 import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.db.DatabaseConnection;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import org.junit.jupiter.api.*;
@@ -130,8 +131,7 @@ public class DeleteAndRecoverItemTest
         }
         catch (InvalidIDException | RetrievalException | DeletionException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -166,8 +166,7 @@ public class DeleteAndRecoverItemTest
         }
         catch (InvalidIDException | RetrievalException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");

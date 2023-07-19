@@ -2,6 +2,7 @@ package dev.tias.librarydbms.service.exceptions;
 
 import org.junit.Assert;
 
+import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
@@ -85,7 +86,8 @@ public class ExceptionManager
     public static void HandleTestException(Throwable e)
     {
         Throwable cause = e.getCause();
-        System.err.println("Test failed unexpectedly due to " + cause.getClass().getName() + ".");
+        System.err.println(
+                "Test failed unexpectedly due to " + Objects.requireNonNullElse(cause, e).getClass().getName() + ".");
         e.printStackTrace();
         Assert.fail();
     }

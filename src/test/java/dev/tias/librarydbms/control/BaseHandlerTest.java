@@ -5,6 +5,7 @@ import dev.tias.librarydbms.service.db.DatabaseConnection;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInstance;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,6 +20,7 @@ import java.sql.SQLException;
  * This class contains the methods and fields that are shared among all HandlerTest classes, in order to better adhere
  * to the DRY principle.
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class BaseHandlerTest
 {
     //TODO-PRIO OVERHAUL THIS AND ALL SUB CLASSES
@@ -30,13 +32,12 @@ public abstract class BaseHandlerTest
     protected static Connection connection = null;
 
     @BeforeAll
-    protected static void setup()
+    protected void setup()
     {
         try
         {
             setupConnection();
             setupTables();
-            //setupTestData();
         }
         catch (SQLException | ClassNotFoundException e)
         {
@@ -44,7 +45,7 @@ public abstract class BaseHandlerTest
         }
     }
 
-    protected static void setupConnection()
+    protected void setupConnection()
     throws SQLException, ClassNotFoundException
     {
         connection = DatabaseConnection.setup();
@@ -52,20 +53,17 @@ public abstract class BaseHandlerTest
         DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
     }
 
-    protected static void setupTables()
+    protected void setupTables()
     {
         DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
         DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
         DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
-        DataAccessManager.setVerbose(false);
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
-    protected static void setupTestData()
+    protected void setupTestData()
     {
-        //customTestDataSetup();
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
-        DataAccessManager.setVerbose(true);
     }
 
     /**

@@ -6,6 +6,7 @@ import dev.tias.librarydbms.control.UserHandler;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Rental;
 import dev.tias.librarydbms.model.User;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.rental.RentalNotAllowedException;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidLateFeeException;
 import dev.tias.librarydbms.service.exceptions.custom.user.InvalidUserRentalsException;
@@ -438,8 +439,7 @@ public class CreateNewRentalTest extends BaseRentalHandlerTest
         }
         catch (InvalidIDException | NullEntityException | InvalidLateFeeException | UpdateException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");

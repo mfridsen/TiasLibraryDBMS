@@ -5,6 +5,7 @@ import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Film;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
@@ -49,8 +50,7 @@ public class GetItemByIDTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -73,8 +73,7 @@ public class GetItemByIDTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -99,8 +98,7 @@ public class GetItemByIDTest extends BaseHandlerTest
         }
         catch (RetrievalException | InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");

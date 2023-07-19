@@ -143,7 +143,7 @@ public class ItemHandlerUtils
     {
         Author author = AuthorHandler.getAuthorByID(authorID, false);
         if (author == null)
-            throw new EntityNotFoundException("Author with ID " + authorID + "not found.");
+            throw new EntityNotFoundException("Author with ID " + authorID + " not found.");
         return author;
     }
 

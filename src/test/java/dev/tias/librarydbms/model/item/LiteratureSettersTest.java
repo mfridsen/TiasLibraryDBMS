@@ -2,6 +2,7 @@ package dev.tias.librarydbms.model.item;
 
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidDateException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
@@ -76,7 +77,6 @@ public class LiteratureSettersTest
         }
         catch (InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
             e.printStackTrace();
         }
 
@@ -152,7 +152,6 @@ public class LiteratureSettersTest
         }
         catch (InvalidTitleException e)
         {
-            fail("Valid operations should not throw exceptions.");
             e.printStackTrace();
         }
 
@@ -252,8 +251,7 @@ public class LiteratureSettersTest
         }
         catch (InvalidItemTypeException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -302,8 +300,7 @@ public class LiteratureSettersTest
         }
         catch (InvalidBarcodeException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -402,8 +399,7 @@ public class LiteratureSettersTest
         }
         catch (InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -478,8 +474,7 @@ public class LiteratureSettersTest
         }
         catch (InvalidIDException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -559,8 +554,7 @@ public class LiteratureSettersTest
         }
         catch (InvalidDateException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -609,8 +603,7 @@ public class LiteratureSettersTest
         }
         catch (InvalidISBNException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");

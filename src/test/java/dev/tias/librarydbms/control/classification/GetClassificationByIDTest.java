@@ -3,6 +3,7 @@ package dev.tias.librarydbms.control.classification;
 import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ClassificationHandler;
 import dev.tias.librarydbms.model.Classification;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -41,8 +42,7 @@ public class GetClassificationByIDTest extends BaseHandlerTest
             assertEquals("Scientific literature on the topic of physics.", classification.getDescription());
             assertFalse(classification.isDeleted());
         } catch (InvalidIDException e) {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");

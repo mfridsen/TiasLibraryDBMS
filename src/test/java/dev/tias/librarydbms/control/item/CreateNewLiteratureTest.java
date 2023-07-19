@@ -4,12 +4,14 @@ import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import org.junit.jupiter.api.*;
 
+import java.sql.SQLException;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,6 +46,13 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
     //Null ISBN
     //Empty ISBN
     //Too long ISBN
+
+    @BeforeAll
+    protected void setup()
+    {
+        super.setup();
+        setupTestData();
+    }
 
     @BeforeEach
     protected void reset()
@@ -84,8 +93,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (InvalidBarcodeException | InvalidIDException | EntityNotFoundException | ConstructionException e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -228,8 +236,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -260,8 +267,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -292,8 +298,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -324,8 +329,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -356,8 +360,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -388,8 +391,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -420,8 +422,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -452,8 +453,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -486,8 +486,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -518,8 +517,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -550,8 +548,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
@@ -582,8 +579,7 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
         }
         catch (Exception e)
         {
-            fail("Valid operations should not throw exceptions.");
-            e.printStackTrace();
+            ExceptionManager.HandleTestException(e);
         }
 
         System.out.print(" Test Finished.");
