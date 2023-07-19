@@ -24,21 +24,6 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
 {
     //TODO-PRIO test against test_data file
 
-    @BeforeEach
-    @Override
-    protected void reset()
-    {
-        try
-        {
-            setupConnectionAndTables();
-            ItemHandler.reset();
-        }
-        catch (SQLException | ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * Test case for the setup method with an empty database.
      * This test checks if the setup method correctly initializes the ItemHandler's state.
@@ -107,10 +92,10 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
 
         //Insert some items into the database without using the createNew methods,
         //because they automatically increment maps and list
-        DataAccessManager.executePreparedQuery(query, params1);
-        DataAccessManager.executePreparedQuery(query, params2);
-        DataAccessManager.executePreparedQuery(query, params3);
-        DataAccessManager.executePreparedQuery(query, params4);
+        DataAccessManager.executePreparedUpdate(query, params1);
+        DataAccessManager.executePreparedUpdate(query, params2);
+        DataAccessManager.executePreparedUpdate(query, params3);
+        DataAccessManager.executePreparedUpdate(query, params4);
 
         //Call the setup method
         ItemHandler.setup();
@@ -137,6 +122,6 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
         assertEquals(barcode3, ItemHandler.getRegisteredBarcodes().get(2));
         assertEquals(barcode4, ItemHandler.getRegisteredBarcodes().get(3));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

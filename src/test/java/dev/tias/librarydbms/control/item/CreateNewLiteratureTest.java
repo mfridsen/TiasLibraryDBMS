@@ -45,11 +45,9 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
     //Empty ISBN
     //Too long ISBN
 
-    @Override
     @BeforeEach
     protected void reset()
     {
-        super.reset();
         ItemHandler.reset();
     }
 

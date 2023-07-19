@@ -27,48 +27,33 @@ public abstract class BaseHandlerTest
     // add custom setup methods as needed
 
     protected static final String testDatabaseName = "test_database";
-    protected Connection connection = null;
+    protected static Connection connection = null;
 
     @BeforeAll
     protected static void setup()
     {
-
-    }
-
-    /**
-     * Always close the connection to the database after use.
-     */
-    @AfterAll
-    static protected void tearDown()
-    {
-        DataAccessManager.closeDatabaseConnection();
-    }
-
-    /**
-     * Create the connection to the database, set DatabaseHandlers connection, and reset the database before each test.
-     */
-    @BeforeEach
-    protected void reset()
-    {
-        System.out.print("\nSetting up and resetting database...");
         try
         {
-            setupConnectionAndTables();
-            setupTestData();
+            setupConnection();
+            setupTables();
+            //setupTestData();
         }
         catch (SQLException | ClassNotFoundException e)
         {
             e.printStackTrace();
         }
-        System.out.print("Setup finished.");
     }
 
-    protected void setupConnectionAndTables()
+    protected static void setupConnection()
     throws SQLException, ClassNotFoundException
     {
         connection = DatabaseConnection.setup();
         DataAccessManager.setConnection(connection);
         DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
+    }
+
+    protected static void setupTables()
+    {
         DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
         DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
         DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
@@ -76,10 +61,20 @@ public abstract class BaseHandlerTest
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
-    protected void setupTestData()
+    protected static void setupTestData()
     {
         //customTestDataSetup();
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
         DataAccessManager.setVerbose(true);
+    }
+
+    /**
+     * Always delete the test database and close the connection to the server after use.
+     */
+    @AfterAll
+    static protected void tearDown()
+    {
+        DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
+        DataAccessManager.closeDatabaseConnection();
     }
 }

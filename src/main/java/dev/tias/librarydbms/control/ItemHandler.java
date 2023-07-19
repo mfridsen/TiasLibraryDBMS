@@ -61,6 +61,77 @@ public class ItemHandler
     private static final ArrayList<String> registeredBarcodes = new ArrayList<>();
 
     /**
+     * Prepares the handler by syncing titles from the database. Called at the start of the application.
+     */
+    public static void setup()
+    {
+        syncTitlesAndBarcodes();
+    }
+
+    /**
+     * Syncs the handler with the database by clearing existing data and retrieving current titles and barcodes from
+     * the database.
+     * <p>
+     * Can be called if something's gone wrong and data needs to be re-synced during runtime.
+     */
+    public static void syncTitlesAndBarcodes()
+    {
+        reset();
+        retrieveTitlesAndBarcodesFromTable();
+    }
+
+    /**
+     * Retrieves titles from the Items table and returns them as a map with title-count pairs.
+     */
+    private static void retrieveTitlesAndBarcodesFromTable() //TODO-PRIO RE-TEST AGAINST RETRIEVAL FROM TEST_DATA FILE
+    {
+        //Execute the query to retrieve data
+        String query = "SELECT title, available, barcode FROM items ORDER BY title ASC";
+        try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
+        {
+            while (result.getResultSet().next())
+            {
+                //Retrieve data
+                String title = result.getResultSet().getString("title");
+                boolean available = result.getResultSet().getBoolean("available");
+                String barcode = result.getResultSet().getString("barcode");
+
+                //Increment titles
+                incrementStoredTitles(title);
+                if (available)
+                {
+                    incrementAvailableTitles(title);
+                }
+
+                //Increment barcodes
+                incrementRegisteredBarcodes(barcode);
+            }
+        }
+        catch (SQLException e) //This is fatal
+        {
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve titles and barcodes from database due to " +
+                    e.getClass().getName() + ": " + e.getMessage());
+        }
+        finally
+        {
+            if (storedTitles.isEmpty()) System.err.println("No titles retrieved from table!");
+            if (registeredBarcodes.isEmpty()) System.err.println("No barcodes retrieved from table!");
+        }
+    }
+
+    /**
+     * Clears both stored and available titles maps as well as the registered barcodes list.
+     */
+    public static void reset()
+    {
+        storedTitles.clear();
+        availableTitles.clear();
+        registeredBarcodes.clear();
+    }
+
+    //LIST AND MAP RELATED ---------------------------------------------------------------------------------------------
+
+    /**
      * Returns the storedTitles map.
      *
      * @return the storedTitles map.
@@ -195,75 +266,6 @@ public class ItemHandler
     public static void decrementRegisteredBarcodes(String barcode)
     {
         registeredBarcodes.remove(barcode);
-    }
-
-    /**
-     * Prepares the handler by syncing titles from the database. Called at the start of the application.
-     */
-    public static void setup()
-    {
-        syncTitlesAndBarcodes();
-    }
-
-    /**
-     * Syncs the handler with the database by clearing existing data and retrieving current titles and barcodes from
-     * the database.
-     * <p>
-     * Can be called if something's gone wrong and data needs to be re-synced during runtime.
-     */
-    public static void syncTitlesAndBarcodes()
-    {
-        reset();
-        retrieveTitlesAndBarcodesFromTable();
-    }
-
-    /**
-     * Retrieves titles from the Items table and returns them as a map with title-count pairs.
-     */
-    private static void retrieveTitlesAndBarcodesFromTable() //TODO-PRIO RE-TEST AGAINST RETRIEVAL FROM TEST_DATA FILE
-    {
-        //Execute the query to retrieve data
-        String query = "SELECT title, available, barcode FROM items ORDER BY " + "title ASC";
-        try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
-        {
-            while (result.getResultSet().next())
-            {
-                //Retrieve data
-                String title = result.getResultSet().getString("title");
-                boolean available = result.getResultSet().getBoolean("available");
-                String barcode = result.getResultSet().getString("barcode");
-
-                //Increment titles
-                incrementStoredTitles(title);
-                if (available)
-                {
-                    incrementAvailableTitles(title);
-                }
-
-                //Increment barcodes
-                incrementRegisteredBarcodes(barcode);
-            }
-        }
-        catch (SQLException e) //This is fatal
-        {
-            ExceptionManager.HandleFatalException(e, "Failed to retrieve titles and barcodes from database due to " +
-                    e.getClass().getName() + ": " + e.getMessage());
-        }
-        finally
-        {
-            if (storedTitles.isEmpty()) System.err.println("No titles retrieved from table!");
-            if (registeredBarcodes.isEmpty()) System.err.println("No barcodes retrieved from table!");
-        }
-    }
-
-    /**
-     * Clears both stored and available titles maps as well as the registered barcodes list.
-     */
-    public static void reset()
-    {
-        storedTitles.clear();
-        availableTitles.clear();
-        registeredBarcodes.clear();
     }
 
     //CREATE -----------------------------------------------------------------------------------------------------------

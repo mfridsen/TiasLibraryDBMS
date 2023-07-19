@@ -40,11 +40,9 @@ public class CreateNewFilmTest extends BaseHandlerTest
     //Negative age rating
     //Too high age rating
 
-    @Override
     @BeforeEach
     protected void reset()
     {
-        super.reset();
         ItemHandler.reset();
     }
 

@@ -22,12 +22,11 @@ public class ClassificationNamesTest extends BaseHandlerTest
 {
 
     @BeforeEach
-    @Override
     protected void reset()
     {
         try
         {
-            setupConnectionAndTables();
+            setupConnection();
             ClassificationHandler.reset();
         }
         catch (SQLException | ClassNotFoundException e)
