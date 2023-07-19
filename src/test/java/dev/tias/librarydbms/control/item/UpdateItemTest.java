@@ -28,6 +28,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UpdateItemTest extends BaseItemHandlerTest
 {
+    @Override
+    protected void setupTestData()
+    {
+        setupTestData_ForItemTests_AuthorClassification();
+    }
 
     /**
      * Test case for updating an item with valid input.
@@ -179,11 +184,5 @@ public class UpdateItemTest extends BaseItemHandlerTest
         }
 
         System.out.println("Test Finished.");
-    }
-
-    @Override
-    protected void setupTestData()
-    {
-
     }
 }
