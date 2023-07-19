@@ -69,9 +69,23 @@ public abstract class BaseHandlerTest
      * Always delete the test database and close the connection to the server after use.
      */
     @AfterAll
-    static protected void tearDown()
+    protected static void tearDown()
     {
-        DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
-        DataAccessManager.closeDatabaseConnection();
+        try
+        {
+            //Drop the test database
+            DataAccessManager.executePreparedUpdate("DROP DATABASE IF EXISTS " + testDatabaseName, null);
+
+            //Close the database connection
+            if (connection != null && !connection.isClosed())
+            {
+                DataAccessManager.closeDatabaseConnection();
+            }
+        }
+        catch (SQLException e)
+        {
+            System.err.println("An error occurred during cleanup: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
