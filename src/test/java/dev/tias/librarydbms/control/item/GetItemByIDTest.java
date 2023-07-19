@@ -31,7 +31,7 @@ public class GetItemByIDTest extends BaseItemHandlerTest
     @Override
     protected void setupTestData()
     {
-
+        setupTestData_ForItemTests_full();
     }
 
     /**
