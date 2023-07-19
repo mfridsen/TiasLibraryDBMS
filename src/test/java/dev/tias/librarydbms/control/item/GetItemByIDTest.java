@@ -1,6 +1,5 @@
 package dev.tias.librarydbms.control.item;
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Film;
 import dev.tias.librarydbms.model.Item;
@@ -27,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test class for the ItemHandler.getItemByID method.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class GetItemByIDTest extends BaseHandlerTest
+public class GetItemByIDTest extends BaseItemHandlerTest
 {
     @Override
     protected void setupTestData()

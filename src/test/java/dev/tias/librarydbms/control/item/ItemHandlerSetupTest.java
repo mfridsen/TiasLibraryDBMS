@@ -1,9 +1,11 @@
 package dev.tias.librarydbms.control.item;
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.service.db.DataAccessManager;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -19,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Tests the setup method in the ItemHandler class.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ItemHandlerSetupTest extends BaseHandlerTest
+public class ItemHandlerSetupTest extends BaseItemHandlerTest
 {
     //TODO-PRIO test against test_data file
 

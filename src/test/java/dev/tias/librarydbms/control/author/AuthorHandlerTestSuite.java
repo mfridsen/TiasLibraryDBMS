@@ -1,7 +1,6 @@
 package dev.tias.librarydbms.control.author;
 
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 

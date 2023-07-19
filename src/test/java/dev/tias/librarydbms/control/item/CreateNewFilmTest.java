@@ -1,6 +1,5 @@
 package dev.tias.librarydbms.control.item;
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Film;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
@@ -22,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests the createNewFilm method in ItemHandler.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class CreateNewFilmTest extends BaseHandlerTest
+public class CreateNewFilmTest extends BaseItemHandlerTest
 {
     //Valid input  (remember to validate ALL fields and join tables)
     //Null title

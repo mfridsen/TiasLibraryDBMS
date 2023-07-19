@@ -1,14 +1,13 @@
 package dev.tias.librarydbms.control.item;
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Film;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
+import dev.tias.librarydbms.service.exceptions.custom.*;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidBarcodeException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidISBNException;
 import dev.tias.librarydbms.service.exceptions.custom.item.InvalidTitleException;
-import dev.tias.librarydbms.service.exceptions.custom.*;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Brought to you by copious amounts of nicotine.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class UpdateItemTest extends BaseHandlerTest
+public class UpdateItemTest extends BaseItemHandlerTest
 {
 
     /**

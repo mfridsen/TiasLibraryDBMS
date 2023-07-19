@@ -63,16 +63,7 @@ public abstract class BaseHandlerTest
 
     protected abstract void setupTestData();
 
-    protected void setupTestData_ForItemTests_AuthorClassification()
-    {
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/author_test_data.sql");
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/classification_test_data.sql");
-    }
 
-    protected void setupTestData_ForItemTests_full()
-    {
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
-    }
 
     /**
      * Always delete the test database and close the connection to the server after use.

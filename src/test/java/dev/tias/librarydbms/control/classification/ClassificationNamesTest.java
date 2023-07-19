@@ -4,11 +4,8 @@ import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ClassificationHandler;
 import dev.tias.librarydbms.service.db.DataAccessManager;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-
-import java.sql.SQLException;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;

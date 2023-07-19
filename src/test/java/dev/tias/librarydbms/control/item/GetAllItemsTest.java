@@ -1,6 +1,5 @@
 package dev.tias.librarydbms.control.item;
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.control.ItemHandlerUtils;
 import org.junit.jupiter.api.MethodOrderer;
@@ -19,8 +18,10 @@ import org.junit.jupiter.api.TestMethodOrder;
  * Brought to you by copious amounts of nicotine.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class GetAllItemsTest extends BaseHandlerTest
+public class GetAllItemsTest extends BaseItemHandlerTest
 {
+    //TODO-prio IMPLEMENT
+
     @Override
     protected void setupTestData()
     {

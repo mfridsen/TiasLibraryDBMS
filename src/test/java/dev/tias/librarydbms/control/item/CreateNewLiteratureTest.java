@@ -1,6 +1,5 @@
 package dev.tias.librarydbms.control.item;
 
-import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
@@ -26,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * different circumstances.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class CreateNewLiteratureTest extends BaseHandlerTest
+public class CreateNewLiteratureTest extends BaseItemHandlerTest
 {
     //Valid input  (remember to validate ALL fields)
     //Valid input different types (remember to validate ALL fields)
