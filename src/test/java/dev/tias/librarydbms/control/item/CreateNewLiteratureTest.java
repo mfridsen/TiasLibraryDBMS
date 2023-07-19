@@ -65,7 +65,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(1)
     void testCreateNewLiterature_ValidInput()
     {
-        System.out.print("\n1: Testing createNewLiterature method with valid input...");
+        System.out.println("\n1: Testing createNewLiterature method with valid input...");
 
         try
         {
@@ -92,7 +92,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(2)
     void testCreateNewLiterature_ValidInputDifferentTypes()
     {
-        System.out.print("\n2: Testing createNewLiterature method with different valid types...");
+        System.out.println("\n2: Testing createNewLiterature method with different valid types...");
 
         for (Item.ItemType type : Item.ItemType.values())
         {
@@ -132,7 +132,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             }
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -142,7 +142,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(3)
     void testCreateNewLiterature_NullTitle()
     {
-        System.out.print("\n3: Testing createNewLiterature method with null title...");
+        System.out.println("\n3: Testing createNewLiterature method with null title...");
 
         String title = null;
         Item.ItemType type = Item.ItemType.REFERENCE_LITERATURE;
@@ -156,7 +156,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ItemHandler.createNewLiterature(title, type, authorId, classificationId, barcode, isbn);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -166,7 +166,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(4)
     void testCreateNewLiterature_EmptyTitle()
     {
-        System.out.print("\n4: Testing createNewLiterature method with empty title...");
+        System.out.println("\n4: Testing createNewLiterature method with empty title...");
 
         String title = "";
         Item.ItemType type = Item.ItemType.REFERENCE_LITERATURE;
@@ -180,7 +180,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ItemHandler.createNewLiterature(title, type, authorId, classificationId, barcode, isbn);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -190,7 +190,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(5)
     void testCreateNewLiterature_TooLongTitle()
     {
-        System.out.print("\n5: Testing createNewLiterature method with too long title...");
+        System.out.println("\n5: Testing createNewLiterature method with too long title...");
 
         String title = String.join("", Collections.nCopies(256, "a")); // 256 characters long title
         Item.ItemType type = Item.ItemType.REFERENCE_LITERATURE;
@@ -204,7 +204,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ItemHandler.createNewLiterature(title, type, authorId, classificationId, barcode, isbn);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -214,7 +214,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(6)
     void testCreateNewLiterature_NullType()
     {
-        System.out.print("\n6: Testing createNewLiterature method with null type...");
+        System.out.println("\n6: Testing createNewLiterature method with null type...");
 
         try
         {
@@ -235,7 +235,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -245,7 +245,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(7)
     void testCreateNewLiterature_InvalidAuthorID()
     {
-        System.out.print("\n7: Testing createNewLiterature method with invalid authorID...");
+        System.out.println("\n7: Testing createNewLiterature method with invalid authorID...");
 
         try
         {
@@ -266,7 +266,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -276,7 +276,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(8)
     void testCreateNewLiterature_InvalidClassificationID()
     {
-        System.out.print("\n8: Testing createNewLiterature method with invalid classificationID...");
+        System.out.println("\n8: Testing createNewLiterature method with invalid classificationID...");
 
         try
         {
@@ -297,7 +297,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -307,7 +307,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(9)
     void testCreateNewLiterature_NonExistentAuthor()
     {
-        System.out.print("\n9: Testing createNewLiterature method with non-existent author...");
+        System.out.println("\n9: Testing createNewLiterature method with non-existent author...");
 
         try
         {
@@ -328,7 +328,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -338,7 +338,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(10)
     void testCreateNewLiterature_NonExistentClassification()
     {
-        System.out.print("\n10: Testing createNewLiterature method with non-existent classification...");
+        System.out.println("\n10: Testing createNewLiterature method with non-existent classification...");
 
         try
         {
@@ -359,7 +359,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -369,7 +369,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(11)
     void testCreateNewLiterature_NullBarcode()
     {
-        System.out.print("\n11: Testing createNewLiterature method with null barcode...");
+        System.out.println("\n11: Testing createNewLiterature method with null barcode...");
 
         try
         {
@@ -390,7 +390,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -400,7 +400,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(12)
     void testCreateNewLiterature_EmptyBarcode()
     {
-        System.out.print("\n12: Testing createNewLiterature method with empty barcode...");
+        System.out.println("\n12: Testing createNewLiterature method with empty barcode...");
 
         try
         {
@@ -421,7 +421,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -431,7 +431,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(13)
     void testCreateNewLiterature_TooLongBarcode()
     {
-        System.out.print("\n13: Testing createNewLiterature method with too long barcode...");
+        System.out.println("\n13: Testing createNewLiterature method with too long barcode...");
 
         try
         {
@@ -452,7 +452,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -462,7 +462,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(14)
     void testCreateNewLiterature_TakenBarcode()
     {
-        System.out.print("\n14: Testing createNewLiterature method with taken barcode...");
+        System.out.println("\n14: Testing createNewLiterature method with taken barcode...");
 
         try
         {
@@ -485,7 +485,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -495,7 +495,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(15)
     void testCreateNewLiterature_NullISBN()
     {
-        System.out.print("\n15: Testing createNewLiterature method with null ISBN...");
+        System.out.println("\n15: Testing createNewLiterature method with null ISBN...");
 
         try
         {
@@ -516,7 +516,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -526,7 +526,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(16)
     void testCreateNewLiterature_EmptyISBN()
     {
-        System.out.print("\n16: Testing createNewLiterature method with empty ISBN...");
+        System.out.println("\n16: Testing createNewLiterature method with empty ISBN...");
 
         try
         {
@@ -547,7 +547,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -557,7 +557,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     @Order(17)
     void testCreateNewLiterature_TooLongISBN()
     {
-        System.out.print("\n17: Testing createNewLiterature method with too long ISBN...");
+        System.out.println("\n17: Testing createNewLiterature method with too long ISBN...");
 
         try
         {
@@ -578,6 +578,6 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

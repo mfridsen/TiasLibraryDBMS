@@ -5,10 +5,10 @@
 @Order(<Test_Number>)
 void test<MethodName>_<TestCase>()
 {
-    System.out.print("\n<Test_Number>: Testing <MethodName> method with <explanation of test case>...");
+    System.out.println("\n<Test_Number>: Testing <MethodName> method with <explanation of test case>...");
 
 
-    System.out.print(" Test Finished.");
+    System.out.println("Test Finished.");
 }
 
 //getAuthorByID

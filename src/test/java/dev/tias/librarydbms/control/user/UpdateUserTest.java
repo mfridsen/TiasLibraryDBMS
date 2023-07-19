@@ -93,7 +93,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(1)
     void testUpdateUser_UsernameChangedNotTaken()
     {
-        System.out.print("\n1: Testing updateUser method with new valid and unique username...");
+        System.out.println("\n1: Testing updateUser method with new valid and unique username...");
 
         try
         {
@@ -109,7 +109,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -119,7 +119,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(2)
     void testUpdateUser_PasswordChanged()
     {
-        System.out.print("\n2: Testing updateUser method with new password...");
+        System.out.println("\n2: Testing updateUser method with new password...");
 
         try
         {
@@ -135,7 +135,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -145,7 +145,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(3)
     void testUpdateUser_EmailChangedNotTaken()
     {
-        System.out.print("\n3: Testing updateUser method with new valid and unique email...");
+        System.out.println("\n3: Testing updateUser method with new valid and unique email...");
 
         try
         {
@@ -161,7 +161,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -171,7 +171,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(4)
     void testUpdateUser_UserTypeChanged()
     {
-        System.out.print("\n4: Testing updateUser method with new user type...");
+        System.out.println("\n4: Testing updateUser method with new user type...");
 
         try
         {
@@ -188,7 +188,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -198,7 +198,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(5)
     void testUpdateUser_AllowedRentalsChanged()
     {
-        System.out.print("\n5: Testing updateUser method with updated allowed rentals...");
+        System.out.println("\n5: Testing updateUser method with updated allowed rentals...");
 
         try
         {
@@ -214,7 +214,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -224,7 +224,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(6)
     void testUpdateUser_CurrentRentalsChanged()
     {
-        System.out.print("\n6: Testing updateUser method with updated current rentals...");
+        System.out.println("\n6: Testing updateUser method with updated current rentals...");
 
         try
         {
@@ -240,7 +240,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -250,7 +250,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(7)
     void testUpdateUser_LateFeeAndAllowedToRentChanged()
     {
-        System.out.print("\n7: Testing updateUser method with updated late fee and allowed to rent...");
+        System.out.println("\n7: Testing updateUser method with updated late fee and allowed to rent...");
 
         try
         {
@@ -267,7 +267,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -277,7 +277,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(8)
     void testUpdateUser_AllFieldsChanged()
     {
-        System.out.print("\n8: Testing updateUser method with all fields updated...");
+        System.out.println("\n8: Testing updateUser method with all fields updated...");
 
         // (Allowed To Rent Changed    true -> false)
 
@@ -321,7 +321,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -331,11 +331,11 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(9)
     void testUpdateUser_NullUser()
     {
-        System.out.print("\n9: Testing updateUser method with null user...");
+        System.out.println("\n9: Testing updateUser method with null user...");
 
         assertThrows(NullEntityException.class, () -> UserHandler.updateUser(null));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -345,7 +345,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(10)
     void testUpdateUser_ValidUserSoftDeleted()
     {
-        System.out.print("\n10: Testing updateUser method with valid user that has been soft deleted...");
+        System.out.println("\n10: Testing updateUser method with valid user that has been soft deleted...");
 
         try
         {
@@ -361,7 +361,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -371,7 +371,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(11)
     void testUpdateUser_ValidUserRecovered()
     {
-        System.out.print(
+        System.out.println(
                 "\n11: Testing updateUser method with valid user that was soft deleted and then recovered...");
 
         try
@@ -392,7 +392,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -402,7 +402,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(12)
     void testUpdateUser_ValidUserHardDeleted()
     {
-        System.out.print("\n12: Testing updateUser method with valid user that has been hard deleted...");
+        System.out.println("\n12: Testing updateUser method with valid user that has been hard deleted...");
 
         try
         {
@@ -420,7 +420,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -430,7 +430,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(13)
     void testUpdateUser_ValidUserDoesNotExistInDatabase()
     {
-        System.out.print("\n13: Testing updateUser method with valid user that does not exist in database...");
+        System.out.println("\n13: Testing updateUser method with valid user that does not exist in database...");
 
         try
         {
@@ -446,7 +446,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -456,7 +456,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(14)
     void testUpdateUser_NewUsernameTaken()
     {
-        System.out.print("\n14: Testing updateUser method with new username that is already taken...");
+        System.out.println("\n14: Testing updateUser method with new username that is already taken...");
 
         try
         {
@@ -470,7 +470,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -480,7 +480,7 @@ public class UpdateUserTest extends BaseUserHandlerTest
     @Order(15)
     void testUpdateUser_NewEmailTaken()
     {
-        System.out.print("\n15: Testing updateUser method with new email that is already taken...");
+        System.out.println("\n15: Testing updateUser method with new email that is already taken...");
 
         try
         {
@@ -494,6 +494,6 @@ public class UpdateUserTest extends BaseUserHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

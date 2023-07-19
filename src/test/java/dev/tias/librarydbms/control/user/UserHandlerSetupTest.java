@@ -27,7 +27,7 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
     @Order(1)
     void testSetup_EmptyDatabase()
     {
-        System.out.print("\n1: Testing setup method with an empty database...");
+        System.out.println("\n1: Testing setup method with an empty database...");
 
         //Call the setup method
         UserHandler.setup();
@@ -38,7 +38,7 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
         assertEquals(0, UserHandler.getRegisteredEmails().size(),
                 "registeredEmails list should be empty after setup with an empty database");
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -49,7 +49,7 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
     @Order(2)
     void testSetup_WithSomeUsersInDatabase()
     {
-        System.out.print("\n2: Testing setup method with some users in the database...");
+        System.out.println("\n2: Testing setup method with some users in the database...");
 
         //Check that storedUsernames is empty
         assertEquals(0, UserHandler.getStoredUsernames().size());
@@ -74,14 +74,14 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
         //Reset table
         resetUsersTable();
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(3)
     void testSetup_WithTestData()
     {
-        System.out.print("\n3: Testing setup method with actual test data in the database...");
+        System.out.println("\n3: Testing setup method with actual test data in the database...");
 
         //Fill with test data and setup UserHandler
         setupTestData();
@@ -97,14 +97,14 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
         //Reset table
         resetUsersTable();
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(4)
     void testReset_WithTestData()
     {
-        System.out.print("\n4: Testing reset method with test data in the database...");
+        System.out.println("\n4: Testing reset method with test data in the database...");
 
         //Fill with test data and setup UserHandler
         setupTestData();
@@ -128,14 +128,14 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
         //Reset table
         resetUsersTable();
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(5)
     void testSync_WithTestData()
     {
-        System.out.print("\n5: Testing sync method with test data in the database...");
+        System.out.println("\n5: Testing sync method with test data in the database...");
 
         //Fill with test data and setup UserHandler
         setupTestData();
@@ -166,6 +166,6 @@ public class UserHandlerSetupTest extends BaseUserHandlerTest
         //Reset table
         resetUsersTable();
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

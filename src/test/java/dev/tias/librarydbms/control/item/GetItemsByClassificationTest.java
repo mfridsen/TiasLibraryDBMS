@@ -54,7 +54,7 @@ public class GetItemsByClassificationTest
     @BeforeAll
     static void setUp()
     {
-        System.out.print("\nSetting up test data...");
+        System.out.println("\nSetting up test data...");
 
         try
         {
@@ -68,13 +68,13 @@ public class GetItemsByClassificationTest
             e.printStackTrace();
         }
 
-        System.out.print("\nSETUP FINISHED.");
+        System.out.println("\nSETUP FINISHED.");
     }
 
     @AfterAll
     static void tearDown()
     {
-        System.out.print("\nCleaning up test data...");
+        System.out.println("\nCleaning up test data...");
 
         try
         {
@@ -93,7 +93,7 @@ public class GetItemsByClassificationTest
             e.printStackTrace();
         }
 
-        System.out.print("\nCLEANUP FINISHED.");
+        System.out.println("\nCLEANUP FINISHED.");
     }
 
     /**
@@ -104,11 +104,11 @@ public class GetItemsByClassificationTest
     @Order(1)
     void testGetItemsByClassification_EmptyClassificationName()
     {
-        System.out.print("\n1: Testing getItemsByClassification method with an empty classificationName...");
+        System.out.println("\n1: Testing getItemsByClassification method with an empty classificationName...");
 
         assertThrows(InvalidNameException.class, () -> ItemHandler.getItemsByClassification(""));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -119,11 +119,11 @@ public class GetItemsByClassificationTest
     @Order(2)
     void testGetItemsByClassification_NullClassificationName()
     {
-        System.out.print("\n2: Testing getItemsByClassification method with null classificationName...");
+        System.out.println("\n2: Testing getItemsByClassification method with null classificationName...");
 
         assertThrows(InvalidNameException.class, () -> ItemHandler.getItemsByClassification(null));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -134,12 +134,12 @@ public class GetItemsByClassificationTest
     @Order(3)
     void testGetItemsByClassification_ClassificationNameTooLong()
     {
-        System.out.print("\n3: Testing getItemsByClassification method with classificationName that's too long...");
+        System.out.println("\n3: Testing getItemsByClassification method with classificationName that's too long...");
 
         String longName = "a".repeat(Classification.CLASSIFICATION_NAME_LENGTH + 1);
         assertThrows(InvalidNameException.class, () -> ItemHandler.getItemsByClassification(longName));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -150,7 +150,7 @@ public class GetItemsByClassificationTest
     @Order(4)
     void testGetItemsByClassification_ClassificationNameDoesNotExist()
     {
-        System.out.print(
+        System.out.println(
                 "\n4: Testing getItemsByClassification method with a classificationName that does not exist...");
 
         try
@@ -164,7 +164,7 @@ public class GetItemsByClassificationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -176,7 +176,7 @@ public class GetItemsByClassificationTest
     @Order(5)
     void testGetItemsByClassification_NoItemsInClassification()
     {
-        System.out.print("\n5: Testing getItemsByClassification method with classificationName that has no items...");
+        System.out.println("\n5: Testing getItemsByClassification method with classificationName that has no items...");
 
         try
         {
@@ -192,7 +192,7 @@ public class GetItemsByClassificationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -203,7 +203,7 @@ public class GetItemsByClassificationTest
     @Order(6)
     void testGetItemsByClassification_SingleItemExists()
     {
-        System.out.print(
+        System.out.println(
                 "\n6: Testing getItemsByClassification method with classificationName that has a single item...");
 
         try
@@ -217,7 +217,7 @@ public class GetItemsByClassificationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -228,7 +228,7 @@ public class GetItemsByClassificationTest
     @Order(7)
     void testGetItemsByClassification_MultipleItemsExist()
     {
-        System.out.print(
+        System.out.println(
                 "\n7: Testing getItemsByClassification method with classificationName that has multiple items...");
 
         try
@@ -242,6 +242,6 @@ public class GetItemsByClassificationTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

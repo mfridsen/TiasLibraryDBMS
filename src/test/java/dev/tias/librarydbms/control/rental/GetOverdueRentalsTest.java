@@ -28,14 +28,14 @@ public class GetOverdueRentalsTest extends BaseRentalHandlerTest
     @Order(1)
     void testGetOverdueRentals_SomeOverDueRentals()
     {
-        System.out.print("\n1: Testing getOverdueRentals with some overdue rentals...");
+        System.out.println("\n1: Testing getOverdueRentals with some overdue rentals...");
 
         //Setup rentals, some overdue
         int numOfOverdueRentals = 8;
         createAndSaveRentalsWithDifferentDateAndDueDates(numOfOverdueRentals);
         assertEquals(numOfOverdueRentals, RentalHandler.getOverdueRentals().size());
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -45,12 +45,12 @@ public class GetOverdueRentalsTest extends BaseRentalHandlerTest
     @Order(2)
     void testGetOverdueRentals_NoOverDueRentals()
     {
-        System.out.print("\n2 Testing getOverdueRentals with no overdue rentals...");
+        System.out.println("\n2 Testing getOverdueRentals with no overdue rentals...");
 
         //Setup rentals, none overdue
         createAndSaveRentalsWithDifferentDateAndDueDates(0);
         assertEquals(0, RentalHandler.getOverdueRentals().size());
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

@@ -80,7 +80,7 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
     @Order(1)
     void testReturnRental_ValidRental()
     {
-        System.out.print("\n1: Testing returnRental method with a valid rental...");
+        System.out.println("\n1: Testing returnRental method with a valid rental...");
 
         try
         {
@@ -127,7 +127,7 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
             fail("Exception thrown during test.");
         }
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -137,12 +137,12 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
     @Order(2)
     void testReturnRental_NullRental()
     {
-        System.out.print("\n2: Testing returnRental method with a null rental...");
+        System.out.println("\n2: Testing returnRental method with a null rental...");
 
         Exception e = assertThrows(RentalReturnException.class, () -> RentalHandler.returnRental(null));
         assertTrue(e.getCause() instanceof NullEntityException);
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -152,12 +152,12 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
     @Order(3)
     void testReturnRental_NonExistentRental()
     {
-        System.out.print("\n3: Testing returnRental method with a non-existent rental...");
+        System.out.println("\n3: Testing returnRental method with a non-existent rental...");
 
         Exception e = assertThrows(RentalReturnException.class, () -> RentalHandler.returnRental(nonExistingRental));
         assertTrue(e.getCause() instanceof EntityNotFoundException);
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -167,7 +167,7 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
     @Order(4)
     void testReturnRental_AlreadyReturnedRental()
     {
-        System.out.print("\n4: Testing returnRental method with an already returned rental...");
+        System.out.println("\n4: Testing returnRental method with an already returned rental...");
 
         try
         {
@@ -184,6 +184,6 @@ public class ReturnRentalTest extends  BaseRentalHandlerTest
             fail("Exception thrown during test.");
         }
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 }

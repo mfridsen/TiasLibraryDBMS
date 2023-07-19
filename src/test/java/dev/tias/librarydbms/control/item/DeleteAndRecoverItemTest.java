@@ -55,7 +55,7 @@ public class DeleteAndRecoverItemTest
     @BeforeAll
     static void setup()
     {
-        System.out.print("\nSetting up test data...");
+        System.out.println("\nSetting up test data...");
 
         try
         {
@@ -73,13 +73,13 @@ public class DeleteAndRecoverItemTest
             e.printStackTrace();
         }
 
-        System.out.print("\nSETUP FINISHED.");
+        System.out.println("\nSETUP FINISHED.");
     }
 
     @AfterAll
     static void cleanup()
     {
-        System.out.print("\nCleaning up test data...");
+        System.out.println("\nCleaning up test data...");
 
         try
         {
@@ -98,7 +98,7 @@ public class DeleteAndRecoverItemTest
             e.printStackTrace();
         }
 
-        System.out.print("\nCLEANUP FINISHED.");
+        System.out.println("\nCLEANUP FINISHED.");
     }
 
     /**
@@ -108,7 +108,7 @@ public class DeleteAndRecoverItemTest
     @Order(1)
     void testDeleteItem_ValidItem()
     {
-        System.out.print("\n1: Testing deleteItem method with valid item...");
+        System.out.println("\n1: Testing deleteItem method with valid item...");
 
         try
         {
@@ -134,7 +134,7 @@ public class DeleteAndRecoverItemTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -144,7 +144,7 @@ public class DeleteAndRecoverItemTest
     @Order(2)
     void testUndoDeleteItem_ValidItem()
     {
-        System.out.print("\n2: Testing undoDeleteItem method with valid item...");
+        System.out.println("\n2: Testing undoDeleteItem method with valid item...");
 
         try
         {
@@ -169,7 +169,7 @@ public class DeleteAndRecoverItemTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     //TODO-future Delete Null item

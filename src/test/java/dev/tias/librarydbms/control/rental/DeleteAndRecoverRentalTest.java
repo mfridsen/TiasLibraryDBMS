@@ -35,7 +35,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(1)
     void testDeleteRental_ValidRental()
     {
-        System.out.print("\n1: Testing DeleteRental method with a valid rental...");
+        System.out.println("\n1: Testing DeleteRental method with a valid rental...");
 
         try
         {
@@ -66,7 +66,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(2)
     void testDeleteRental_NullRental()
     {
-        System.out.print("\n2: Testing DeleteRental method with a null rental...");
+        System.out.println("\n2: Testing DeleteRental method with a null rental...");
 
         // Attempt to softly delete a null rental
         Exception e = assertThrows(DeletionException.class, () -> RentalHandler.deleteRental(null),
@@ -86,7 +86,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
         assertTrue(e.getCause() instanceof NullEntityException,
                 "The cause of the DeletionException should be a NullEntityException.");
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -98,7 +98,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(3)
     void testDeleteRental_NonExistentRental()
     {
-        System.out.print("\n3: Testing DeleteRental method with a non-existent rental...");
+        System.out.println("\n3: Testing DeleteRental method with a non-existent rental...");
 
         try
         {
@@ -118,7 +118,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -130,7 +130,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(4)
     void testDeleteRental_AlreadyDeletedRental()
     {
-        System.out.print(
+        System.out.println(
                 "\n4: Testing DeleteRental method with a rental that has already been softly deleted...");
 
         try
@@ -154,7 +154,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     //UNDO SOFT DELETE -------------------------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(5)
     void testRecoverRental_ValidRental()
     {
-        System.out.print("\n5: Testing RecoverRental method with a valid, softly deleted rental...");
+        System.out.println("\n5: Testing RecoverRental method with a valid, softly deleted rental...");
 
         try
         {
@@ -191,7 +191,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -203,7 +203,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(6)
     void testRecoverRental_NullRental()
     {
-        System.out.print("\n6: Testing RecoverRental method with a null rental...");
+        System.out.println("\n6: Testing RecoverRental method with a null rental...");
 
         // Attempt to undo a soft delete on a null rental
         Exception e = assertThrows(RecoveryException.class,
@@ -213,7 +213,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
         assertTrue(e.getCause() instanceof NullEntityException,
                 "The cause of the RecoveryException should be a NullEntityException.");
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -225,7 +225,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(7)
     void testRecoverRental_NotSoftlyDeletedRental()
     {
-        System.out.print("\n7: Testing RecoverRental method with a rental that was not softly deleted...");
+        System.out.println("\n7: Testing RecoverRental method with a rental that was not softly deleted...");
 
         try
         {
@@ -247,7 +247,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
 
@@ -262,7 +262,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(8)
     void testHardDeleteRental_ValidRental()
     {
-        System.out.print("\n8: Testing deleteRental method with a valid rental...");
+        System.out.println("\n8: Testing deleteRental method with a valid rental...");
 
         try
         {
@@ -282,7 +282,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -294,7 +294,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(9)
     void testHardDeleteRental_NullRental()
     {
-        System.out.print("\n9: Testing deleteRental method with a null rental...");
+        System.out.println("\n9: Testing deleteRental method with a null rental...");
 
         // Attempt to delete a null rental
         Exception e = assertThrows(DeletionException.class,
@@ -304,7 +304,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
         assertTrue(e.getCause() instanceof NullEntityException,
                 "The cause of the DeletionException should be a NullEntityException.");
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -316,7 +316,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(10)
     void testDeleteRental_NotExistingRental()
     {
-        System.out.print("\n10: Testing deleteRental method with a rental that doesn't exist...");
+        System.out.println("\n10: Testing deleteRental method with a rental that doesn't exist...");
 
         try
         {
@@ -335,7 +335,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -347,7 +347,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(11)
     void testHardDeleteRental_SoftlyDeletedRental()
     {
-        System.out.print("\n11: Testing deleteRental method with a rental that was softly deleted...");
+        System.out.println("\n11: Testing deleteRental method with a rental that was softly deleted...");
 
         try
         {
@@ -369,7 +369,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -382,7 +382,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(12)
     void testSoftDeleteRental_AlreadyHardDeletedRental()
     {
-        System.out.print("\n12: Testing softDeleteRental method with a rental that has already been hard deleted...");
+        System.out.println("\n12: Testing softDeleteRental method with a rental that has already been hard deleted...");
 
         try
         {
@@ -405,7 +405,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -418,7 +418,7 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
     @Order(13)
     void testRecoverRental_HardDeletedRental()
     {
-        System.out.print("\n13: Testing RecoverRental method with a rental that was hard deleted...");
+        System.out.println("\n13: Testing RecoverRental method with a rental that was hard deleted...");
 
         try
         {
@@ -441,6 +441,6 @@ public class DeleteAndRecoverRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

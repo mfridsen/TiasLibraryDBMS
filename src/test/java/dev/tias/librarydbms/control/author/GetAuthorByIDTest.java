@@ -81,7 +81,7 @@ public class GetAuthorByIDTest extends BaseHandlerTest
     @Order(1)
     void testGetAuthorByID()
     {
-        System.out.print("\n1: Testing GetAuthorByID...");
+        System.out.println("\n1: Testing GetAuthorByID...");
 
         Author author = AuthorHandler.getAuthorByID(1, true);
 
@@ -92,7 +92,7 @@ public class GetAuthorByIDTest extends BaseHandlerTest
         assertEquals("is the first author", author.getBiography());
         assertFalse(author.isDeleted());
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -102,12 +102,12 @@ public class GetAuthorByIDTest extends BaseHandlerTest
     @Order(2)
     void testGetAuthorByID_ValidDeletedAuthor_GetDeletedTrue()
     {
-        System.out.print(
+        System.out.println(
                 "\n4: Testing getAuthorByID method with a valid ID for a deleted author (getDeleted = true)...");
 
         assertNotNull(AuthorHandler.getAuthorByID(deletedAuthorID, true));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -117,10 +117,10 @@ public class GetAuthorByIDTest extends BaseHandlerTest
     @Order(3)
     void testGetAuthorByID_InvalidAuthorID()
     {
-        System.out.print("\n5: Testing getAuthorByID method with an invalid author ID...");
+        System.out.println("\n5: Testing getAuthorByID method with an invalid author ID...");
 
         assertThrows(InvalidIDException.class, () -> AuthorHandler.getAuthorByID(invalidID, true));
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

@@ -35,10 +35,10 @@ public class GetAllItemsTest extends BaseItemHandlerTest
     @Order(1)
     void testGetAllItems()
     {
-        System.out.print("\n1: Testing GetAllItems...");
+        System.out.println("\n1: Testing GetAllItems...");
 
         ItemHandlerUtils.printItemList(ItemHandler.getAllItems());
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

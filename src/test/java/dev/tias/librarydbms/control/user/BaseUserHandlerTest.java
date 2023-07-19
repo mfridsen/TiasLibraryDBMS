@@ -98,7 +98,7 @@ public abstract class BaseUserHandlerTest
     @AfterAll
     static void tearDown()
     {
-        System.out.print("\nCleaning up test data...");
+        System.out.println("\nCleaning up test data...");
 
         try
         {
@@ -120,7 +120,7 @@ public abstract class BaseUserHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print("\nCLEANUP FINISHED.");
+        System.out.println("\nCLEANUP FINISHED.");
     }
 
     protected static void resetUserHandler()
@@ -147,7 +147,7 @@ public abstract class BaseUserHandlerTest
             if (resultSet.next())
             {
                 numberOfUsers = resultSet.getInt(1);
-                System.out.print("Number of rows in users: " + numberOfUsers);
+                System.out.println("Number of rows in users: " + numberOfUsers);
             }
         }
         catch (SQLException e)

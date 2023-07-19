@@ -53,7 +53,7 @@ public class GetItemsByISBNTest
     @BeforeAll
     static void setUp()
     {
-        System.out.print("\nSetting up test data...");
+        System.out.println("\nSetting up test data...");
 
         try
         {
@@ -67,13 +67,13 @@ public class GetItemsByISBNTest
             e.printStackTrace();
         }
 
-        System.out.print("\nSETUP FINISHED.");
+        System.out.println("\nSETUP FINISHED.");
     }
 
     @AfterAll
     static void tearDown()
     {
-        System.out.print("\nCleaning up test data...");
+        System.out.println("\nCleaning up test data...");
 
         try
         {
@@ -92,42 +92,42 @@ public class GetItemsByISBNTest
             e.printStackTrace();
         }
 
-        System.out.print("\nCLEANUP FINISHED.");
+        System.out.println("\nCLEANUP FINISHED.");
     }
 
     @Test
     @Order(1)
     void testGetItemsByISBN_EmptyISBN()
     {
-        System.out.print("\n1: Testing getItemsByISBN method with empty ISBN...");
+        System.out.println("\n1: Testing getItemsByISBN method with empty ISBN...");
 
         assertThrows(InvalidISBNException.class, () ->
         {
             ItemHandler.getItemsByISBN("");
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(2)
     void testGetItemsByISBN_NullISBN()
     {
-        System.out.print("\n2: Testing getItemsByISBN method with null ISBN...");
+        System.out.println("\n2: Testing getItemsByISBN method with null ISBN...");
 
         assertThrows(InvalidISBNException.class, () ->
         {
             ItemHandler.getItemsByISBN(null);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(3)
     void testGetItemsByISBN_TooLongISBN()
     {
-        System.out.print("\n3: Testing getItemsByISBN method with too long ISBN...");
+        System.out.println("\n3: Testing getItemsByISBN method with too long ISBN...");
 
         String tooLongISBN = "1234567890123456789012345678901";  // more than Literature.LITERATURE_ISBN_LENGTH
 
@@ -136,14 +136,14 @@ public class GetItemsByISBNTest
             ItemHandler.getItemsByISBN(tooLongISBN);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(4)
     void testGetItemsByISBN_ItemNotExist()
     {
-        System.out.print("\n4: Testing getItemsByISBN method with ISBN of non-existent item...");
+        System.out.println("\n4: Testing getItemsByISBN method with ISBN of non-existent item...");
 
         try
         {
@@ -159,14 +159,14 @@ public class GetItemsByISBNTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(5)
     void testGetItemsByISBN_ItemExist()
     {
-        System.out.print("\n5: Testing getItemsByISBN method with existing item...");
+        System.out.println("\n5: Testing getItemsByISBN method with existing item...");
 
         try
         {
@@ -182,14 +182,14 @@ public class GetItemsByISBNTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(6)
     void testGetItemsByISBN_MultipleItemsExist()
     {
-        System.out.print("\n6: Testing getItemsByISBN method with multiple items...");
+        System.out.println("\n6: Testing getItemsByISBN method with multiple items...");
 
         // assuming authorID = 1, classificationID = 1 are valid IDs in your database
         try
@@ -207,6 +207,6 @@ public class GetItemsByISBNTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

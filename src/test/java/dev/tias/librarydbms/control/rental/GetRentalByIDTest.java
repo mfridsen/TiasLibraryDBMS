@@ -32,7 +32,7 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
     @BeforeEach
     void setupRentals()
     {
-        System.out.print("\nSetting up test rentals...");
+        System.out.println("\nSetting up test rentals...");
 
         try
         {
@@ -40,7 +40,7 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
             {
                 Rental rental = RentalHandler.createNewRental(validUserIDs[i], i + 10);
                 assertNotNull(rental);
-                System.out.print("Rental ID: " + rental.getRentalID() +
+                System.out.println("Rental ID: " + rental.getRentalID() +
                         ", User ID: " + rental.getUserID() +
                         ", Item ID: " + rental.getItemID());
             }
@@ -51,7 +51,7 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
             fail("Exception occurred during setupRentals: " + e.getMessage());
         }
 
-        System.out.print("\nTest rentals setup finished.");
+        System.out.println("\nTest rentals setup finished.");
     }
 
     /**
@@ -67,13 +67,13 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
     @Order(1)
     void testGetRentalByID_InvalidRentalID()
     {
-        System.out.print("\n1: Testing getRentalByID method with an invalid rentalID...");
+        System.out.println("\n1: Testing getRentalByID method with an invalid rentalID...");
 
         //These should result in exceptions
         assertThrows(InvalidIDException.class, () -> RentalHandler.getRentalByID(0));
         assertThrows(InvalidIDException.class, () -> RentalHandler.getRentalByID(-1));
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -89,7 +89,7 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
     @Order(2)
     void testGetRentalByID_NonExistentRentalID()
     {
-        System.out.print("\n2: Testing getRentalByID method with non-existent rentalID...");
+        System.out.println("\n2: Testing getRentalByID method with non-existent rentalID...");
 
         try
         {
@@ -104,7 +104,7 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
             fail("Exception occurred during test: " + e.getMessage());
         }
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -123,7 +123,7 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
     @Order(3)
     void testGetRentalByID_ValidRentalID()
     {
-        System.out.print("\n3: Testing getRentalByID method with valid rentalID...");
+        System.out.println("\n3: Testing getRentalByID method with valid rentalID...");
 
         for (int i = 0; i < 5; i++)
         {
@@ -170,6 +170,6 @@ public class GetRentalByIDTest extends BaseRentalHandlerTest
             }
         }
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 }

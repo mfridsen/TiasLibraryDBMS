@@ -43,7 +43,7 @@ public class GetItemByIDTest extends BaseItemHandlerTest
     @Order(1)
     void testGetItemByID_ValidID()
     {
-        System.out.print("\n1: Testing getItemByID method with valid itemID...");
+        System.out.println("\n1: Testing getItemByID method with valid itemID...");
 
         try
         {
@@ -58,7 +58,7 @@ public class GetItemByIDTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -69,7 +69,7 @@ public class GetItemByIDTest extends BaseItemHandlerTest
     @Order(2)
     void testGetItemByID_InvalidID()
     {
-        System.out.print("\n2: Testing getItemByID method with invalid itemID...");
+        System.out.println("\n2: Testing getItemByID method with invalid itemID...");
 
         try
         {
@@ -81,7 +81,7 @@ public class GetItemByIDTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -92,7 +92,7 @@ public class GetItemByIDTest extends BaseItemHandlerTest
     @Order(3)
     void testGetItemByID_NoExistingItem()
     {
-        System.out.print("\n3: Testing getItemByID method with valid itemID but no existing item...");
+        System.out.println("\n3: Testing getItemByID method with valid itemID but no existing item...");
 
         try
         {
@@ -106,14 +106,14 @@ public class GetItemByIDTest extends BaseItemHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(4)
     void testGetItemByID_LiteratureItem()
     {
-        System.out.print("\n4: Testing getItemByID method with literature item...");
+        System.out.println("\n4: Testing getItemByID method with literature item...");
 
         try
         {
@@ -133,14 +133,14 @@ public class GetItemByIDTest extends BaseItemHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(5)
     void testUpdateItem_FilmItem()
     {
-        System.out.print("\n5: Testing getItemByID method with film item...");
+        System.out.println("\n5: Testing getItemByID method with film item...");
 
         try
         {
@@ -158,6 +158,6 @@ public class GetItemByIDTest extends BaseItemHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

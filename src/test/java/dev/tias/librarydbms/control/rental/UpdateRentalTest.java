@@ -36,11 +36,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(1)
     void testUpdateRental_userIDChanged()
     {
-        System.out.print("\n1: Testing UpdateRental method by changing userID...");
+        System.out.println("\n1: Testing UpdateRental method by changing userID...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -50,11 +50,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(2)
     void testUpdateRental_itemIDChanged()
     {
-        System.out.print("\n2: Testing UpdateRental method by changing itemID...");
+        System.out.println("\n2: Testing UpdateRental method by changing itemID...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -64,11 +64,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(3)
     void testUpdateRental_rentalDateChanged()
     {
-        System.out.print("\n3: Testing UpdateRental method by changing rentalDate...");
+        System.out.println("\n3: Testing UpdateRental method by changing rentalDate...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -78,11 +78,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(4)
     void testUpdateRental_rentalDueDateChanged()
     {
-        System.out.print("\n4: Testing UpdateRental method by changing rentalDueDate...");
+        System.out.println("\n4: Testing UpdateRental method by changing rentalDueDate...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -92,11 +92,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(5)
     void testUpdateRental_rentalReturnDateChanged()
     {
-        System.out.print("\n5: Testing UpdateRental method by changing rentalReturnDate...");
+        System.out.println("\n5: Testing UpdateRental method by changing rentalReturnDate...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -106,11 +106,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(6)
     void testUpdateRental_receiptChanged()
     {
-        System.out.print("\n6: Testing UpdateRental method by changing receipt...");
+        System.out.println("\n6: Testing UpdateRental method by changing receipt...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -120,11 +120,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(7)
     void testUpdateRental_allFieldsChanged()
     {
-        System.out.print("\n7: Testing UpdateRental method by changing all fields...");
+        System.out.println("\n7: Testing UpdateRental method by changing all fields...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -134,11 +134,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(8)
     void testUpdateRental_nullRental()
     {
-        System.out.print("\n8: Testing UpdateRental method with null rental...");
+        System.out.println("\n8: Testing UpdateRental method with null rental...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -148,11 +148,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(9)
     void testUpdateRental_validRentalSoftDeleted()
     {
-        System.out.print("\n9: Testing UpdateRental method with a valid rental that has been soft deleted...");
+        System.out.println("\n9: Testing UpdateRental method with a valid rental that has been soft deleted...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -162,11 +162,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(10)
     void testUpdateRental_validRentalRecovered()
     {
-        System.out.print("\n10: Testing UpdateRental method with a valid rental that has been recovered...");
+        System.out.println("\n10: Testing UpdateRental method with a valid rental that has been recovered...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -176,11 +176,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(11)
     void testUpdateRental_validRentalHardDeleted()
     {
-        System.out.print("\n11: Testing UpdateRental method with a valid rental that has been hard deleted...");
+        System.out.println("\n11: Testing UpdateRental method with a valid rental that has been hard deleted...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
     /**
@@ -190,11 +190,11 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(12)
     void testUpdateRental_validNonExistingRental()
     {
-        System.out.print("\n12: Testing UpdateRental method with a valid rental that does not exist...");
+        System.out.println("\n12: Testing UpdateRental method with a valid rental that does not exist...");
 
         //TODO test implementation here
 
-        System.out.print("\nTest finished.");
+        System.out.println("\nTest finished.");
     }
 
 
@@ -207,7 +207,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(17)
     public void testUpdateRental_NullRental()
     {
-        System.out.print("\n17: Testing updateRental method with a null rental...");
+        System.out.println("\n17: Testing updateRental method with a null rental...");
 
         // Call the updateRental method
         Exception exception = assertThrows(UpdateException.class, () -> RentalHandler.updateRental(null));
@@ -216,7 +216,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
         assertTrue(exception.getMessage().contains("Rental Update failed:"));
         assertTrue(exception.getCause() instanceof NullEntityException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -228,7 +228,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(18)
     public void testUpdateRental_NonExistingRental()
     {
-        System.out.print("\n18: Testing updateRental method with a non-existing rental...");
+        System.out.println("\n18: Testing updateRental method with a non-existing rental...");
 
         try
         {
@@ -250,7 +250,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -262,7 +262,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(19)
     public void testUpdateRental_InvalidRentalID()
     {
-        System.out.print("\n19: Testing updateRental method with an invalid RentalID...");
+        System.out.println("\n19: Testing updateRental method with an invalid RentalID...");
 
         try
         {
@@ -283,7 +283,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -295,7 +295,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(20)
     public void testUpdateRental_ChangeDueDate()
     {
-        System.out.print("\n20: Testing updateRental method by only changing the DueDate...");
+        System.out.println("\n20: Testing updateRental method by only changing the DueDate...");
 
         try
         {
@@ -335,7 +335,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -347,7 +347,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(21)
     public void testUpdateRental_ChangeReturnDate()
     {
-        System.out.print("\n21: Testing updateRental method by only changing the ReturnDate...");
+        System.out.println("\n21: Testing updateRental method by only changing the ReturnDate...");
 
         try
         {
@@ -387,7 +387,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -399,7 +399,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(22)
     public void testUpdateRental_ChangeLateFee()
     {
-        System.out.print("\n22: Testing updateRental method by only changing the LateFee...");
+        System.out.println("\n22: Testing updateRental method by only changing the LateFee...");
 
         try
         {
@@ -438,7 +438,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -450,7 +450,7 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
     @Order(23)
     public void testUpdateRental_ChangeAllFields()
     {
-        System.out.print("\n23: Testing updateRental method by changing all mutable fields...");
+        System.out.println("\n23: Testing updateRental method by changing all mutable fields...");
 
         try
         {
@@ -493,6 +493,6 @@ public class UpdateRentalTest extends BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

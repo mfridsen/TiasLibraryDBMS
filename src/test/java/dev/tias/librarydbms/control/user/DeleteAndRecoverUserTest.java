@@ -49,7 +49,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
      */
     protected static void initializeUsers()
     {
-        System.out.print("\nInitializing users...");
+        System.out.println("\nInitializing users...");
 
         try
         {
@@ -88,7 +88,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
                     + ". Message: " + e.getMessage());
         }
 
-        System.out.print("\nUSERS INITIALIZED.");
+        System.out.println("\nUSERS INITIALIZED.");
     }
 
     /**
@@ -110,13 +110,13 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(1)
     void testDeleteUser_validExistingUsers()
     {
-        System.out.print("\n1: Testing deleteUser method with valid existing users of each type...\n");
+        System.out.println("\n1: Testing deleteUser method with valid existing users of each type...\n");
 
         for (User user : users)
         {
             try
             {
-                System.out.print("Testing to delete " + user.getUsername() + ".");
+                System.out.println("Testing to delete " + user.getUsername() + ".");
 
                 //Assert user is NOT deleted
                 assertFalse(user.isDeleted());
@@ -144,7 +144,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
                 assertTrue(UserHandler.getStoredUsernames().contains(user.getUsername()));
                 assertTrue(UserHandler.getRegisteredEmails().contains(user.getEmail()));
 
-                System.out.print(user.getUsername() + " deleted.");
+                System.out.println(user.getUsername() + " deleted.");
             }
             catch (InvalidIDException e)
             {
@@ -153,7 +153,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
             }
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -163,7 +163,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(2)
     void testDeleteUser_deletedUser()
     {
-        System.out.print("\n2: Testing deleteUser method with an already deleted user...");
+        System.out.println("\n2: Testing deleteUser method with an already deleted user...");
 
         //Delete once
         assertDoesNotThrow(() -> UserHandler.deleteUser(patron));
@@ -173,7 +173,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.deleteUser(patron));
         assertTrue(e.getCause() instanceof EntityNotFoundException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -183,13 +183,13 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(3)
     void testDeleteUser_nonExistingUser()
     {
-        System.out.print("\n3: Testing deleteUser method with a non-existing user...");
+        System.out.println("\n3: Testing deleteUser method with a non-existing user...");
 
         //Delete nonExistingUser, should throw DeletionException with cause EntityNotFoundException
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.deleteUser(nonExistingUser));
         assertTrue(e.getCause() instanceof EntityNotFoundException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -199,13 +199,13 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(4)
     void testDeleteUser_nullUser()
     {
-        System.out.print("\n4: Testing deleteUser method with null user...");
+        System.out.println("\n4: Testing deleteUser method with null user...");
 
         //Delete null, should throw DeletionException with cause NullEntityException
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.deleteUser(null));
         assertTrue(e.getCause() instanceof NullEntityException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -215,13 +215,13 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(5)
     void testDeleteUser_userWithLateFee()
     {
-        System.out.print("\n5: Testing deleteUser method with a user who has late fees...");
+        System.out.println("\n5: Testing deleteUser method with a user who has late fees...");
 
         //Delete lateFeeUser, should throw DeletionException with cause InvalidLateFeeException
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.deleteUser(lateFeeUser));
         assertTrue(e.getCause() instanceof InvalidLateFeeException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -231,13 +231,13 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(6)
     void testDeleteUser_userWithCurrentRentals()
     {
-        System.out.print("\n6: Testing deleteUser method with a user who has current rentals...");
+        System.out.println("\n6: Testing deleteUser method with a user who has current rentals...");
 
         //Delete currentRentalsUser, should throw DeletionException with cause InvalidUserRentalsException
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.deleteUser(currentRentalsUser));
         assertTrue(e.getCause() instanceof InvalidUserRentalsException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -247,14 +247,14 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(7)
     void testRecoverUser_deletedUsers()
     {
-        System.out.print("\n7: Testing recoverUser method with deleted users of each type...\n");
+        System.out.println("\n7: Testing recoverUser method with deleted users of each type...\n");
 
         //Delete users
         for (User user : users)
         {
             try
             {
-                System.out.print("Deleting " + user.getUsername());
+                System.out.println("Deleting " + user.getUsername());
 
                 //Assert user is NOT deleted
                 assertFalse(user.isDeleted());
@@ -263,7 +263,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
                 //Delete user
                 UserHandler.deleteUser(user);
 
-                System.out.print(user.getUsername() + " deleted.");
+                System.out.println(user.getUsername() + " deleted.");
             }
             catch (InvalidIDException | DeletionException e)
             {
@@ -277,7 +277,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
         {
             try
             {
-                System.out.print("Testing to recover " + user.getUsername());
+                System.out.println("Testing to recover " + user.getUsername());
 
                 //Assert user is deleted
                 assertTrue(user.isDeleted());
@@ -308,7 +308,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
                 assertTrue(UserHandler.getStoredUsernames().contains(user.getUsername()));
                 assertTrue(UserHandler.getRegisteredEmails().contains(user.getEmail()));
 
-                System.out.print(user.getUsername() + " recovered.");
+                System.out.println(user.getUsername() + " recovered.");
             }
             catch (InvalidIDException | RecoveryException e)
             {
@@ -317,7 +317,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
             }
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -327,7 +327,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(8)
     void testRecoverUser_nonDeletedUser()
     {
-        System.out.print("\n8: Testing recoverUser method with a non-deleted user...");
+        System.out.println("\n8: Testing recoverUser method with a non-deleted user...");
 
         try
         {
@@ -352,7 +352,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
             fail("Exception thrown when recovering user " + patron.getUsername() + ": " + e.getMessage());
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -362,7 +362,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(9)
     void testRecoverUser_nonExistingUser()
     {
-        System.out.print("\n9: Testing recoverUser method with a non-existing user...");
+        System.out.println("\n9: Testing recoverUser method with a non-existing user...");
 
         try
         {
@@ -377,7 +377,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
             fail("Exception thrown when recovering user " + patron.getUsername() + ": " + e.getMessage());
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -387,12 +387,12 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(10)
     void testRecoverUser_nullUser()
     {
-        System.out.print("\n10: Testing recoverUser method with null user...");
+        System.out.println("\n10: Testing recoverUser method with null user...");
 
         Exception e = assertThrows(RecoveryException.class, () -> UserHandler.recoverUser(null));
         assertTrue(e.getCause() instanceof NullEntityException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -402,7 +402,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(11)
     void testHardDeleteUser_validExistingUsers()
     {
-        System.out.print("\n11: Testing hardDeleteUser method with valid existing users of each type...");
+        System.out.println("\n11: Testing hardDeleteUser method with valid existing users of each type...");
 
         for (User user : users)
         {
@@ -443,7 +443,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
             }
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -453,7 +453,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(12)
     void testHardDeleteUser_deletedUser()
     {
-        System.out.print("\n12: Testing hardDeleteUser method with an already deleted user...");
+        System.out.println("\n12: Testing hardDeleteUser method with an already deleted user...");
 
         try
         {
@@ -498,7 +498,7 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
                 fail("Exception thrown when deleting user " + patron.getUsername() + ": " + e.getMessage());
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -508,12 +508,12 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(13)
     void testHardDeleteUser_nonExistingUser()
     {
-        System.out.print("\n13: Testing hardDeleteUser method with a non-existing user...");
+        System.out.println("\n13: Testing hardDeleteUser method with a non-existing user...");
 
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.hardDeleteUser(nonExistingUser));
         assertTrue(e.getCause() instanceof EntityNotFoundException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -523,12 +523,12 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(14)
     void testHardDeleteUser_nullUser()
     {
-        System.out.print("\n14: Testing hardDeleteUser method with null user...");
+        System.out.println("\n14: Testing hardDeleteUser method with null user...");
 
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.hardDeleteUser(null));
         assertTrue(e.getCause() instanceof NullEntityException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -538,12 +538,12 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(15)
     void testHardDeleteUser_userWithLateFee()
     {
-        System.out.print("\n15: Testing hardDeleteUser method with a user who has late fees...");
+        System.out.println("\n15: Testing hardDeleteUser method with a user who has late fees...");
 
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.hardDeleteUser(lateFeeUser));
         assertTrue(e.getCause() instanceof InvalidLateFeeException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     /**
@@ -553,11 +553,11 @@ public class DeleteAndRecoverUserTest extends BaseUserHandlerTest
     @Order(16)
     void testHardDeleteUser_userWithCurrentRentals()
     {
-        System.out.print("\n16: Testing hardDeleteUser method with a user who has current rentals...");
+        System.out.println("\n16: Testing hardDeleteUser method with a user who has current rentals...");
 
         Exception e = assertThrows(DeletionException.class, () -> UserHandler.hardDeleteUser(currentRentalsUser));
         assertTrue(e.getCause() instanceof InvalidUserRentalsException);
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

@@ -38,7 +38,7 @@ public class GetClassificationByIDTest extends BaseHandlerTest
     @Order(1)
     void testGetClassificationByID()
     {
-        System.out.print("\n1: Testing GetClassificationByID...");
+        System.out.println("\n1: Testing GetClassificationByID...");
 
         try {
             Classification classification = ClassificationHandler.getClassificationByID(1);
@@ -51,6 +51,6 @@ public class GetClassificationByIDTest extends BaseHandlerTest
             ExceptionManager.HandleTestException(e);
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }

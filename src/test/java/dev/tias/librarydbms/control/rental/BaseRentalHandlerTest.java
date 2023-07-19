@@ -51,7 +51,7 @@ public abstract class BaseRentalHandlerTest
     @BeforeAll
     protected static void setup()
     {
-        System.out.print("\nSetting up test environment...");
+        System.out.println("\nSetting up test environment...");
 
         setupConnectionAndTables();
         setupTestData();
@@ -59,13 +59,13 @@ public abstract class BaseRentalHandlerTest
         UserHandler.setup(); //Fills list with users
         DataAccessManager.setVerbose(false); //Get that thing to shut up
 
-        System.out.print("\nTest environment setup finished.");
+        System.out.println("\nTest environment setup finished.");
     }
 
 
     protected static void setupConnectionAndTables()
     {
-        System.out.print("\nSetting up connection and tables...");
+        System.out.println("\nSetting up connection and tables...");
 
         try
         {
@@ -85,17 +85,17 @@ public abstract class BaseRentalHandlerTest
             e.printStackTrace();
         }
 
-        System.out.print("\nConnection and tables setup finished.");
+        System.out.println("\nConnection and tables setup finished.");
     }
 
     protected static void setupTestData()
     {
-        System.out.print("\nFilling tables with test data...");
+        System.out.println("\nFilling tables with test data...");
 
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
         DataAccessManager.setVerbose(true);
 
-        System.out.print("\nTest data setup finished.");
+        System.out.println("\nTest data setup finished.");
     }
 
     /**

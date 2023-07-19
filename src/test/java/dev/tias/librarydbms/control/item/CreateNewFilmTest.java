@@ -56,7 +56,7 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
     @Order(1)
     void testCreateNewFilm_ValidInput()
     {
-        System.out.print("\n1: Testing createNewFilm method with valid input...");
+        System.out.println("\n1: Testing createNewFilm method with valid input...");
 
         try
         {
@@ -76,7 +76,7 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             assertEquals(ageRating, film.getAgeRating());
 
             Film retrievedFilm = (Film) ItemHandler.getItemByID(film.getItemID());
-            System.out.print("Retrieved film ID: " + retrievedFilm.getItemID());
+            System.out.println("Retrieved film ID: " + retrievedFilm.getItemID());
         }
         catch (Exception e)
         {
@@ -84,14 +84,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(2)
     void testCreateNewFilm_NullTitle()
     {
-        System.out.print("\n2: Testing createNewFilm method with null title...");
+        System.out.println("\n2: Testing createNewFilm method with null title...");
 
         int authorId = 1;
         int classificationId = 1;
@@ -103,14 +103,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(null, authorId, classificationId, barcode, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(3)
     void testCreateNewFilm_EmptyTitle()
     {
-        System.out.print("\n3: Testing createNewFilm method with empty title...");
+        System.out.println("\n3: Testing createNewFilm method with empty title...");
 
         int authorId = 1;
         int classificationId = 1;
@@ -122,14 +122,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm("", authorId, classificationId, barcode, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(4)
     void testCreateNewFilm_TooLongTitle()
     {
-        System.out.print("\n4: Testing createNewFilm method with too long title...");
+        System.out.println("\n4: Testing createNewFilm method with too long title...");
 
         int authorId = 1;
         int classificationId = 1;
@@ -143,14 +143,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, authorId, classificationId, barcode, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(5)
     void testCreateNewFilm_InvalidAuthorID()
     {
-        System.out.print("\n5: Testing createNewFilm method with invalid authorID...");
+        System.out.println("\n5: Testing createNewFilm method with invalid authorID...");
 
         String title = "Valid Title";
         int classificationId = 1;
@@ -162,7 +162,7 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, -1, classificationId, barcode, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
 
@@ -170,7 +170,7 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
     @Order(8)
     void testCreateNewFilm_InvalidClassificationID()
     {
-        System.out.print("\n8: Testing createNewFilm method with invalid classificationID...");
+        System.out.println("\n8: Testing createNewFilm method with invalid classificationID...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -182,14 +182,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, authorId, -1, barcode, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(9)
     void testCreateNewFilm_NonExistentAuthor()
     {
-        System.out.print("\n9: Testing createNewFilm method with non-existent author...");
+        System.out.println("\n9: Testing createNewFilm method with non-existent author...");
 
         String title = "Valid Title";
         int classificationId = 1;
@@ -202,14 +202,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
                     ageRating); // assuming 9999 is non-existing author ID
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(10)
     void testCreateNewFilm_NonExistentClassification()
     {
-        System.out.print("\n10: Testing createNewFilm method with non-existent classification...");
+        System.out.println("\n10: Testing createNewFilm method with non-existent classification...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -222,14 +222,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
                     ageRating); // assuming 9999 is non-existing classification ID
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(11)
     void testCreateNewFilm_NullBarcode()
     {
-        System.out.print("\n11: Testing createNewFilm method with null barcode...");
+        System.out.println("\n11: Testing createNewFilm method with null barcode...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -241,14 +241,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, authorId, classificationId, null, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(12)
     void testCreateNewFilm_EmptyBarcode()
     {
-        System.out.print("\n12: Testing createNewFilm method with empty barcode...");
+        System.out.println("\n12: Testing createNewFilm method with empty barcode...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -260,14 +260,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, authorId, classificationId, "", ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(13)
     void testCreateNewFilm_TooLongBarcode()
     {
-        System.out.print("\n13: Testing createNewFilm method with too long barcode...");
+        System.out.println("\n13: Testing createNewFilm method with too long barcode...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -281,14 +281,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, authorId, classificationId, barcode, ageRating);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(14)
     void testCreateNewFilm_TakenBarcode()
     {
-        System.out.print("\n14: Testing createNewFilm method with taken barcode...");
+        System.out.println("\n14: Testing createNewFilm method with taken barcode...");
 
         try
         {
@@ -312,14 +312,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             fail("Valid operations should not throw exceptions.");
         }
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(15)
     void testCreateNewFilm_NegativeAgeRating()
     {
-        System.out.print("\n15: Testing createNewFilm method with negative age rating...");
+        System.out.println("\n15: Testing createNewFilm method with negative age rating...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -331,14 +331,14 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
             ItemHandler.createNewFilm(title, authorId, classificationId, barcode, -1);
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 
     @Test
     @Order(16)
     void testCreateNewFilm_TooHighAgeRating()
     {
-        System.out.print("\n16: Testing createNewFilm method with too high age rating...");
+        System.out.println("\n16: Testing createNewFilm method with too high age rating...");
 
         String title = "Valid Title";
         int authorId = 1;
@@ -351,6 +351,6 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
                     101); // assuming the max rating is 100
         });
 
-        System.out.print(" Test Finished.");
+        System.out.println("Test Finished.");
     }
 }
