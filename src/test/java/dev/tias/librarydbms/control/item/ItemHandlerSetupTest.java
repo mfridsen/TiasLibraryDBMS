@@ -27,7 +27,6 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
     @Override
     protected void setupTestData()
     {
-
     }
 
     /**
@@ -65,7 +64,7 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
         System.out.print("\n2: Testing setup method with some items in the database...");
 
         //Setup the test data and clear the items, film and literature tables
-        setupTestData();
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
         String[] tablesToDelete = {"films", "literature", "items"};
         for (String table : tablesToDelete)
         {
