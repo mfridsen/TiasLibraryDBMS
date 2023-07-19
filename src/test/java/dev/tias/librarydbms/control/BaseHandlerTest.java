@@ -38,6 +38,7 @@ public abstract class BaseHandlerTest
         {
             setupConnection();
             setupTables();
+            setupTestData();
         }
         catch (SQLException | ClassNotFoundException e)
         {
@@ -61,10 +62,7 @@ public abstract class BaseHandlerTest
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
-    protected void setupTestData()
-    {
-        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
-    }
+    protected abstract void setupTestData();
 
     /**
      * Always delete the test database and close the connection to the server after use.

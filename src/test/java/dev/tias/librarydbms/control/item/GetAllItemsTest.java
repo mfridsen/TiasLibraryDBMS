@@ -21,6 +21,12 @@ import org.junit.jupiter.api.TestMethodOrder;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GetAllItemsTest extends BaseHandlerTest
 {
+    @Override
+    protected void setupTestData()
+    {
+
+    }
+
     /**
      *
      */

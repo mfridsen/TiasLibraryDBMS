@@ -25,6 +25,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GetAuthorByIDTest extends BaseHandlerTest
 {
+    @Override
+    protected void setupTestData()
+    {
+
+    }
+
     private static final String validAuthorFirstName1 = "validfirstname1";
     private static final String validAuthorFirstName2 = "validfirstname2";
     private static final String validAuthorFirstName3 = "validfirstname3";

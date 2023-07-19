@@ -29,6 +29,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GetItemByIDTest extends BaseHandlerTest
 {
+    @Override
+    protected void setupTestData()
+    {
+
+    }
+
     /**
      * Test case for getItemByID method with valid itemID.
      * This test verifies that the getItemByID method behaves correctly when provided with a valid itemID.

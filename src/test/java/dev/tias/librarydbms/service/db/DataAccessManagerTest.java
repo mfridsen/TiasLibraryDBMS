@@ -31,9 +31,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DataAccessManagerTest extends BaseHandlerTest
 {
-
     //TODO-future make all tests more verbose
     //TODO-future javadoc tests properly
+
+    @Override
+    protected void setupTestData()
+    {
+
+    }
 
     @Test
     @Order(1)

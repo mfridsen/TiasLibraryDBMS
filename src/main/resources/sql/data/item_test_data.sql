@@ -1,3 +1,29 @@
+INSERT INTO authors (authorID, authorFirstname, authorLastname, biography, deleted)
+VALUES (1, 'author1', 'lastname1', 'is the first author', 0),
+       (2, 'author2', 'lastname2', 'is the second author', 0),
+       (3, 'author3', 'lastname3', 'is the third author', 0),
+       (4, 'author4', 'lastname4', 'is the fourth author', 0),
+       (5, 'author5', 'lastname5', 'is the fifth author', 0),
+       (6, 'author6', 'lastname6', 'is the sixth author', 0),
+       (7, 'author7', 'lastname7', 'is the seventh author', 0),
+       (8, 'author8', 'lastname8', 'is the eighth author', 0),
+       (9, 'author9', 'lastname9', 'is the ninth author', 0),
+       (10, 'author10', 'lastname10', 'is the tenth author', 0),
+       (11, 'Joe', 'Abercrombie', 'Lord Grimdark', 0);
+
+-- classifications (, '', '', ),
+INSERT INTO classifications (classificationID, classificationName, description, deleted)
+VALUES (1, 'Physics', 'Scientific literature on the topic of physics.', 0),
+       (2, 'Chemistry', 'Scientific literature on the topic of chemistry.', 0),
+       (3, 'Mathematics', 'Scientific literature on the topic of mathematics.', 0),
+       (4, 'Geography', 'Scientific literature on the topic of geography.', 0),
+       (5, 'Geology', 'Scientific literature on the topic of geology.', 0),
+       (6, 'Biology', 'Scientific literature on the topic of biology.', 0),
+       (7, 'Programming', 'Scientific literature on the topic of programming.', 0),
+       (8, 'Horror', 'The best genre.', 0),
+       (9, 'Psychology', 'Scientific literature on the topic of psychology.', 0),
+       (10, 'Fantasy', 'Tolkien did it best.', 0);
+
 -- items (, '', '', '', , , , , , ),
 INSERT INTO items (itemID, title, itemType, barcode, authorID, classificationID, allowedRentalDays, available, deleted)
 VALUES (1, 'item1', 'REFERENCE_LITERATURE', '1', 1, 1, 0, 1, 0),

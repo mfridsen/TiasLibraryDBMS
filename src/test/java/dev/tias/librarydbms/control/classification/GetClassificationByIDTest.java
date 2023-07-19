@@ -25,6 +25,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GetClassificationByIDTest extends BaseHandlerTest
 {
+    @Override
+    protected void setupTestData()
+    {
+
+    }
+
     /**
      *
      */

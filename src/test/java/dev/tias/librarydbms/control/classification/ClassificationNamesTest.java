@@ -20,19 +20,10 @@ import static org.mockito.Mockito.verify;
  */
 public class ClassificationNamesTest extends BaseHandlerTest
 {
-
-    @BeforeEach
-    protected void reset()
+    @Override
+    protected void setupTestData()
     {
-        try
-        {
-            setupConnection();
-            ClassificationHandler.reset();
-        }
-        catch (SQLException | ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
+
     }
 
     @Test

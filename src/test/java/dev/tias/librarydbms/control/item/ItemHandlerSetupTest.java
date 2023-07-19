@@ -24,6 +24,12 @@ public class ItemHandlerSetupTest extends BaseHandlerTest
 {
     //TODO-PRIO test against test_data file
 
+    @Override
+    protected void setupTestData()
+    {
+
+    }
+
     /**
      * Test case for the setup method with an empty database.
      * This test checks if the setup method correctly initializes the ItemHandler's state.

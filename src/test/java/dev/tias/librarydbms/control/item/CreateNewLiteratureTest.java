@@ -4,6 +4,7 @@ import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.control.ItemHandler;
 import dev.tias.librarydbms.model.Item;
 import dev.tias.librarydbms.model.Literature;
+import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.EntityNotFoundException;
@@ -47,11 +48,9 @@ public class CreateNewLiteratureTest extends BaseHandlerTest
     //Empty ISBN
     //Too long ISBN
 
-    @BeforeAll
-    protected void setup()
+    protected void setupTestData()
     {
-        super.setup();
-        setupTestData();
+        DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/data/item_test_data.sql");
     }
 
     @BeforeEach

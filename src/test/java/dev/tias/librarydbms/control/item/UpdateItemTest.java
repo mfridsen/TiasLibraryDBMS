@@ -182,4 +182,9 @@ public class UpdateItemTest extends BaseHandlerTest
         System.out.print(" Test Finished.");
     }
 
+    @Override
+    protected void setupTestData()
+    {
+
+    }
 }
