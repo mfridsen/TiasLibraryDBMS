@@ -10,7 +10,7 @@ CREATE TABLE `authors`
 (
     authorID        INT AUTO_INCREMENT UNIQUE NOT NULL,
     authorFirstname VARCHAR(100) NOT NULL,
-    authorLastname  VARCHAR(100),
+    authorLastname  VARCHAR(100) NOT NULL,
     biography       TEXT,
     deleted         TINYINT(1) NOT NULL,
     PRIMARY KEY (authorID)

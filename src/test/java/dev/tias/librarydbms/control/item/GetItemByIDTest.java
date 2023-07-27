@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GetItemByIDTest extends BaseItemHandlerTest
 {
     @Override
-    protected void customSetupTestData()
+    protected void customTestDataSetup()
     {
         setupTestData_ForItemTests_full();
     }

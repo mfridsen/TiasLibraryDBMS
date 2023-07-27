@@ -12,10 +12,16 @@ import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
  * @contact matfir-1@student.ltu.se
  * @date 5/23/2023
  * <p>
- * Represents an Author in a library system.
- * The Author class extends Entity and contains information about the author, including
- * first name, last name, and biography.
- * It provides methods to set and get these values, enforcing various constraints.
+ * Represents an Author in a library system. The Author class extends Entity and contains information about the author,
+ * including first name, last name, and biography. It provides methods to set and get these values, enforcing various
+ * constraints.
+ * <p>
+ * RULES:
+ * - First name cannot be null or empty
+ * - Last name cannot be null or empty
+ * - First name must not be too long
+ * - Last name must not be too long
+ * - ID cannot be less than 0
  */
 public class Author extends Entity
 {
@@ -171,9 +177,11 @@ public class Author extends Entity
     {
         if (authorFirstname == null || authorFirstname.isEmpty())
             throw new InvalidNameException("Author first name cannot be null or empty.");
+
         if (authorFirstname.length() > AUTHOR_FIRST_NAME_LENGTH)
             throw new InvalidNameException("Author first name must be at most " + AUTHOR_FIRST_NAME_LENGTH +
                     " characters. Received: " + authorFirstname.length());
+
         this.authorFirstname = authorFirstname;
     }
 
@@ -196,9 +204,13 @@ public class Author extends Entity
     public void setAuthorLastName(String authorLastName)
     throws InvalidNameException
     {
+        if (authorFirstname == null || authorFirstname.isEmpty())
+            throw new InvalidNameException("Author last name cannot be null or empty.");
+
         if (authorLastName.length() > AUTHOR_LAST_NAME_LENGTH)
             throw new InvalidNameException("Author last name must be at most " + AUTHOR_LAST_NAME_LENGTH +
                     " characters. Received: " + authorLastName.length());
+
         this.authorLastName = authorLastName;
     }
 

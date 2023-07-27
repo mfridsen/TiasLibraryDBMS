@@ -25,7 +25,7 @@ import java.util.List;
  * <p>
  * Brought to you by enough nicotine to kill a large horse.
  */
-public class AuthorHandler
+public class AuthorHandler extends EntityHandler<Author>
 {
 
     public static void printAuthorList(List<Author> authorList)
@@ -49,7 +49,7 @@ public class AuthorHandler
         try
         {
             //Validate input
-            validateAuthorname(authorFirstname, authorLastName);
+            validateAuthorNames(authorFirstname, authorLastName);
 
             // Create and save the new author, retrieving the ID
             newAuthor = new Author(authorFirstname, authorLastName);
@@ -291,33 +291,32 @@ public class AuthorHandler
         }
         catch (SQLException | ConstructionException e)
         {
-            throw new RuntimeException(e);//TODO-ändra
+            throw new RuntimeException(e);//TODO-prio change
         }
     }
     //UTILITY METHODS---------------------------------------------------------------------------------------------------
 
-    private static void validateAuthorname(String authorFirstname, String authorLastName)
+    private static void validateAuthorNames(String authorFirstname, String authorLastName)
     throws InvalidNameException
     {
-        checkEmptyName(authorFirstname);
-        checkEmptyName(authorLastName);
-        if (authorFirstname.length() > Author.AUTHOR_FIRST_NAME_LENGTH)
+        if(StringIsNullOrEmpty(authorFirstname))
+            throw new InvalidNameException("Author first name is null or empty.");
+
+        if (StringIsNullOrEmpty(authorLastName))
+            throw new InvalidNameException("Author last name is null or empty.");
+
+        if (StringIsTooLong(authorFirstname, Author.AUTHOR_FIRST_NAME_LENGTH))
             throw new InvalidNameException(
                     "Author first name too long. Must be at most " + Author.AUTHOR_FIRST_NAME_LENGTH +
                             " characters, received " + authorFirstname.length());
+
+
+
+
         if (authorLastName.length() > Author.AUTHOR_LAST_NAME_LENGTH)
             throw new InvalidNameException(
                     "Author last name too long. Must be at most " + Author.AUTHOR_LAST_NAME_LENGTH +
                             " characters, received " + authorLastName.length());
-    }
-
-    private static void checkEmptyName(String authorName)
-    throws InvalidNameException
-    {
-        if (authorName == null || authorName.isEmpty())
-        {
-            throw new InvalidNameException("Author Name is null or empty.");
-        }
     }
 
     private static void validateAuthor(Author author)

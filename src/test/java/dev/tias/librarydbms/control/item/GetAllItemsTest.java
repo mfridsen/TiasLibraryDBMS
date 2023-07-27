@@ -23,7 +23,7 @@ public class GetAllItemsTest extends BaseItemHandlerTest
     //TODO-prio IMPLEMENT
 
     @Override
-    protected void customSetupTestData()
+    protected void customTestDataSetup()
     {
 
     }

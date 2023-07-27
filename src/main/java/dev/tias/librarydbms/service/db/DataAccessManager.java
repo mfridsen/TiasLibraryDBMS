@@ -25,18 +25,20 @@ import java.sql.SQLException;
  * DatabaseConnection class.
  * <p>
  * This class is only responsible for general operations. Specific operations are delegated to specific Handler classes,
- * such as {@link UserHandler}.   //TODO-comment finish
+ * such as {@link UserHandler}.   //TODO-comment rework
  */
 public class DataAccessManager
 {
-    //The DataAccessManager needs a connection to perform commands and queries.
+    //The DataAccessManager needs a connection to perform updates and queries.
     private static Connection connection;
+
     //Print commands being run, default = not
     private static boolean verbose = false;
 
     /**
      * Sets up the DatabaseConnection, then checks if the database exists. If not, calls createDatabase to
      * create it.
+     * TODO-future rework and test
      */
     public static void setup(boolean verbose)
     {
@@ -108,8 +110,6 @@ public class DataAccessManager
         executeSQLCommandsFromFile("src/main/resources/sql/data/test_data.sql");
     }
 
-    //TODO-TEST
-
     /**
      * Executes an SQL update command such as INSERT, UPDATE, DELETE, or CREATE TABLE
      * using a prepared statement. These commands modify data and return the number of
@@ -119,6 +119,8 @@ public class DataAccessManager
      * @param params   An array of parameter values to be bound to the SQL command.
      * @param settings Optional PreparedStatement settings, such as Statement.RETURN_GENERATED_KEYS.
      * @return The number of rows affected by the update.
+     *
+     * TODO-test
      */
     public static int executePreparedUpdate(String command, String[] params, int... settings)
     {
@@ -162,8 +164,6 @@ public class DataAccessManager
         return -1;
     }
 
-    //TODO-test
-
     /**
      * Executes an SQL query command such as SELECT using a prepared statement.
      * These commands retrieve data and return a ResultSet, which is encapsulated
@@ -176,6 +176,8 @@ public class DataAccessManager
      * @return A QueryResult object that encapsulates the ResultSet and the PreparedStatement.
      * The ResultSet can be iterated to retrieve the data, and the PreparedStatement should
      * be closed when finished.
+     *
+     * TODO-test
      */
     public static QueryResult executePreparedQuery(String query, String[] params, int... settings)
     {
