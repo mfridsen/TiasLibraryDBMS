@@ -1,6 +1,7 @@
 package dev.tias.librarydbms.control;
 
 import dev.tias.librarydbms.model.Author;
+import dev.tias.librarydbms.model.Entity;
 import dev.tias.librarydbms.service.db.DataAccessManager;
 import dev.tias.librarydbms.service.db.QueryResult;
 import dev.tias.librarydbms.service.exceptions.ExceptionManager;
@@ -25,7 +26,7 @@ import java.util.List;
  * <p>
  * Brought to you by enough nicotine to kill a large horse.
  */
-public class AuthorHandler extends EntityHandler<Author>
+public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
 {
 
     public static void printAuthorList(List<Author> authorList)
@@ -138,7 +139,6 @@ public class AuthorHandler extends EntityHandler<Author>
     throws InvalidNameException
     {
         //Let's check if the author exists in the database before we go on
-        updateAuthor(updatedAuthor);
 
         // Prepare a SQL command to update a updatedAuthors's data by authorID.
         String sql = "UPDATE authors SET authorFirstname = ?, authorLastName = ?, + WHERE authorID = ?";
@@ -240,8 +240,9 @@ public class AuthorHandler extends EntityHandler<Author>
     throws InvalidNameException
     {
         //both names cant be null or empty, only one can be
-        if ((authorFirstname == null || authorFirstname.isEmpty()) && (authorLastname == null || authorLastname.isEmpty()))
-            throw new InvalidNameException("Both first and last name can not be empty at the same time.");
+        if (stringIsNullOrEmpty(authorFirstname) && stringIsNullOrEmpty(authorLastname))
+            throw new InvalidNameException("getAuthorByAuthorName: " +
+                    "Both first and last name can not be empty at the same time.");
 
         try
         {
@@ -299,24 +300,23 @@ public class AuthorHandler extends EntityHandler<Author>
     private static void validateAuthorNames(String authorFirstname, String authorLastName)
     throws InvalidNameException
     {
-        if(StringIsNullOrEmpty(authorFirstname))
-            throw new InvalidNameException("Author first name is null or empty.");
+        //TODO-prio redundant?
 
-        if (StringIsNullOrEmpty(authorLastName))
-            throw new InvalidNameException("Author last name is null or empty.");
+        if(stringIsNullOrEmpty(authorFirstname))
+            throw new InvalidNameException("validateAuthorNames: Author first name is null or empty.");
 
-        if (StringIsTooLong(authorFirstname, Author.AUTHOR_FIRST_NAME_LENGTH))
+        if (stringIsNullOrEmpty(authorLastName))
+            throw new InvalidNameException("validateAuthorNames: Author last name is null or empty.");
+
+        if (stringIsTooLong(authorFirstname, Author.AUTHOR_FIRST_NAME_LENGTH))
             throw new InvalidNameException(
-                    "Author first name too long. Must be at most " + Author.AUTHOR_FIRST_NAME_LENGTH +
-                            " characters, received " + authorFirstname.length());
-
-
-
+                    "validateAuthorNames: Author first name too long. Must be at most " +
+                            Author.AUTHOR_FIRST_NAME_LENGTH + " characters, received " + authorFirstname.length());
 
         if (authorLastName.length() > Author.AUTHOR_LAST_NAME_LENGTH)
             throw new InvalidNameException(
-                    "Author last name too long. Must be at most " + Author.AUTHOR_LAST_NAME_LENGTH +
-                            " characters, received " + authorLastName.length());
+                    "validateAuthorNames: Author last name too long. Must be at most " +
+                            Author.AUTHOR_LAST_NAME_LENGTH + " characters, received " + authorLastName.length());
     }
 
     private static void validateAuthor(Author author)
@@ -344,5 +344,18 @@ public class AuthorHandler extends EntityHandler<Author>
         {
             throw new InvalidIDException("Invalid authorID: " + authorID);
         }
+    }
+
+    @Override
+    public boolean isUpdateAbleEntity(Author author)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean isDeleteAbleEntity(Author author)
+    {
+        //TODO-implement
+        return false;
     }
 }

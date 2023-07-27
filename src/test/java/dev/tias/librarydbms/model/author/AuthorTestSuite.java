@@ -24,5 +24,5 @@ import org.junit.platform.suite.api.Suite;
 
 public class AuthorTestSuite
 {
-
+    //TODO-prio rework tests based on name length rules
 }
