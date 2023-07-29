@@ -41,7 +41,7 @@ public class AuthorCreationTest
             Author author = new Author(firstName, lastName);
             assertFalse(author.isDeleted());
             assertEquals(0, author.getAuthorID());
-            assertEquals(firstName, author.getAuthorFirstname(), "Author's first name should match the provided name");
+            assertEquals(firstName, author.getAuthorFirstName(), "Author's first name should match the provided name");
             assertEquals(lastName, author.getAuthorLastName(), "Author's last name should match the provided name");
             assertNull(author.getBiography(), "Author's biography should be null for a newly created author");
         }

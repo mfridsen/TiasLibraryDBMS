@@ -53,7 +53,7 @@ public class Author extends Entity
     /**
      * Author's first name. Must not be null or empty.
      */
-    private String authorFirstname;
+    private String authorFirstName;
 
     /**
      * Author's last name.
@@ -68,18 +68,18 @@ public class Author extends Entity
     /**
      * Constructor for creating a new Author.
      *
-     * @param authorFirstname The first name of the author.
+     * @param authorFirstName The first name of the author.
      * @param authorLastName  The last name of the author.
      * @throws ConstructionException if the author's first name is null, empty, or too long.
      */
-    public Author(String authorFirstname, String authorLastName)
+    public Author(String authorFirstName, String authorLastName)
     throws ConstructionException
     {
         super();
         try
         {
             this.authorID = 0;
-            setAuthorFirstname(authorFirstname);
+            setAuthorFirstName(authorFirstName);
             setAuthorLastName(authorLastName);
             this.biography = null;
         }
@@ -94,20 +94,20 @@ public class Author extends Entity
      * Constructor for retrieving an existing Author.
      *
      * @param authorID        The unique identifier of the author.
-     * @param authorFirstname The first name of the author.
+     * @param authorFirstName The first name of the author.
      * @param authorLastName  The last name of the author.
      * @param biography       The biography of the author.
      * @param deleted         Indicates whether the author is deleted.
      * @throws ConstructionException if the authorID is invalid or if the author's names are null, empty, or too long.
      */
-    public Author(int authorID, String authorFirstname, String authorLastName, String biography, boolean deleted)
+    public Author(int authorID, String authorFirstName, String authorLastName, String biography, boolean deleted)
     throws ConstructionException
     {
         super(deleted);
         try
         {
             setAuthorID(authorID);
-            setAuthorFirstname(authorFirstname);
+            setAuthorFirstName(authorFirstName);
             setAuthorLastName(authorLastName);
             setBiography(biography);
         }
@@ -127,7 +127,7 @@ public class Author extends Entity
     {
         super(other);
         this.authorID = other.authorID;
-        this.authorFirstname = other.authorFirstname;
+        this.authorFirstName = other.authorFirstName;
         this.authorLastName = other.authorLastName;
         this.biography = other.biography;
     }
@@ -161,28 +161,28 @@ public class Author extends Entity
      *
      * @return The author's first name.
      */
-    public String getAuthorFirstname()
+    public String getAuthorFirstName()
     {
-        return authorFirstname;
+        return authorFirstName;
     }
 
     /**
      * Sets the first name of the author.
      *
-     * @param authorFirstname The author's first name.
+     * @param authorFirstName The author's first name.
      * @throws InvalidNameException if the first name is null, empty, or too long.
      */
-    public void setAuthorFirstname(String authorFirstname)
+    public void setAuthorFirstName(String authorFirstName)
     throws InvalidNameException
     {
-        if (authorFirstname == null || authorFirstname.isEmpty())
+        if (authorFirstName == null || authorFirstName.isEmpty())
             throw new InvalidNameException("Author first name cannot be null or empty.");
 
-        if (authorFirstname.length() > AUTHOR_FIRST_NAME_LENGTH)
+        if (authorFirstName.length() > AUTHOR_FIRST_NAME_LENGTH)
             throw new InvalidNameException("Author first name must be at most " + AUTHOR_FIRST_NAME_LENGTH +
-                    " characters. Received: " + authorFirstname.length());
+                    " characters. Received: " + authorFirstName.length());
 
-        this.authorFirstname = authorFirstname;
+        this.authorFirstName = authorFirstName;
     }
 
     /**
@@ -204,7 +204,7 @@ public class Author extends Entity
     public void setAuthorLastName(String authorLastName)
     throws InvalidNameException
     {
-        if (authorFirstname == null || authorFirstname.isEmpty())
+        if (authorFirstName == null || authorFirstName.isEmpty())
             throw new InvalidNameException("Author last name cannot be null or empty.");
 
         if (authorLastName.length() > AUTHOR_LAST_NAME_LENGTH)

@@ -19,16 +19,9 @@ import java.util.List;
  * @package dev.tias.librarydbms.control.entities
  * @contact matfir-1@student.ltu.se
  * @date 5/25/2023
- * <p>
- * We plan as much as we can (based on the knowledge available),
- * When we can (based on the time and resources available),
- * But not before.
- * <p>
- * Brought to you by enough nicotine to kill a large horse.
  */
-public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
+public class AuthorHandler extends EntityHandler
 {
-
     public static void printAuthorList(List<Author> authorList)
     {
         System.out.println("Authors:");
@@ -36,7 +29,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
         for (Author author : authorList)
         {
             System.out.println(
-                    count + " authorID: " + author.getAuthorID() + ", Author Name: " + author.getAuthorFirstname());
+                    count + " authorID: " + author.getAuthorID() + ", Author Name: " + author.getAuthorFirstName());
         }
     }
 
@@ -54,14 +47,13 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
 
             // Create and save the new author, retrieving the ID
             newAuthor = new Author(authorFirstname, authorLastName);
-            newAuthor.setAuthorID(saveAuthor(newAuthor));
-
-
+            int newID = saveAuthor(newAuthor);
+            newAuthor.setAuthorID(newID);
         }
         catch (ConstructionException | InvalidIDException e)
         {
             ExceptionManager.HandleFatalException(e, String.format("Failed to create Author with the given name: " +
-                    "'%s' due to %s: %s", authorFirstname, e.getClass().getName(), e.getMessage()));
+                    "'%s %s' due to %s: %s", authorFirstname, authorLastName, e.getClass().getName(), e.getMessage()));
         }
 
         return newAuthor;
@@ -76,7 +68,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
                     "VALUES (?, ?)";
 
             String[] params = {
-                    author.getAuthorFirstname(),
+                    author.getAuthorFirstName(),
                     author.getAuthorLastName(),
             };
 
@@ -143,7 +135,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
         // Prepare a SQL command to update a updatedAuthors's data by authorID.
         String sql = "UPDATE authors SET authorFirstname = ?, authorLastName = ?, + WHERE authorID = ?";
         String[] params = {
-                updatedAuthor.getAuthorFirstname(),
+                updatedAuthor.getAuthorFirstName(),
                 updatedAuthor.getAuthorLastName(),
                 String.valueOf(updatedAuthor.getAuthorID())
         };
@@ -152,7 +144,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
         DataAccessManager.executePreparedUpdate(sql, params);
     }
 
-    public static void deleteAuthor(Author authorToDelete)
+    public void deleteAuthor(Author authorToDelete)
     throws DeletionException
     {
         {
@@ -182,7 +174,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
         }
     }
 
-    public static void undoDeleteAuthor(Author authorToRecover)
+    public void undoDeleteAuthor(Author authorToRecover)
     throws RecoveryException
     {
         // Validate input
@@ -211,7 +203,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
     }
 
 
-    public static void hardDeleteAuthor(Author authorToDelete)
+    public void hardDeleteAuthor(Author authorToDelete)
     throws DeletionException
     {
         {
@@ -240,7 +232,7 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
     throws InvalidNameException
     {
         //both names cant be null or empty, only one can be
-        if (stringIsNullOrEmpty(authorFirstname) && stringIsNullOrEmpty(authorLastname))
+        if (stringNullOrEmpty(authorFirstname) && stringNullOrEmpty(authorLastname))
             throw new InvalidNameException("getAuthorByAuthorName: " +
                     "Both first and last name can not be empty at the same time.");
 
@@ -302,13 +294,13 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
     {
         //TODO-prio redundant?
 
-        if(stringIsNullOrEmpty(authorFirstname))
+        if(stringNullOrEmpty(authorFirstname))
             throw new InvalidNameException("validateAuthorNames: Author first name is null or empty.");
 
-        if (stringIsNullOrEmpty(authorLastName))
+        if (stringNullOrEmpty(authorLastName))
             throw new InvalidNameException("validateAuthorNames: Author last name is null or empty.");
 
-        if (stringIsTooLong(authorFirstname, Author.AUTHOR_FIRST_NAME_LENGTH))
+        if (stringTooLong(authorFirstname, Author.AUTHOR_FIRST_NAME_LENGTH))
             throw new InvalidNameException(
                     "validateAuthorNames: Author first name too long. Must be at most " +
                             Author.AUTHOR_FIRST_NAME_LENGTH + " characters, received " + authorFirstname.length());
@@ -319,43 +311,35 @@ public class AuthorHandler extends EntityUtils implements EntityHandler<Author>
                             Author.AUTHOR_LAST_NAME_LENGTH + " characters, received " + authorLastName.length());
     }
 
-    private static void validateAuthor(Author author)
+    private void validateAuthor(Author author)
     throws EntityNotFoundException, InvalidIDException, NullEntityException
     {
-        checkNullAuthor(author);
-        int ID = author.getAuthorID();
-        if (AuthorHandler.getAuthorByID(ID, true) == null)
-            throw new EntityNotFoundException("Author with ID " + author + "not found in database.");
-    }
 
-
-    private static void checkNullAuthor(Author author)
-    throws NullEntityException
-    {
-        if (author == null)
+        if (isNullEntity(author))
             throw new NullEntityException("Author is null.");
-    }
 
+        int ID = author.getAuthorID();
+
+        if (AuthorHandler.getAuthorByID(ID, true) == null)
+            throw new EntityNotFoundException("Author with ID " + author + " not found in database.");
+    }
 
     private static void checkValidAuthorID(int authorID)
     throws InvalidIDException
     {
-        if (authorID <= 0)
-        {
+        if (!isValidID(authorID))
             throw new InvalidIDException("Invalid authorID: " + authorID);
-        }
     }
 
     @Override
-    public boolean isUpdateAbleEntity(Author author)
+    protected boolean isUpdateAbleEntity(Entity e)
     {
         return false;
     }
 
     @Override
-    public boolean isDeleteAbleEntity(Author author)
+    protected boolean isDeletableEntity(Entity e)
     {
-        //TODO-implement
         return false;
     }
 }

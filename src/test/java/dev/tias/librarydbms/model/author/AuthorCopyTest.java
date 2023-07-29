@@ -46,7 +46,7 @@ public class AuthorCopyTest
             assertFalse(copiedAuthor.isDeleted());
             assertEquals(originalAuthor.getAuthorID(), copiedAuthor.getAuthorID(),
                     "Copied author's ID should match the original author's ID");
-            assertEquals(originalAuthor.getAuthorFirstname(), copiedAuthor.getAuthorFirstname(),
+            assertEquals(originalAuthor.getAuthorFirstName(), copiedAuthor.getAuthorFirstName(),
                     "Copied author's first name should match the original author's first name");
             assertEquals(originalAuthor.getAuthorLastName(), copiedAuthor.getAuthorLastName(),
                     "Copied author's last name should match the original author's last name");

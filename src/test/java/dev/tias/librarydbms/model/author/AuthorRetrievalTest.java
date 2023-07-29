@@ -44,7 +44,7 @@ public class AuthorRetrievalTest
             Author author = new Author(id, firstName, lastName, biography, deleted);
             assertFalse(author.isDeleted());
             assertEquals(id, author.getAuthorID(), "Author's ID should match the provided ID");
-            assertEquals(firstName, author.getAuthorFirstname(), "Author's first name should match the provided name");
+            assertEquals(firstName, author.getAuthorFirstName(), "Author's first name should match the provided name");
             assertEquals(lastName, author.getAuthorLastName(), "Author's last name should match the provided name");
             assertEquals(biography, author.getBiography(), "Author's biography should match the provided biography");
         }

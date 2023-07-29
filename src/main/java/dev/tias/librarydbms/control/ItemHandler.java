@@ -315,7 +315,7 @@ public class ItemHandler
         saveLiterature(newLiterature);
 
         //Set author and classification names
-        newLiterature.setAuthorFirstname(author.getAuthorFirstname());
+        newLiterature.setAuthorFirstname(author.getAuthorFirstName());
         newLiterature.setAuthorLastname(author.getAuthorLastName());
         newLiterature.setClassificationName(classification.getClassificationName());
 
@@ -373,7 +373,7 @@ public class ItemHandler
         saveFilm(newFilm);
 
         //Set author and classification names
-        newFilm.setAuthorFirstname(author.getAuthorFirstname());
+        newFilm.setAuthorFirstname(author.getAuthorFirstName());
         newFilm.setAuthorLastname(author.getAuthorLastName());
         newFilm.setClassificationName(classification.getClassificationName());
 

@@ -58,7 +58,7 @@ public class AuthorDeleteGUI extends GUI
     protected void setupPanels()
     {
         JPanel passwordPanel = new JPanel();
-        JLabel passwordLabel = new JLabel("Delete author: " + authortoDelete.getAuthorFirstname() + "?");
+        JLabel passwordLabel = new JLabel("Delete author: " + authortoDelete.getAuthorFirstName() + "?");
         passwordField = new JPasswordField();
         passwordField.setColumns(10);
         passwordPanel.add(passwordLabel);

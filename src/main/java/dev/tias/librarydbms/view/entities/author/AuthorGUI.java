@@ -59,7 +59,7 @@ public class AuthorGUI extends GUI
 
         Object[][] data = {
                 {"Author ID", author.getAuthorID()},
-                {"Author Name", author.getAuthorFirstname()},
+                {"Author Name", author.getAuthorFirstName()},
 
         };
         JTable authorUpdateTable = setupTable(columnNames, data);

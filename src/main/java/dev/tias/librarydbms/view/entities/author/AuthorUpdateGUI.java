@@ -123,7 +123,7 @@ public class AuthorUpdateGUI extends GUI
         String[] columnNames = {"Property", "Old Value", "New Value"};
         Object[][] data = {
                 {"Author ID", oldAuthor.getAuthorID(), ""},
-                {"Author Name", oldAuthor.getAuthorFirstname(), ""},
+                {"Author Name", oldAuthor.getAuthorFirstName(), ""},
         };
         authorUpdateTable = setupTableWithEditableCells(columnNames, data, 2);
 

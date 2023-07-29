@@ -87,7 +87,7 @@ public class GetAuthorByIDTest extends BaseHandlerTest
 
         assertNotNull(author);
         assertEquals(1, author.getAuthorID());
-        assertEquals("author1", author.getAuthorFirstname());
+        assertEquals("author1", author.getAuthorFirstName());
         assertEquals("lastname1", author.getAuthorLastName());
         assertEquals("is the first author", author.getBiography());
         assertFalse(author.isDeleted());

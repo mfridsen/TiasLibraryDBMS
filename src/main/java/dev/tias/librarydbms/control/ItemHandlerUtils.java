@@ -223,7 +223,7 @@ public class ItemHandlerUtils
                     resultSet.getString("barcode"),
                     resultSet.getInt("authorID"),
                     resultSet.getInt("classificationID"),
-                    AuthorHandler.getAuthorByID(resultSet.getInt("authorID"), false).getAuthorFirstname(),
+                    AuthorHandler.getAuthorByID(resultSet.getInt("authorID"), false).getAuthorFirstName(),
                     AuthorHandler.getAuthorByID(resultSet.getInt("authorID"), false).getAuthorLastName(),
                     ClassificationHandler.getClassificationByID(
                             resultSet.getInt("classificationID")).getClassificationName(),
@@ -261,7 +261,7 @@ public class ItemHandlerUtils
                     resultSet.getString("barcode"),
                     resultSet.getInt("authorID"),
                     resultSet.getInt("classificationID"),
-                    AuthorHandler.getAuthorByID(resultSet.getInt("authorID"), false).getAuthorFirstname(),
+                    AuthorHandler.getAuthorByID(resultSet.getInt("authorID"), false).getAuthorFirstName(),
                     AuthorHandler.getAuthorByID(resultSet.getInt("authorID"), false).getAuthorLastName(),
                     ClassificationHandler.getClassificationByID(
                             resultSet.getInt("classificationID")).getClassificationName(),

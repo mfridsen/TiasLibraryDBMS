@@ -95,8 +95,8 @@ public class AuthorSettersTest
         {
             String firstname = "John";
             Author author = new Author(firstname, "Doe");
-            author.setAuthorFirstname(firstname);
-            assertEquals(firstname, author.getAuthorFirstname(), "Author's first name should match the set name");
+            author.setAuthorFirstName(firstname);
+            assertEquals(firstname, author.getAuthorFirstName(), "Author's first name should match the set name");
         }
         catch (InvalidNameException | ConstructionException e)
         {
@@ -122,7 +122,7 @@ public class AuthorSettersTest
             String firstname = "a".repeat(Author.AUTHOR_FIRST_NAME_LENGTH + 1);
             Author author = new Author("John", "Doe");
 
-            assertThrows(InvalidNameException.class, () -> author.setAuthorFirstname(firstname),
+            assertThrows(InvalidNameException.class, () -> author.setAuthorFirstName(firstname),
                     "Expected InvalidNameException for name exceeding character limit");
         }
         catch (ConstructionException e)

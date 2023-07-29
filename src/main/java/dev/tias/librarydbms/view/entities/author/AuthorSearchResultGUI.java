@@ -63,7 +63,7 @@ public class AuthorSearchResultGUI extends GUI
             {
                 Author Author = searchResultList.get(i);
                 data[i][0] = Author.getAuthorID();
-                data[i][1] = Author.getAuthorFirstname();
+                data[i][1] = Author.getAuthorFirstName();
                 data[i][2] = Author.getAuthorLastName();
                 data[i][3] = "View";  // Text for the button
             }
