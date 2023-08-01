@@ -99,7 +99,6 @@ public class UserHandler //TODO-future rewrite Get-methods according to ItemHand
             String query = "SELECT username FROM users ORDER BY userID ASC";
             try (QueryResult result = DataAccessManager.executePreparedQuery(query, null))
             {
-
                 //Add the retrieved usernames to the ArrayList
                 while (result.getResultSet().next())
                 {

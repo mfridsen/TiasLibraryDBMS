@@ -777,7 +777,7 @@ public class ItemHandler
         }
         catch (SQLException e)
         {
-            ExceptionManager.HandleFatalException(e, "Failed to retrieve Items due to " +
+            ExceptionManager.HandleFatalException(e, "Failed to retrieve Items from table due to " +
                     e.getClass().getName() + ": " + e.getMessage());
         }
         return items;

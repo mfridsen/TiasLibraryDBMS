@@ -93,14 +93,14 @@ public class Author extends Entity
     /**
      * Constructor for retrieving an existing Author.
      *
+     * @param deleted         Indicates whether the author is deleted.
      * @param authorID        The unique identifier of the author.
      * @param authorFirstName The first name of the author.
      * @param authorLastName  The last name of the author.
      * @param biography       The biography of the author.
-     * @param deleted         Indicates whether the author is deleted.
      * @throws ConstructionException if the authorID is invalid or if the author's names are null, empty, or too long.
      */
-    public Author(int authorID, String authorFirstName, String authorLastName, String biography, boolean deleted)
+    public Author(boolean deleted, int authorID, String authorFirstName, String authorLastName, String biography)
     throws ConstructionException
     {
         super(deleted);

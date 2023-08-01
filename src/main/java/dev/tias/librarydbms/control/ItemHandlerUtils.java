@@ -234,7 +234,8 @@ public class ItemHandlerUtils
         }
         catch (ConstructionException | SQLException | InvalidIDException e)
         {
-            ExceptionManager.HandleFatalException(e, "Failed to retrieve Literature by ID due to " +
+            ExceptionManager.HandleFatalException(e, "constructRetrievedLiterature: Failed to construct retrieved " +
+                    "Literature due to " +
                     e.getClass().getName() + ": " + e.getMessage());
         }
 

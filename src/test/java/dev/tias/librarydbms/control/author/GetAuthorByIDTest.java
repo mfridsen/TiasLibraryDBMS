@@ -47,7 +47,9 @@ public class GetAuthorByIDTest extends BaseHandlerTest
     {
         try
         {
-            Author existingAuthor = AuthorHandler.createNewAuthor(validAuthorFirstName1, validAuthorLastName1);
+            AuthorHandler authorHandler = new AuthorHandler();
+
+            Author existingAuthor = authorHandler.createNewAuthor(validAuthorFirstName1, validAuthorLastName1);
             existingAuthorID = existingAuthor.getAuthorID();
 
             Author nonExistingAuthor = new Author(validAuthorFirstName2, validAuthorLastName2);
@@ -56,7 +58,7 @@ public class GetAuthorByIDTest extends BaseHandlerTest
             nonExistingAuthor.setAuthorID(9999);
             nonExistingAuthorID = nonExistingAuthor.getAuthorID();
 
-            Author deletedAuthor = AuthorHandler.createNewAuthor(validAuthorFirstName3, validAuthorLastName3);
+            Author deletedAuthor = authorHandler.createNewAuthor(validAuthorFirstName3, validAuthorLastName3);
             deletedAuthorID = deletedAuthor.getAuthorID();
 
             //Soft delete deletedUser

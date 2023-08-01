@@ -12,10 +12,11 @@ import org.junit.platform.suite.api.Suite;
  */
 @Suite
 @SelectClasses({
+        AuthorHandlerConstructorTest.class,
         CreateNewAuthorTest.class,
         GetAuthorByIDTest.class,
         UpdateAuthorTest.class,
-        DeleteAndUndoDeleteAuthorTest.class,
+        DeleteAndRecoverAuthorTest.class,
         HardDeleteAuthorTest.class
 })
 public class AuthorHandlerTestSuite

@@ -56,6 +56,8 @@ public abstract class EntityHandler<T extends Entity>
         return s.length() > l;
     }
 
+
+
     protected abstract boolean isUpdateAbleEntity(T e);
 
     protected abstract boolean isDeletableEntity(T e);

@@ -22,7 +22,67 @@ import java.util.List;
  */
 public class AuthorHandler extends EntityHandler
 {
-    public static void printAuthorList(List<Author> authorList)
+    private List<Author> authors;
+
+    public AuthorHandler()
+    {
+        authors = retrieveAuthorsFromTable();
+    }
+
+    private List<Author> retrieveAuthorsFromTable()
+    {
+        List<Author> retrievedAuthors = new ArrayList<>();
+
+        try
+        {
+            //Query table to retrieve firstnames
+            String query = "SELECT * FROM authors ORDER BY authorID ASC";
+
+            //Execute query and retrieve QueryResult
+            try (QueryResult queryResult = DataAccessManager.executePreparedQuery(query, null))
+            {
+                //Retrieve the ResultSet from the QueryResult
+                ResultSet resultSet = queryResult.getResultSet();
+
+                //Loop through the results
+                while (resultSet.next())
+                {
+                    retrievedAuthors.add(constructRetrievedAuthorFromResultSet(resultSet));
+                }
+            }
+        }
+        catch (SQLException e)
+        {
+            ExceptionManager.HandleFatalException(e, "retrieveAuthorsFromTable: Failed to retrieve authors from table" +
+                    " due to " + e.getClass().getName() + ": " + e.getMessage());
+        }
+
+        return retrievedAuthors;
+    }
+
+    private static Author constructRetrievedAuthorFromResultSet(ResultSet resultSet)
+    {
+        Author retrievedAuthor;
+
+        try
+        {
+            retrievedAuthor = new Author(
+                    resultSet.getBoolean("deleted"),
+                    resultSet.getInt("authorID"),
+                    resultSet.getString("authorFirstName"),
+                    resultSet.getString("authorLastName"),
+                    resultSet.getString("biography")
+            );
+        }
+        catch (SQLException | ConstructionException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        return retrievedAuthor;
+    }
+
+    public void printAuthorList(List<Author> authorList)
     {
         System.out.println("Authors:");
         int count = 1;
@@ -35,10 +95,12 @@ public class AuthorHandler extends EntityHandler
 
     //CREATE -----------------------------------------------------------------------------------------------------------
 
-    public static Author createNewAuthor(String authorFirstname, String authorLastName)
+    public Author createNewAuthor(String authorFirstname, String authorLastName)
     throws InvalidNameException
     {
         Author newAuthor = null;
+
+
 
         try
         {
@@ -107,15 +169,9 @@ public class AuthorHandler extends EntityHandler
         {
             ResultSet resultSet = queryResult.getResultSet();
             if (resultSet.next())
-                author = new Author(
-                        resultSet.getInt("authorID"),
-                        resultSet.getString("authorFirstname"),
-                        resultSet.getString("authorLastname"),
-                        resultSet.getString("biography"),
-                        resultSet.getBoolean("deleted")
-                );
+                author = constructRetrievedAuthorFromResultSet(resultSet);
         }
-        catch (SQLException | ConstructionException e)
+        catch (SQLException e)
         {
             ExceptionManager.HandleFatalException(e, "Failed to retrieve author by ID from database due to " +
                     e.getClass().getName() + ": " + e.getMessage());
@@ -270,19 +326,13 @@ public class AuthorHandler extends EntityHandler
                 // and set the author's authorID
                 while (resultSet.next())
                 {
-                    Author author = new Author(
-                            resultSet.getInt("authorID"),
-                            resultSet.getString("authorFirstname"),
-                            resultSet.getString("authorLastname"),
-                            resultSet.getString("biography"),
-                            resultSet.getBoolean("deleted")
-                    );
+                    Author author = constructRetrievedAuthorFromResultSet(resultSet);
                     authors.add(author);
                 }
             }
             return authors;
         }
-        catch (SQLException | ConstructionException e)
+        catch (SQLException e)
         {
             throw new RuntimeException(e);//TODO-prio change
         }
