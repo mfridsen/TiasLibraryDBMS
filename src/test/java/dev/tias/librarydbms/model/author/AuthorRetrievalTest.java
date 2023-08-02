@@ -41,7 +41,7 @@ public class AuthorRetrievalTest
 
         try
         {
-            Author author = new Author(id, firstName, lastName, biography, deleted);
+            Author author = new Author(deleted, id, firstName, lastName, biography);
             assertFalse(author.isDeleted());
             assertEquals(id, author.getAuthorID(), "Author's ID should match the provided ID");
             assertEquals(firstName, author.getAuthorFirstName(), "Author's first name should match the provided name");
@@ -73,7 +73,7 @@ public class AuthorRetrievalTest
         String biography = "Author biography";
         boolean deleted = false;
 
-        assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
+        assertThrows(ConstructionException.class, () -> new Author(deleted, id, firstName, lastName, biography),
                 "Expected ConstructionException for invalid ID");
 
         System.out.print(" Test Finished.");
@@ -96,7 +96,7 @@ public class AuthorRetrievalTest
         String biography = "Author biography";
         boolean deleted = false;
 
-        assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
+        assertThrows(ConstructionException.class, () -> new Author(deleted, id, firstName, lastName, biography),
                 "Expected ConstructionException for empty first name");
 
         System.out.print(" Test Finished.");
@@ -119,7 +119,7 @@ public class AuthorRetrievalTest
         String biography = "Author biography";
         boolean deleted = false;
 
-        assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
+        assertThrows(ConstructionException.class, () -> new Author(deleted, id, firstName, lastName, biography),
                 "Expected ConstructionException for null first name");
 
         System.out.print(" Test Finished.");
@@ -142,7 +142,7 @@ public class AuthorRetrievalTest
         String biography = "Author biography";
         boolean deleted = false;
 
-        assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
+        assertThrows(ConstructionException.class, () -> new Author(deleted, id, firstName, lastName, biography),
                 "Expected ConstructionException for long first name");
 
         System.out.print(" Test Finished.");
@@ -165,7 +165,7 @@ public class AuthorRetrievalTest
         String biography = "Author biography";
         boolean deleted = false;
 
-        assertThrows(ConstructionException.class, () -> new Author(id, firstName, lastName, biography, deleted),
+        assertThrows(ConstructionException.class, () -> new Author(deleted, id, firstName, lastName, biography),
                 "Expected ConstructionException for long last name");
 
         System.out.print(" Test Finished.");

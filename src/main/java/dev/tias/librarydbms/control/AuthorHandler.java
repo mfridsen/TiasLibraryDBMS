@@ -20,10 +20,18 @@ import java.util.List;
  * @contact matfir-1@student.ltu.se
  * @date 5/25/2023
  */
-public class AuthorHandler extends EntityHandler
+public class AuthorHandler extends EntityHandler<Author>
 {
-    private List<Author> authors;
+    /**
+     * Author objects are neither particularly memory-intensive nor relatively numerous. However, since we want to be
+     * able to search for authors using either of their names, or both, it will help simplify search logic if we
+     * simply store a list of all Author objects rather than two lists/maps/sorcery of first and last names.
+     */
+    private final List<Author> authors;
 
+    /**
+     *
+     */
     public AuthorHandler()
     {
         authors = retrieveAuthorsFromTable();
@@ -44,10 +52,11 @@ public class AuthorHandler extends EntityHandler
                 //Retrieve the ResultSet from the QueryResult
                 ResultSet resultSet = queryResult.getResultSet();
 
-                //Loop through the results
+                //Loop through the results and add found authors to the list
                 while (resultSet.next())
                 {
-                    retrievedAuthors.add(constructRetrievedAuthorFromResultSet(resultSet));
+                    Author author = constructRetrievedAuthorFromResultSet(resultSet);
+                    retrievedAuthors.add(author);
                 }
             }
         }
@@ -60,9 +69,9 @@ public class AuthorHandler extends EntityHandler
         return retrievedAuthors;
     }
 
-    private static Author constructRetrievedAuthorFromResultSet(ResultSet resultSet)
+    public static Author constructRetrievedAuthorFromResultSet(ResultSet resultSet)
     {
-        Author retrievedAuthor;
+        Author retrievedAuthor = null;
 
         try
         {
@@ -76,7 +85,8 @@ public class AuthorHandler extends EntityHandler
         }
         catch (SQLException | ConstructionException e)
         {
-            throw new RuntimeException(e);
+            ExceptionManager.HandleFatalException(e, "constructRetrievedAuthorFromResultSet: Failed to construct " +
+                    "author from resultset due to " + e.getClass().getName() + ": " + e.getMessage());
         }
 
         return retrievedAuthor;
@@ -382,13 +392,13 @@ public class AuthorHandler extends EntityHandler
     }
 
     @Override
-    protected boolean isUpdateAbleEntity(Entity e)
+    protected boolean isUpdateAbleEntity(Author e)
     {
         return false;
     }
 
     @Override
-    protected boolean isDeletableEntity(Entity e)
+    protected boolean isDeletableEntity(Author e)
     {
         return false;
     }

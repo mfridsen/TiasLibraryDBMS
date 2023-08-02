@@ -40,7 +40,7 @@ public class AuthorCopyTest
 
         try
         {
-            Author originalAuthor = new Author(id, firstName, lastName, biography, deleted);
+            Author originalAuthor = new Author(deleted, id, firstName, lastName, biography);
             Author copiedAuthor = new Author(originalAuthor);
 
             assertFalse(copiedAuthor.isDeleted());
