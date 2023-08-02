@@ -5,6 +5,8 @@ import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidIDException;
 import dev.tias.librarydbms.service.exceptions.custom.InvalidNameException;
 
+import java.util.Objects;
+
 /**
  * @author Mattias Fridsén
  * @project LibraryDBMS
@@ -130,6 +132,28 @@ public class Author extends Entity
         this.authorFirstName = other.authorFirstName;
         this.authorLastName = other.authorLastName;
         this.biography = other.biography;
+    }
+
+
+    @Override
+    protected boolean compareFields(Object obj)
+    {
+        //Typecast object
+        Author author = (Author) obj;
+
+        //Compare fields
+        if (this.deleted != author.deleted)
+            return false;
+        if (this.authorID != author.authorID)
+            return false;
+        if (!Objects.equals(this.authorFirstName, author.authorFirstName))
+            return false;
+        if (!Objects.equals(this.authorLastName, author.authorLastName))
+            return false;
+        if (!Objects.equals(this.biography, author.biography))
+            return false;
+
+        return true;
     }
 
     /**

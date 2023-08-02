@@ -139,4 +139,10 @@ public class Literature extends Item
                     "Received: " + ISBN.length());
         this.ISBN = ISBN;
     }
+
+    @Override
+    protected boolean compareFields(Object obj)
+    {
+        return false;
+    }
 }

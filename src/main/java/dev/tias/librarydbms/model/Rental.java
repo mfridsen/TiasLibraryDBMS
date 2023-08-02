@@ -494,4 +494,10 @@ public class Rental extends Entity
     {
         this.overdue = overdue;
     }
+
+    @Override
+    protected boolean compareFields(Object obj)
+    {
+        return false;
+    }
 }

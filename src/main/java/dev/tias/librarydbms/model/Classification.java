@@ -179,4 +179,10 @@ public class Classification extends Entity
     {
         this.description = description;
     }
+
+    @Override
+    protected boolean compareFields(Object obj)
+    {
+        return false;
+    }
 }

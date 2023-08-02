@@ -550,6 +550,12 @@ public class User extends Entity
         this.allowedToRent = allowedToRent;
     }
 
+    @Override
+    protected boolean compareFields(Object obj)
+    {
+        return false;
+    }
+
     /**
      * Represents the different types of users in the system.
      * <p>

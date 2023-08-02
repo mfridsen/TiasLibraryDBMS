@@ -48,6 +48,28 @@ public abstract class Entity
         this.deleted = other.deleted;
     }
 
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        //Check if the object is an instance of the current class.
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        //Check if the object is compared with a reference to itself.
+        if (this == obj) {
+            return true;
+        }
+
+        //Compare individual fields.
+        return compareFields(obj);
+    }
+
+    protected abstract boolean compareFields(Object obj);
+
+    //TODO-future override hashCode
+
     /**
      * Getter method for the deleted state of the entity.
      *

@@ -191,4 +191,10 @@ public class Film extends Item
     {
         this.listOfActors = listOfActors;
     }
+
+    @Override
+    protected boolean compareFields(Object obj)
+    {
+        return false;
+    }
 }
