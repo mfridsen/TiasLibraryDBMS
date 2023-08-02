@@ -35,9 +35,10 @@ public abstract class BaseHandlerTest
     {
         System.out.println("\nSetting up test environment...");
 
-        setupConnection();
-        setupTables();
-        customTestDataSetup();
+        setupConnection(); //All Handler tests will need to have a connection established to the MySQL server
+        setupDatabase(); //All Handler tests will need a test database to operate on
+        setupTables(); //Override to customize
+        setupTestData();
 
         System.out.println("\nTest environment setup finished.");
     }
@@ -57,15 +58,19 @@ public abstract class BaseHandlerTest
         DataAccessManager.setVerbose(true); //For testing we want DBHandler to be Verboten
     }
 
-    protected void setupTables()
+    protected void setupDatabase()
     {
         DataAccessManager.executePreparedUpdate("drop database if exists " + testDatabaseName, null);
         DataAccessManager.executePreparedUpdate("create database " + testDatabaseName, null);
         DataAccessManager.executePreparedUpdate("use " + testDatabaseName, null);
+    }
+
+    protected void setupTables()
+    {
         DataAccessManager.executeSQLCommandsFromFile("src/main/resources/sql/create_tables.sql");
     }
 
-    protected abstract void customTestDataSetup();
+    protected abstract void setupTestData();
 
     /**
      * Always delete the test database and close the connection to the server after use.

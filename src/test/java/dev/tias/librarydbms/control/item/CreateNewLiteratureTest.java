@@ -45,7 +45,7 @@ public class CreateNewLiteratureTest extends BaseItemHandlerTest
     //Empty ISBN
     //Too long ISBN
 
-    protected void customTestDataSetup()
+    protected void setupTestData()
     {
         setupTestData_ForItemTests_full();
     }

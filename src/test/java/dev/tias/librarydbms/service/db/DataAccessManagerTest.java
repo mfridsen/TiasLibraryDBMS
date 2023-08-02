@@ -35,7 +35,7 @@ public class DataAccessManagerTest extends BaseHandlerTest
     //TODO-future javadoc tests properly
 
     @Override
-    protected void customTestDataSetup()
+    protected void setupTestData()
     {
 
     }

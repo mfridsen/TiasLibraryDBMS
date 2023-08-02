@@ -1,7 +1,8 @@
 package dev.tias.librarydbms.control;
 
 import dev.tias.librarydbms.model.Entity;
-import dev.tias.librarydbms.service.exceptions.custom.NullEntityException;
+
+import java.sql.ResultSet;
 
 /**
  * @author Mattias Fridsén
@@ -56,7 +57,7 @@ public abstract class EntityHandler<T extends Entity>
         return s.length() > l;
     }
 
-
+    protected abstract T retrieveEntityFromResultSet(ResultSet resultSet);
 
     protected abstract boolean isUpdateAbleEntity(T e);
 

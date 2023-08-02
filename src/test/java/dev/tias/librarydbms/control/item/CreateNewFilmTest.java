@@ -40,7 +40,7 @@ public class CreateNewFilmTest extends BaseItemHandlerTest
     //Too high age rating
 
     @Override
-    protected void customTestDataSetup()
+    protected void setupTestData()
     {
         setupTestData_ForItemTests_AuthorClassification();
     }

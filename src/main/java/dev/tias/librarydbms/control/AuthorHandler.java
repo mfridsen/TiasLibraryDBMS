@@ -24,7 +24,7 @@ public class AuthorHandler extends EntityHandler<Author>
 {
     /**
      * Author objects are neither particularly memory-intensive nor relatively numerous. However, since we want to be
-     * able to search for authors using either of their names, or both, it will help simplify search logic if we
+     * able to search for authors using either of their names or both, it will help simplify search logic if we
      * simply store a list of all Author objects rather than two lists/maps/sorcery of first and last names.
      */
     private final List<Author> authors;
@@ -392,14 +392,25 @@ public class AuthorHandler extends EntityHandler<Author>
     }
 
     @Override
-    protected boolean isUpdateAbleEntity(Author e)
+    protected Author retrieveEntityFromResultSet(ResultSet resultSet)
+    {
+        return null;
+    }
+
+    @Override
+    protected boolean isUpdateAbleEntity(Author author)
     {
         return false;
     }
 
     @Override
-    protected boolean isDeletableEntity(Author e)
+    protected boolean isDeletableEntity(Author author)
     {
         return false;
+    }
+
+    public List<Author> getAuthors()
+    {
+        return authors;
     }
 }

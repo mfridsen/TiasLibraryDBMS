@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GetClassificationByIDTest extends BaseHandlerTest
 {
     @Override
-    protected void customTestDataSetup()
+    protected void setupTestData()
     {
 
     }

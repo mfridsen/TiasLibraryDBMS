@@ -1,17 +1,22 @@
 package dev.tias.librarydbms.control.author;
 
-import static dev.tias.librarydbms.control.AuthorHandler.constructRetrievedAuthorFromResultSet;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import dev.tias.librarydbms.control.BaseHandlerTest;
 import dev.tias.librarydbms.model.Author;
+import dev.tias.librarydbms.service.exceptions.ExceptionManager;
 import dev.tias.librarydbms.service.exceptions.custom.ConstructionException;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static dev.tias.librarydbms.control.AuthorHandler.constructRetrievedAuthorFromResultSet;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * @author Mattias Fridsén
@@ -22,26 +27,18 @@ import java.sql.SQLException;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AuthorHandlerConstructorTest extends BaseHandlerTest
 {
-    /**
-     *
-     */
+    @Override
+    protected void setupTestData()
+    {
+
+    }
+
     @Test
     @Order(1)
-    void testAuthorHandlerConstructor()
+    public void testConstructRetrievedAuthorFromResultSet()
     {
-        System.out.println("\n1: Testing AuthorHandlerConstructor...");
-        assertTrue(true); // This test will always pass
-        System.out.println("\nTEST FINISHED.");
-    }
+        System.out.println("\n1: Testing constructRetrievedAuthorFromResultSet...");
 
-    @Override
-    protected void customTestDataSetup()
-    {
-
-    }
-
-    @Test
-    public void testConstructRetrievedAuthorFromResultSet() {
         try
         {
             ResultSet mockResultSet = mock(ResultSet.class);
@@ -59,8 +56,51 @@ public class AuthorHandlerConstructorTest extends BaseHandlerTest
         }
         catch (SQLException | ConstructionException e)
         {
-            throw new RuntimeException(e);
+            ExceptionManager.HandleTestException(e);
         }
+
+        System.out.println("\nTEST FINISHED.");
     }
 
+
+
+
+
+
+
+    /**
+     *
+     */
+    @Test
+    @Order(0)
+    void testAuthorHandlerConstructor_EmptyTable()
+    {
+        System.out.println("\n1: Testing AuthorHandlerConstructor with an empty table...");
+        assertTrue(true); // This test will always pass
+        System.out.println("\nTEST FINISHED.");
+    }
+
+    /**
+     *
+     */
+    @Test
+    @Order(0)
+    void testAuthorHandlerConstructor_SingleAuthorInTable()
+    {
+        System.out.println("\n1: Testing AuthorHandlerConstructor with a single author in the table...");
+        assertTrue(true); // This test will always pass
+        System.out.println("\nTEST FINISHED.");
+    }
+
+    /**
+     *
+     */
+    @Test
+    @Order(0)
+    void testAuthorHandlerConstructor_MultipleAuthorsInTable()
+    {
+        System.out.println("\n1: Testing AuthorHandlerConstructor with multiple authors in the table...");
+        assertTrue(true); // This test will always pass
+        System.out.println("\nTEST FINISHED.");
+    }
 }

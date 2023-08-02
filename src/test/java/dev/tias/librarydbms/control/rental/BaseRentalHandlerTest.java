@@ -47,7 +47,7 @@ public abstract class BaseRentalHandlerTest extends BaseHandlerTest
         }
     }
 
-    protected void customTestDataSetup()
+    protected void setupTestData()
     {
         System.out.println("\nFilling tables with test data...");
 

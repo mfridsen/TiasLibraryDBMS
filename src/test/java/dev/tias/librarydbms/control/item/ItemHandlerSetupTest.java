@@ -26,7 +26,7 @@ public class ItemHandlerSetupTest extends BaseItemHandlerTest
     //TODO-PRIO test against test_data file
 
     @Override
-    protected void customTestDataSetup()
+    protected void setupTestData()
     {
     }
 
